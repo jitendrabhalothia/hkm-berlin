@@ -712,28 +712,34 @@ p:last-child {
 .hero-scroll {
   position: absolute;
   bottom: 28px;
-  left: 50%;
-  transform: translateX(-50%);
+  right: 36px;
+  left: auto;
+  transform: none;
   z-index: 2;
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 8px;
-  color: rgba(255,255,255,0.6);
-  font-size: 0.75rem;
-  letter-spacing: 0.1em;
+  gap: 6px;
+  color: rgba(255,255,255,0.5);
+  font-size: 0.7rem;
+  letter-spacing: 0.12em;
   text-transform: uppercase;
   animation: bounce 2.5s infinite;
 }
 
+/* Hide the "Scroll" text — keep only the arrow icon */
+.hero-scroll span {
+  display: none;
+}
+
 .hero-scroll svg {
-  width: 20px;
-  height: 20px;
+  width: 22px;
+  height: 22px;
 }
 
 @keyframes bounce {
-  0%, 100% { transform: translateX(-50%) translateY(0); }
-  50%       { transform: translateX(-50%) translateY(6px); }
+  0%, 100% { transform: translateY(0); }
+  50%       { transform: translateY(6px); }
 }
 
 /* Page hero (non-home) */
