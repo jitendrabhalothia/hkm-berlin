@@ -1833,7 +1833,352 @@ p:last-child {
 }
 
 /* ============================================================
-   24. PRINT
+   24. WELCOME INTRO OVERLAY
+   ============================================================ */
+
+/* Full-screen overlay shown on first page load */
+.welcome-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 9000;
+  background: linear-gradient(160deg, #1a0a04 0%, #2C1A0E 50%, #0e0a03 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 24px;
+  overflow: hidden;
+  transition: opacity 0.8s ease, visibility 0.8s ease;
+}
+
+/* Decorative animated OM symbol background */
+.welcome-overlay::before {
+  content: 'ॐ';
+  position: absolute;
+  font-size: 50vw;
+  color: rgba(255,255,255,0.025);
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-family: serif;
+  pointer-events: none;
+  animation: omRotate 40s linear infinite;
+}
+
+@keyframes omRotate {
+  from { transform: translate(-50%, -50%) rotate(0deg); }
+  to   { transform: translate(-50%, -50%) rotate(360deg); }
+}
+
+/* Golden radial glow behind the portrait */
+.welcome-overlay::after {
+  content: '';
+  position: absolute;
+  width: 400px;
+  height: 400px;
+  background: radial-gradient(circle, rgba(201,162,39,0.15) 0%, transparent 70%);
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -60%);
+  pointer-events: none;
+}
+
+/* Fade-out class added by JS when closing */
+.welcome-overlay.fade-out {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+
+.welcome-content {
+  position: relative;
+  z-index: 1;
+  max-width: 520px;
+}
+
+/* Srila Prabhupada portrait — circular */
+.welcome-prabhupada {
+  width: 160px;
+  height: 160px;
+  object-fit: cover;
+  object-position: top center;
+  border-radius: 50%;
+  border: 3px solid var(--gold);
+  box-shadow:
+    0 0 0 6px rgba(201,162,39,0.15),
+    0 0 40px rgba(201,162,39,0.3),
+    0 8px 32px rgba(0,0,0,0.5);
+  margin: 0 auto 20px;
+  display: block;
+  animation: welcomePortrait 1.2s ease both;
+}
+
+@keyframes welcomePortrait {
+  from { transform: scale(0.8) translateY(20px); opacity: 0; }
+  to   { transform: scale(1) translateY(0);      opacity: 1; }
+}
+
+.welcome-prabhupada-name {
+  font-size: 0.72rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 16px;
+  animation: welcomeFade 1.4s ease both 0.2s;
+}
+
+.welcome-content h2 {
+  color: #fff;
+  font-size: clamp(1.8rem, 5vw, 2.8rem);
+  margin-bottom: 10px;
+  animation: welcomeFade 1.4s ease both 0.4s;
+}
+
+.welcome-tagline {
+  color: rgba(255,255,255,0.7);
+  font-size: 1rem;
+  margin-bottom: 28px;
+  animation: welcomeFade 1.4s ease both 0.5s;
+}
+
+/* Animated mantra text in the overlay */
+.welcome-mantra-lines {
+  margin: 0 auto 32px;
+  animation: welcomeFade 1.4s ease both 0.6s;
+}
+
+.welcome-mantra-line {
+  font-family: var(--font-mantra);
+  font-size: clamp(1rem, 3vw, 1.3rem);
+  color: var(--gold-light);
+  line-height: 2;
+  transition: color 0.5s ease, text-shadow 0.5s ease;
+}
+
+.welcome-mantra-line.active {
+  color: #fff;
+  text-shadow: 0 0 20px rgba(240,208,96,0.8);
+  font-size: clamp(1.1rem, 3.2vw, 1.45rem);
+}
+
+/* Buttons */
+.welcome-buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  align-items: center;
+  animation: welcomeFade 1.4s ease both 0.8s;
+}
+
+.welcome-enter-btn {
+  background: linear-gradient(135deg, var(--saffron), var(--saffron-dark));
+  color: #fff;
+  border: none;
+  padding: 16px 40px;
+  font-size: 1rem;
+  font-weight: 700;
+  font-family: var(--font-body);
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  box-shadow: 0 4px 24px rgba(232,121,10,0.5);
+  transition: var(--transition);
+  letter-spacing: 0.04em;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.welcome-enter-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 32px rgba(232,121,10,0.6);
+}
+
+.welcome-skip-btn {
+  background: none;
+  border: none;
+  color: rgba(255,255,255,0.45);
+  font-size: 0.85rem;
+  cursor: pointer;
+  font-family: var(--font-body);
+  transition: var(--transition);
+  text-decoration: underline;
+  padding: 4px;
+}
+
+.welcome-skip-btn:hover {
+  color: rgba(255,255,255,0.75);
+}
+
+@keyframes welcomeFade {
+  from { opacity: 0; transform: translateY(16px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* ============================================================
+   25. FLOATING AUDIO PLAYER (chanting bar)
+   ============================================================ */
+
+.chanting-player {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 8000;
+  background: linear-gradient(135deg, rgba(44,26,14,0.97), rgba(60,30,10,0.97));
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-top: 2px solid rgba(201,162,39,0.4);
+  padding: 12px 24px;
+  display: none; /* shown by JS after overlay closes */
+  transform: translateY(100%);
+  transition: transform 0.5s ease;
+  box-shadow: 0 -4px 32px rgba(0,0,0,0.5);
+}
+
+.chanting-player.visible {
+  display: flex;
+  transform: translateY(0);
+}
+
+.chanting-player-inner {
+  max-width: 1180px;
+  margin: 0 auto;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+/* Circular portrait thumbnail */
+.chanting-avatar {
+  width: 46px;
+  height: 46px;
+  border-radius: 50%;
+  object-fit: cover;
+  object-position: top;
+  border: 2px solid var(--gold);
+  flex-shrink: 0;
+  box-shadow: 0 0 12px rgba(201,162,39,0.4);
+}
+
+.chanting-info {
+  flex: 1;
+  min-width: 0;
+}
+
+.chanting-title {
+  font-size: 0.82rem;
+  font-weight: 700;
+  color: var(--gold-light);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  margin-bottom: 4px;
+}
+
+/* Scrolling subtitle — animated mantra lines */
+.chanting-subtitle {
+  font-family: var(--font-mantra);
+  font-size: 1rem;
+  color: rgba(255,255,255,0.9);
+  font-style: italic;
+  white-space: nowrap;
+  overflow: hidden;
+  animation: subtitleFade 0.5s ease;
+}
+
+@keyframes subtitleFade {
+  from { opacity: 0; transform: translateY(8px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* Audio controls */
+.chanting-controls {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-shrink: 0;
+}
+
+.chanting-btn {
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  border: 1.5px solid rgba(255,255,255,0.25);
+  background: none;
+  color: rgba(255,255,255,0.85);
+  font-size: 1rem;
+  cursor: pointer;
+  transition: var(--transition);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-body);
+}
+
+.chanting-btn:hover {
+  background: var(--saffron);
+  border-color: var(--saffron);
+  color: #fff;
+}
+
+/* Play button — slightly larger */
+.chanting-btn-play {
+  width: 44px;
+  height: 44px;
+  font-size: 1.2rem;
+  background: linear-gradient(135deg, var(--saffron), var(--saffron-dark));
+  border-color: transparent;
+  color: #fff;
+  box-shadow: 0 0 16px rgba(232,121,10,0.4);
+}
+
+.chanting-btn-play:hover {
+  box-shadow: 0 0 24px rgba(232,121,10,0.6);
+  transform: scale(1.05);
+}
+
+/* Progress bar */
+.chanting-progress-wrap {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  min-width: 0;
+}
+
+.chanting-progress {
+  flex: 1;
+  height: 3px;
+  background: rgba(255,255,255,0.15);
+  border-radius: 3px;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+.chanting-progress-bar {
+  height: 100%;
+  background: linear-gradient(90deg, var(--saffron), var(--gold));
+  width: 0%;
+  transition: width 1s linear;
+  border-radius: 3px;
+}
+
+.chanting-time {
+  font-size: 0.75rem;
+  color: rgba(255,255,255,0.4);
+  white-space: nowrap;
+  min-width: 36px;
+}
+
+/* Responsive — hide progress on small screens */
+@media (max-width: 600px) {
+  .chanting-progress-wrap { display: none; }
+  .chanting-player { padding: 10px 16px; }
+  .chanting-subtitle { font-size: 0.9rem; }
+}
+
+/* ============================================================
+   26. PRINT
    ============================================================ */
 @media print {
   .navbar, .hero-scroll, .nav-toggle { display: none; }

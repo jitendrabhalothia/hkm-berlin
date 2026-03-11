@@ -228,28 +228,35 @@
           <div class="schedule-card delay-1">
             <div class="schedule-header">
               <h3>Saturday Program</h3>
-              <p class="schedule-day">Every Saturday</p>
+              <p class="schedule-day">Every Saturday — Free Entry</p>
             </div>
             <div class="schedule-body">
               <div class="schedule-item">
                 <span class="schedule-time">4:00 PM</span>
                 <div class="schedule-detail">
-                  <h4>Kirtan</h4>
+                  <h4>🎵 Kirtan</h4>
                   <p>Congregational chanting of the Hare Krishna mantra</p>
                 </div>
               </div>
               <div class="schedule-item">
                 <span class="schedule-time">4:30 PM</span>
                 <div class="schedule-detail">
-                  <h4>Bhagavad-Gita Class</h4>
+                  <h4>📖 Bhagavad-Gita Class</h4>
                   <p>Discussion guided by Srila Prabhupada's commentary</p>
                 </div>
               </div>
               <div class="schedule-item">
                 <span class="schedule-time">5:30 PM</span>
                 <div class="schedule-detail">
-                  <h4>Free Prasadam</h4>
-                  <p>Vegetarian feast — all welcome to stay and share</p>
+                  <h4>💬 Q &amp; A &amp; Fellowship</h4>
+                  <p>Open discussion — all questions welcome</p>
+                </div>
+              </div>
+              <div class="schedule-item" style="background:linear-gradient(135deg,rgba(232,121,10,0.07),rgba(201,162,39,0.07));">
+                <span class="schedule-time" style="color:var(--gold);">6:00 PM</span>
+                <div class="schedule-detail">
+                  <h4 style="color:var(--saffron-dark);">🍛 Free Prasadam</h4>
+                  <p>Home-cooked vegetarian feast offered to Krishna — everyone welcome!</p>
                 </div>
               </div>
             </div>
@@ -466,9 +473,9 @@
           <address>
             <!-- REPLACE with your actual address -->
             Hare Krishna Movement Berlin<br />
-            Musterstraße 1<br />
-            10115 Berlin, Germany<br /><br />
-            <a href="mailto:berlin@harekrishna.de">berlin@harekrishna.de</a>
+            Ritterlandweg 16<br />
+            Berlin, Germany<br /><br />
+            <a href="mailto:harekrishnaberlin@gmail.com">harekrishnaberlin@gmail.com</a>
           </address>
         </div>
 
@@ -492,6 +499,110 @@
     </div>
   </div>
 
+  <!-- =====================================================
+       WELCOME INTRO OVERLAY
+       Appears when the website first opens.
+       Shows Srila Prabhupada's portrait + mantra subtitles.
+       "Enter with chanting" starts audio playback.
+       ===================================================== -->
+  <div id="welcome-overlay" class="welcome-overlay" role="dialog" aria-modal="true" aria-label="Welcome to Hare Krishna Movement Berlin">
+    <div class="welcome-content">
+
+      <!-- Portrait -->
+      <img src="images/prabhupada-namaste.png" alt="Srila Prabhupada" class="welcome-prabhupada" />
+      <p class="welcome-prabhupada-name">His Divine Grace Srila Prabhupada</p>
+
+      <h2>Hare Krishna</h2>
+      <p class="welcome-tagline">Welcome to the Hare Krishna Movement Berlin</p>
+
+      <!-- Animated mantra lines — JS highlights one at a time -->
+      <div class="welcome-mantra-lines" aria-label="Hare Krishna Maha-Mantra">
+        <p class="welcome-mantra-line active" id="wml-0">Hare Krishna Hare Krishna</p>
+        <p class="welcome-mantra-line" id="wml-1">Krishna Krishna Hare Hare</p>
+        <p class="welcome-mantra-line" id="wml-2">Hare Rama Hare Rama</p>
+        <p class="welcome-mantra-line" id="wml-3">Rama Rama Hare Hare</p>
+      </div>
+
+      <div class="welcome-buttons">
+        <!-- Enter WITH chanting audio -->
+        <button id="welcome-enter" class="welcome-enter-btn">
+          🙏&nbsp; Enter &amp; Hear Srila Prabhupada
+        </button>
+        <!-- Enter without audio -->
+        <button id="welcome-skip" class="welcome-skip-btn">
+          Enter silently
+        </button>
+      </div>
+
+    </div>
+  </div>
+
+
+  <!-- =====================================================
+       FLOATING CHANTING PLAYER BAR
+       Appears at the bottom after welcome overlay closes.
+       Audio source: add your mp3 to images/prabhupada-chanting.mp3
+       OR replace the YouTube video ID below.
+       ===================================================== -->
+  <div id="chanting-player" class="chanting-player" role="region" aria-label="Srila Prabhupada chanting player">
+    <div class="chanting-player-inner">
+
+      <!-- Portrait thumbnail -->
+      <img src="images/prabhupada-namaste.png" alt="Srila Prabhupada" class="chanting-avatar" />
+
+      <!-- Title + animated subtitle -->
+      <div class="chanting-info">
+        <p class="chanting-title">Srila Prabhupada — Hare Krishna Kirtan</p>
+        <p class="chanting-subtitle" id="chanting-subtitle">Hare Krishna Hare Krishna</p>
+      </div>
+
+      <!-- Progress bar (shows for audio file; hidden for YouTube) -->
+      <div class="chanting-progress-wrap" id="chanting-progress-wrap" style="display:none;">
+        <div class="chanting-progress" id="chanting-progress" title="Seek">
+          <div class="chanting-progress-bar" id="chanting-progress-bar"></div>
+        </div>
+        <span class="chanting-time" id="chanting-time">0:00</span>
+      </div>
+
+      <!-- Controls -->
+      <div class="chanting-controls">
+        <button class="chanting-btn chanting-btn-play" id="chanting-play" aria-label="Play / Pause">▶</button>
+        <button class="chanting-btn" id="chanting-mute" aria-label="Mute / Unmute">🔊</button>
+        <button class="chanting-btn" id="chanting-close" aria-label="Close player" title="Close player">✕</button>
+      </div>
+    </div>
+
+    <!-- =====================================================
+         AUDIO SOURCE — choose ONE of the two options below:
+
+         OPTION A (recommended): Add an mp3 file to your images/ folder
+         and set the src below. This works 100% reliably.
+           src="images/prabhupada-chanting.mp3"
+
+         OPTION B: Use a YouTube video ID. Replace YOUTUBE_VIDEO_ID
+         with the actual YouTube video ID from the URL
+         e.g. https://www.youtube.com/watch?v=YOUTUBE_VIDEO_ID
+         ===================================================== -->
+    <audio id="chanting-audio"
+           src="images/prabhupada-chanting.mp3"
+           preload="auto"
+           loop>
+    </audio>
+
+    <!-- Hidden YouTube iframe — used as fallback if mp3 is missing
+         Replace YOUTUBE_VIDEO_ID with your actual ID -->
+    <iframe
+      id="yt-chanting"
+      src=""
+      data-src="https://www.youtube.com/embed/YOUTUBE_VIDEO_ID?autoplay=1&loop=1&playlist=YOUTUBE_VIDEO_ID&controls=0&enablejsapi=1"
+      allow="autoplay; encrypted-media"
+      style="display:none;width:0;height:0;border:none;">
+    </iframe>
+
+  </div>
+
+
   <script src="js/script.js"></script>
+  <script src="js/chanting.js"></script>
 </body>
 </html>
