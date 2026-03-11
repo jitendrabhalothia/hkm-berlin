@@ -2779,3 +2779,60 @@ p:last-child {
   .kirtan-toggle i { font-size: 1.1rem; margin: 0; }
   .kirtan-panel { width: calc(100vw - 32px); }
 }
+
+/* ============================================================
+   MOBILE OVERRIDES — extra fixes for small screens
+   ============================================================ */
+
+/* Temples grid: force single column on small phones */
+@media (max-width: 520px) {
+  .temples-grid {
+    grid-template-columns: 1fr !important;
+    gap: 1rem;
+  }
+  .temple-featured {
+    grid-template-columns: 1fr !important;
+  }
+  .temple-featured .temple-feat-img {
+    min-height: 120px;
+    padding: 1.2rem;
+  }
+  .temple-featured .temple-feat-img i { font-size: 2.8rem; }
+  .temple-featured .temple-feat-body { padding: 1.2rem; }
+  .temple-featured h3 { font-size: 1.2rem; }
+}
+
+/* Prog-bar steps: prevent horizontal overflow on small phones */
+@media (max-width: 480px) {
+  .prog-bar-inner {
+    flex-direction: column;
+    gap: .8rem;
+    padding: 1rem;
+  }
+  .prog-bar-steps {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: .5rem;
+    width: 100%;
+  }
+  .prog-bar-step {
+    min-width: unset !important;
+    flex: unset !important;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: .25rem;
+    padding: .5rem .4rem;
+  }
+  .prog-bar-label { text-align: center; }
+  .prog-bar-cta { width: 100%; }
+  .prog-bar-cta .btn { width: 100%; justify-content: center; }
+}
+
+/* Chant slider arrows: smaller on very small phones */
+@media (max-width: 360px) {
+  .ch-arrow { width: 30px; height: 30px; }
+  .ch-prev { left: 6px; }
+  .ch-next { right: 6px; }
+  .ch-slide-content { padding: 1rem .9rem; }
+}
