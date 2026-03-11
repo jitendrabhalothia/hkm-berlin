@@ -72,6 +72,16 @@
       'slide4.btn':      'Get Directions',
       'slide5.label':    'Words of Wisdom',
 
+      /* PRABHUPADA QUOTE SLIDES 6–10 — EN */
+      'slide6.q':   'Chant Hare Krishna and be happy. This is our whole philosophy.',
+      'slide7.q':   'If you chant Hare Krishna, you will gradually understand everything — what you are, what God is, what this world is. Everything will be revealed.',
+      'slide8.q':   'Don\'t think that because you are sometimes falling down, you should stop chanting. The chanting will save you. Never give up the holy name.',
+      'slide9.q':   'We are not these bodies. We are eternal, spiritual beings. The body is just a coat. When you understand this, your whole life will be transformed.',
+      'slide10.q':  'The human form of life is meant for inquiring about the Absolute Truth. Of all the yogic paths, bhakti-yoga — chanting the holy name — is the highest.',
+      'slide6.btn': 'Start Chanting',
+      'slide9.btn': 'Learn More',
+      'slide10.btn':'Join Us Saturday',
+
       /* 4 PILLARS */
       'pillars.h2':      'What We Practice',
       'pillars.sub':     'Four pillars of Bhakti Yoga at our Berlin community — all are welcome, free of charge',
@@ -195,6 +205,16 @@
       'slide4.desc':     'Geheiligte vegetarische Speisen, die Krishna angeboten werden — nährend für Körper, Geist und Seele.',
       'slide4.btn':      'Wegbeschreibung',
       'slide5.label':    'Worte der Weisheit',
+
+      /* PRABHUPADA QUOTE SLIDES 6–10 — DE */
+      'slide6.q':   'Chante Hare Krishna und sei glücklich. Das ist unsere ganze Philosophie.',
+      'slide7.q':   'Wenn du Hare Krishna chantst, wirst du nach und nach alles verstehen — wer du bist, was Gott ist, was diese Welt ist. Alles wird sich offenbaren.',
+      'slide8.q':   'Denk nicht, dass du aufhören solltest zu chanten, weil du manchmal fällst. Das Chanten wird dich retten. Gib niemals den heiligen Namen auf.',
+      'slide9.q':   'Wir sind nicht diese Körper. Wir sind ewige, spirituelle Wesen. Der Körper ist nur ein Mantel. Wenn du das verstehst, wird dein gesamtes Leben verwandelt.',
+      'slide10.q':  'Die menschliche Lebensform ist dazu bestimmt, nach der Absoluten Wahrheit zu fragen. Von allen Yoga-Pfaden ist der Bhakti-Yoga — das Chanten des heiligen Namens — der höchste.',
+      'slide6.btn': 'Mit dem Chanten beginnen',
+      'slide9.btn': 'Mehr erfahren',
+      'slide10.btn':'Komm zu uns am Samstag',
 
       /* 4 PILLARS */
       'pillars.h2':      'Was wir praktizieren',

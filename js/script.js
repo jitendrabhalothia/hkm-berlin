@@ -378,6 +378,8 @@ document.querySelectorAll('a[href^="#"]').forEach(function (anchor) {
   const SRC = 'https://www.youtube.com/embed/ubbT9Jm4DOs?autoplay=1&start=61&rel=0&modestbranding=1&enablejsapi=0';
   let playing = false;
 
+  var heroBadge = document.getElementById('kirtan-hero-trigger');
+
   function play() {
     playing = true;
     iframe.src = SRC;
@@ -385,6 +387,13 @@ document.querySelectorAll('a[href^="#"]').forEach(function (anchor) {
     btn.querySelector('.play-icon').style.display  = 'none';
     btn.querySelector('.pause-icon').style.display = '';
     btn.setAttribute('aria-label', 'Pause Kirtan');
+    if (heroBadge) {
+      heroBadge.classList.add('is-playing');
+      var icon = heroBadge.querySelector('.khb-play-icon i');
+      if (icon) { icon.className = 'fas fa-pause'; }
+      var sub = heroBadge.querySelector('.khb-sub');
+      if (sub) sub.textContent = '🎵 Now playing…';
+    }
   }
 
   function pause() {
@@ -394,10 +403,24 @@ document.querySelectorAll('a[href^="#"]').forEach(function (anchor) {
     btn.querySelector('.play-icon').style.display  = '';
     btn.querySelector('.pause-icon').style.display = 'none';
     btn.setAttribute('aria-label', 'Play Kirtan');
+    if (heroBadge) {
+      heroBadge.classList.remove('is-playing');
+      var icon = heroBadge.querySelector('.khb-play-icon i');
+      if (icon) { icon.className = 'fas fa-play'; }
+      var sub = heroBadge.querySelector('.khb-sub');
+      if (sub) sub.textContent = '🎵 Don\'t miss it!';
+    }
   }
 
   btn.addEventListener('click', function () {
     playing ? pause() : play();
   });
+
+  /* Hero badge also controls the same audio */
+  if (heroBadge) {
+    heroBadge.addEventListener('click', function () {
+      playing ? pause() : play();
+    });
+  }
 
 })();
