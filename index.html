@@ -21,14 +21,14 @@
         <img src="images/logo.png" alt="Hare Krishna Movement Berlin logo" />
       </a>
       <ul class="nav-links" role="list">
-        <li><a href="index.html" class="active">Home</a></li>
-        <li><a href="prabhupada.html">Srila Prabhupada</a></li>
-        <li><a href="bhakti-yoga.html">Bhakti Yoga</a></li>
-        <li><a href="programs.html">Programs</a></li>
-        <li><a href="gita-study.html">Bhagavad Gita</a></li>
-        <li><a href="gallery.html">Gallery</a></li>
-        <li><a href="about-hkm.html">About HKM</a></li>
-        <li><a href="contact.html">Contact</a></li>
+        <li><a href="index.html" class="active" data-i18n="nav.home">Home</a></li>
+        <li><a href="prabhupada.html" data-i18n="nav.prabhupada">Srila Prabhupada</a></li>
+        <li><a href="bhakti-yoga.html" data-i18n="nav.bhakti">Bhakti Yoga</a></li>
+        <li><a href="programs.html" data-i18n="nav.programs">Programs</a></li>
+        <li><a href="gita-study.html" data-i18n="nav.gita">Bhagavad Gita</a></li>
+        <li><a href="gallery.html" data-i18n="nav.gallery">Gallery</a></li>
+        <li><a href="about-hkm.html" data-i18n="nav.about">About HKM</a></li>
+        <li><a href="contact.html" data-i18n="nav.contact">Contact</a></li>
       </ul>
       <button class="nav-toggle" aria-label="Open menu" aria-expanded="false">
         <span></span><span></span><span></span>
@@ -36,41 +36,41 @@
     </div>
   </nav>
   <div class="nav-mobile" role="navigation" aria-label="Mobile navigation">
-    <a href="index.html" class="active">Home</a>
-    <a href="prabhupada.html">Srila Prabhupada</a>
-    <a href="bhakti-yoga.html">Bhakti Yoga</a>
-    <a href="programs.html">Programs</a>
-    <a href="gita-study.html">Bhagavad Gita</a>
-    <a href="gallery.html">Gallery</a>
-    <a href="about-hkm.html">About HKM</a>
-    <a href="contact.html">Contact</a>
+    <a href="index.html" class="active" data-i18n="nav.home">Home</a>
+    <a href="prabhupada.html" data-i18n="nav.prabhupada">Srila Prabhupada</a>
+    <a href="bhakti-yoga.html" data-i18n="nav.bhakti">Bhakti Yoga</a>
+    <a href="programs.html" data-i18n="nav.programs">Programs</a>
+    <a href="gita-study.html" data-i18n="nav.gita">Bhagavad Gita</a>
+    <a href="gallery.html" data-i18n="nav.gallery">Gallery</a>
+    <a href="about-hkm.html" data-i18n="nav.about">About HKM</a>
+    <a href="contact.html" data-i18n="nav.contact">Contact</a>
   </div>
 
   <main>
 
     <!-- ── HERO ── -->
     <section class="hero" aria-label="Welcome">
-      <div class="hero-bg" style="background-image: url('images/prabhupada-rathayatra.png');"></div>
+      <div class="hero-bg" style="background-image: url('images/prabhupada-rathayatra.png'); background-position: right center;"></div>
       <div class="hero-overlay"></div>
       <div class="hero-content">
-        <p class="hero-tagline">Bhakti Yoga &bull; Mantra Meditation &bull; Bhagavad-Gita Wisdom</p>
+        <p class="hero-tagline" data-i18n="hero.tagline">Bhakti Yoga &bull; Mantra Meditation &bull; Bhagavad-Gita Wisdom</p>
         <h1>Hare Krishna Movement Berlin</h1>
-        <p class="hero-sub">
+        <p class="hero-sub" data-i18n-html="hero.sub">
           Dedicated to the teachings of<br />
           <strong>His Divine Grace A.C. Bhaktivedanta Swami Srila Prabhupada</strong>
         </p>
-        <p class="hero-sub" style="font-size:1rem;margin-top:.5rem;opacity:.9;">
+        <p class="hero-sub" style="font-size:1rem;margin-top:.5rem;opacity:.9;" data-i18n-html="hero.schedule">
           <i class="fas fa-calendar-alt" style="margin-right:.3rem;color:var(--gold-light);"></i>
-          Every <strong>Saturday from 4 PM</strong> &mdash; Kirtan · Bhagavad-Gita · Free Prasadam<br />
+          Every <strong>Saturday from 4 PM</strong> &mdash; Kirtan &middot; Bhagavad-Gita &middot; Free Prasadam<br />
           <i class="fas fa-map-marker-alt" style="margin-right:.3rem;color:var(--gold-light);"></i>
           Ritterlandweg 16, Berlin &mdash; <strong>All are welcome, free of charge</strong>
         </p>
         <div class="hero-buttons">
           <a href="programs.html" class="btn btn-primary">
-            <i class="fas fa-calendar-alt"></i> Join This Saturday
+            <i class="fas fa-calendar-alt"></i> <span data-i18n="hero.btn1">Join This Saturday</span>
           </a>
           <a href="contact.html" class="btn btn-outline" style="border-color:#fff;color:#fff;">
-            <i class="fas fa-map-marker-alt"></i> Get Directions
+            <i class="fas fa-map-marker-alt"></i> <span data-i18n="hero.btn2">Get Directions</span>
           </a>
         </div>
         <div class="hero-social">
@@ -89,44 +89,70 @@
     <section class="prog-bar" aria-label="Saturday Program Schedule">
       <div class="prog-bar-inner">
         <div class="prog-bar-label">
-          <p>Every Saturday</p>
-          <p>Berlin Program</p>
+          <p data-i18n="prog.every">Every Saturday</p>
+          <p data-i18n="prog.berlin">Berlin Program</p>
         </div>
         <div class="prog-bar-steps">
           <div class="prog-bar-step">
             <span class="prog-bar-step-icon">🎵</span>
             <div>
-              <p class="prog-bar-step-name">Kirtan</p>
-              <p class="prog-bar-step-time">4:00 PM</p>
+              <p class="prog-bar-step-name" data-i18n="prog.kirtan">Kirtan</p>
+              <p class="prog-bar-step-time" data-i18n="prog.kirtan.time">4:00 PM</p>
             </div>
           </div>
           <div class="prog-bar-step">
             <span class="prog-bar-step-icon">📖</span>
             <div>
-              <p class="prog-bar-step-name">Bhagavad-Gita</p>
-              <p class="prog-bar-step-time">4:30 PM</p>
+              <p class="prog-bar-step-name" data-i18n="prog.gita">Bhagavad-Gita</p>
+              <p class="prog-bar-step-time" data-i18n="prog.gita.time">4:30 PM</p>
             </div>
           </div>
           <div class="prog-bar-step">
             <span class="prog-bar-step-icon">💬</span>
             <div>
-              <p class="prog-bar-step-name">Q &amp; A</p>
-              <p class="prog-bar-step-time">5:30 PM</p>
+              <p class="prog-bar-step-name" data-i18n="prog.qa">Q &amp; A</p>
+              <p class="prog-bar-step-time" data-i18n="prog.qa.time">5:30 PM</p>
             </div>
           </div>
           <div class="prog-bar-step highlight">
             <span class="prog-bar-step-icon">🍛</span>
             <div>
-              <p class="prog-bar-step-name">Free Prasadam</p>
-              <p class="prog-bar-step-time">6:00 PM</p>
+              <p class="prog-bar-step-name" data-i18n="prog.prasadam">Free Prasadam</p>
+              <p class="prog-bar-step-time" data-i18n="prog.prasadam.time">6:00 PM</p>
             </div>
           </div>
         </div>
         <div class="prog-bar-cta">
           <a href="programs.html" class="btn btn-primary">
-            <i class="fas fa-map-marker-alt"></i> Ritterlandweg 16
+            <i class="fas fa-map-marker-alt"></i> <span data-i18n="prog.btn">Ritterlandweg 16</span>
           </a>
         </div>
+      </div>
+    </section>
+
+
+    <!-- ── MAHA MANTRA ── -->
+    <section class="mantra-section" id="mantra" aria-label="The Hare Krishna Maha-Mantra">
+      <!-- Floating particles -->
+      <div class="mantra-particles" aria-hidden="true">
+        <span></span><span></span><span></span><span></span>
+        <span></span><span></span><span></span><span></span>
+      </div>
+      <div class="container" style="position:relative;z-index:1;">
+        <p class="mantra-label" data-i18n="mantra.label">The Hare Krishna Maha-Mantra</p>
+        <div class="mantra-text">
+          <span>Hare Krishna Hare Krishna</span>
+          <span>Krishna Krishna Hare Hare</span>
+          <span>Hare Rama Hare Rama</span>
+          <span>Rama Rama Hare Hare</span>
+        </div>
+        <div class="mantra-divider" aria-hidden="true">
+          <span class="mantra-divider-lotus">❀</span>
+        </div>
+        <blockquote class="mantra-translation">
+          <span class="mantra-quote-text" data-i18n="mantra.sub">"Chant Hare Krishna and be happy."</span>
+          <cite class="mantra-quote-cite">— Srila Prabhupada</cite>
+        </blockquote>
       </div>
     </section>
 
@@ -150,51 +176,51 @@
         <div class="ch-slide active" data-slide="0">
           <div class="ch-slide-bg ch-bg-1"></div>
           <div class="ch-slide-content">
-            <p class="ch-label">The Hare Krishna Maha-Mantra</p>
+            <p class="ch-label" data-i18n="slide1.label">The Hare Krishna Maha-Mantra</p>
             <h2 class="ch-mantra-text">
               Hare Krishna Hare Krishna<br />
               Krishna Krishna Hare Hare<br />
               Hare Rama Hare Rama<br />
               Rama Rama Hare Hare
             </h2>
-            <p class="ch-desc">Chant these 16 names and experience peace, joy, and spiritual awakening.</p>
+            <p class="ch-desc" data-i18n="slide1.desc">Chant these 16 names and experience peace, joy, and spiritual awakening.</p>
           </div>
         </div>
 
         <div class="ch-slide" data-slide="1">
           <div class="ch-slide-bg ch-bg-2"></div>
           <div class="ch-slide-content">
-            <p class="ch-label">Srila Prabhupada's Message</p>
-            <h2 class="ch-headline">Chant Hare Krishna<br /><em>and Be Happy</em></h2>
-            <p class="ch-desc">The simplest yoga for this age — available to everyone, anywhere, at any time.</p>
-            <a href="bhakti-yoga.html" class="ch-btn"><i class="fas fa-heart"></i> Discover Bhakti Yoga</a>
+            <p class="ch-label" data-i18n="slide2.label">Srila Prabhupada's Message</p>
+            <h2 class="ch-headline" data-i18n-html="slide2.h2">Chant Hare Krishna<br /><em>and Be Happy</em></h2>
+            <p class="ch-desc" data-i18n="slide2.desc">The simplest yoga for this age — available to everyone, anywhere, at any time.</p>
+            <a href="bhakti-yoga.html" class="ch-btn"><i class="fas fa-heart"></i> <span data-i18n="slide2.btn">Discover Bhakti Yoga</span></a>
           </div>
         </div>
 
         <div class="ch-slide" data-slide="2">
           <div class="ch-slide-bg ch-bg-3"></div>
           <div class="ch-slide-content">
-            <p class="ch-label">Every Saturday in Berlin</p>
-            <h2 class="ch-headline">Join Our Kirtan</h2>
-            <p class="ch-desc">Live chanting every Saturday at 4:00 PM — no experience required. All welcome.</p>
-            <a href="programs.html" class="ch-btn"><i class="fas fa-calendar-alt"></i> See Programs</a>
+            <p class="ch-label" data-i18n="slide3.label">Every Saturday in Berlin</p>
+            <h2 class="ch-headline" data-i18n="slide3.h2">Join Our Kirtan</h2>
+            <p class="ch-desc" data-i18n="slide3.desc">Live chanting every Saturday at 4:00 PM — no experience required. All welcome.</p>
+            <a href="programs.html" class="ch-btn"><i class="fas fa-calendar-alt"></i> <span data-i18n="slide3.btn">See Programs</span></a>
           </div>
         </div>
 
         <div class="ch-slide" data-slide="3">
           <div class="ch-slide-bg ch-bg-4"></div>
           <div class="ch-slide-content">
-            <p class="ch-label">Free Every Saturday at 6 PM</p>
-            <h2 class="ch-headline">Free Prasadam<br /><em>Ritterlandweg 16</em></h2>
-            <p class="ch-desc">Sanctified vegetarian food offered to Krishna — nourishing body, mind and soul.</p>
-            <a href="contact.html" class="ch-btn"><i class="fas fa-map-marker-alt"></i> Get Directions</a>
+            <p class="ch-label" data-i18n="slide4.label">Free Every Saturday at 6 PM</p>
+            <h2 class="ch-headline" data-i18n-html="slide4.h2">Free Prasadam<br /><em>Ritterlandweg 16</em></h2>
+            <p class="ch-desc" data-i18n="slide4.desc">Sanctified vegetarian food offered to Krishna — nourishing body, mind and soul.</p>
+            <a href="contact.html" class="ch-btn"><i class="fas fa-map-marker-alt"></i> <span data-i18n="slide4.btn">Get Directions</span></a>
           </div>
         </div>
 
         <div class="ch-slide" data-slide="4">
           <div class="ch-slide-bg ch-bg-5"></div>
           <div class="ch-slide-content">
-            <p class="ch-label">Words of Wisdom</p>
+            <p class="ch-label" data-i18n="slide5.label">Words of Wisdom</p>
             <h2 class="ch-quote">"The recommended means of self-realisation in this age is the chanting of the holy name of the Lord."</h2>
             <cite class="ch-cite">— Srimad-Bhagavatam 12.3.52</cite>
           </div>
@@ -218,58 +244,58 @@
     <section class="section section-alt" id="highlights">
       <div class="container">
         <div class="section-header">
-          <h2>What We Practice</h2>
-          <p>Four pillars of Bhakti Yoga at our Berlin community — all are welcome, free of charge</p>
+          <h2 data-i18n="pillars.h2">What We Practice</h2>
+          <p data-i18n="pillars.sub">Four pillars of Bhakti Yoga at our Berlin community — all are welcome, free of charge</p>
         </div>
         <div class="grid-4 fade-up">
           <div class="feature-card">
             <div class="feature-icon"><i class="fas fa-music"></i></div>
-            <h3>Kirtan</h3>
-            <p>Congregational chanting of the Hare Krishna mantra every Saturday at 4 PM.</p>
+            <h3 data-i18n="pillar1.h3">Kirtan</h3>
+            <p data-i18n="pillar1.p">Congregational chanting of the Hare Krishna mantra every Saturday at 4 PM.</p>
           </div>
           <div class="feature-card">
             <div class="feature-icon"><i class="fas fa-book-open"></i></div>
-            <h3>Bhagavad-Gita</h3>
-            <p>Weekly study of the Gita As It Is — Srila Prabhupada's exact commentary.</p>
+            <h3 data-i18n="pillar2.h3">Bhagavad-Gita</h3>
+            <p data-i18n="pillar2.p">Weekly study of the Gita As It Is — Srila Prabhupada's exact commentary.</p>
           </div>
           <div class="feature-card">
             <div class="feature-icon"><i class="fas fa-spa"></i></div>
-            <h3>Meditation</h3>
-            <p>Mantra meditation on japa beads — peaceful practice for body and mind.</p>
+            <h3 data-i18n="pillar3.h3">Meditation</h3>
+            <p data-i18n="pillar3.p">Mantra meditation on japa beads — peaceful practice for body and mind.</p>
           </div>
           <div class="feature-card">
             <div class="feature-icon"><i class="fas fa-leaf"></i></div>
-            <h3>Free Prasadam</h3>
-            <p>Sanctified vegetarian food shared every Saturday at 6 PM. Everyone welcome.</p>
+            <h3 data-i18n="pillar4.h3">Free Prasadam</h3>
+            <p data-i18n="pillar4.p">Sanctified vegetarian food shared every Saturday at 6 PM. Everyone welcome.</p>
           </div>
         </div>
       </div>
     </section>
 
 
-    <!-- ── WHO WE ARE ── -->
+    <!-- ── SRILA PRABHUPADA ── -->
     <section class="section" id="about">
       <div class="container">
         <div class="split-section fade-up">
           <div class="split-img">
-            <img src="images/prabhupada-meditation.png" alt="Srila Prabhupada in meditation" />
+            <img src="images/temple-berlin.png" alt="Hare Krishna Movement Berlin — Ritterlandweg 16" />
           </div>
           <div>
-            <p class="section-label" style="font-size:.8rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--saffron);margin-bottom:12px;">Our Spiritual Master</p>
-            <h2>Dedicated to Srila Prabhupada</h2>
+            <p class="section-label" style="font-size:.8rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--saffron);margin-bottom:12px;" data-i18n="sp.label">Our Spiritual Master</p>
+            <h2 data-i18n="sp.h2">Dedicated to Srila Prabhupada</h2>
             <div class="lotus-divider" aria-hidden="true">❀</div>
-            <p>
+            <p data-i18n-html="sp.p1">
               The Hare Krishna Movement Berlin follows <strong>His Divine Grace A.C. Bhaktivedanta
               Swami Srila Prabhupada</strong> as our eternal Diksha Guru and Founder-Acharya. Everything
               we teach and practice is directly based on his books, lectures, and instructions.
             </p>
-            <p>
+            <p data-i18n="sp.p2">
               Come as you are — no membership, no fees, no prior knowledge needed.
               Just an open heart and a willingness to chant.
             </p>
             <div style="display:flex;gap:12px;flex-wrap:wrap;margin-top:20px;">
-              <a href="prabhupada.html" class="btn btn-primary">About Srila Prabhupada</a>
-              <a href="contact.html" class="btn btn-outline"><i class="fas fa-map-marker-alt"></i> Find Us</a>
+              <a href="prabhupada.html" class="btn btn-primary"><span data-i18n="sp.btn1">About Srila Prabhupada</span></a>
+              <a href="contact.html" class="btn btn-outline"><i class="fas fa-map-marker-alt"></i> <span data-i18n="sp.btn2">Find Us</span></a>
             </div>
           </div>
         </div>
@@ -280,14 +306,14 @@
     <!-- ── CTA ── -->
     <section class="cta-banner" aria-label="Call to action">
       <div class="container">
-        <h2>You Are Invited This Saturday</h2>
-        <p>
+        <h2 data-i18n="cta.h2">You Are Invited This Saturday</h2>
+        <p data-i18n-html="cta.p">
           Come as you are — no membership, no fees, no experience needed.<br />
           Just an open heart. <strong>Ritterlandweg 16, Berlin · Every Saturday from 4 PM</strong>
         </p>
         <div style="display:flex;gap:14px;flex-wrap:wrap;justify-content:center;margin-top:1.2rem;">
-          <a href="programs.html" class="btn btn-white"><i class="fas fa-calendar-check"></i> See the Schedule</a>
-          <a href="contact.html" class="btn btn-outline-white"><i class="fas fa-map-marker-alt"></i> Get Directions</a>
+          <a href="programs.html" class="btn btn-white"><i class="fas fa-calendar-check"></i> <span data-i18n="cta.btn1">See the Schedule</span></a>
+          <a href="contact.html" class="btn btn-outline-white"><i class="fas fa-map-marker-alt"></i> <span data-i18n="cta.btn2">Get Directions</span></a>
         </div>
       </div>
     </section>
@@ -301,37 +327,37 @@
       <div class="footer-grid">
         <div class="footer-brand">
           <a href="index.html" class="footer-logo"><img src="images/logo.png" alt="Hare Krishna Movement Berlin" /></a>
-          <p>Dedicated to spreading the teachings of Srila Prabhupada and Bhakti Yoga in Berlin.</p>
+          <p data-i18n="footer.tagline">Dedicated to spreading the teachings of Srila Prabhupada and Bhakti Yoga in Berlin.</p>
           <div class="footer-social">
             <a href="https://www.instagram.com/harekrishnaberlin" target="_blank" rel="noopener" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
             <a href="https://www.youtube.com/@ISKCONBangaloreMusic" target="_blank" rel="noopener" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
           </div>
         </div>
         <div class="footer-col">
-          <h4>Pages</h4>
+          <h4 data-i18n="footer.pages">Pages</h4>
           <ul>
-            <li><a href="index.html">Home</a></li>
-            <li><a href="prabhupada.html">Srila Prabhupada</a></li>
-            <li><a href="bhakti-yoga.html">Bhakti Yoga</a></li>
-            <li><a href="programs.html">Programs</a></li>
-            <li><a href="gita-study.html">Bhagavad Gita</a></li>
-            <li><a href="gallery.html">Gallery</a></li>
-            <li><a href="about-hkm.html">About HKM</a></li>
-            <li><a href="contact.html">Contact</a></li>
+            <li><a href="index.html" data-i18n="nav.home">Home</a></li>
+            <li><a href="prabhupada.html" data-i18n="nav.prabhupada">Srila Prabhupada</a></li>
+            <li><a href="bhakti-yoga.html" data-i18n="nav.bhakti">Bhakti Yoga</a></li>
+            <li><a href="programs.html" data-i18n="nav.programs">Programs</a></li>
+            <li><a href="gita-study.html" data-i18n="nav.gita">Bhagavad Gita</a></li>
+            <li><a href="gallery.html" data-i18n="nav.gallery">Gallery</a></li>
+            <li><a href="about-hkm.html" data-i18n="nav.about">About HKM</a></li>
+            <li><a href="contact.html" data-i18n="nav.contact">Contact</a></li>
           </ul>
         </div>
         <div class="footer-col">
-          <h4>Programs</h4>
+          <h4 data-i18n="footer.programs">Programs</h4>
           <ul>
-            <li><a href="programs.html">Saturday Kirtan – 4 PM</a></li>
-            <li><a href="programs.html">Bhagavad-Gita – 4:30 PM</a></li>
-            <li><a href="programs.html">Free Prasadam – 6 PM</a></li>
-            <li><a href="programs.html">Ekadashi Chanting</a></li>
-            <li><a href="programs.html">Festivals</a></li>
+            <li><a href="programs.html" data-i18n="footer.sat1">Saturday Kirtan – 4 PM</a></li>
+            <li><a href="programs.html" data-i18n="footer.sat2">Bhagavad-Gita – 4:30 PM</a></li>
+            <li><a href="programs.html" data-i18n="footer.sat3">Free Prasadam – 6 PM</a></li>
+            <li><a href="programs.html" data-i18n="footer.ekadashi">Ekadashi Chanting</a></li>
+            <li><a href="programs.html" data-i18n="footer.festivals">Festivals</a></li>
           </ul>
         </div>
         <div class="footer-col">
-          <h4>Visit Us</h4>
+          <h4 data-i18n="footer.visit">Visit Us</h4>
           <address>
             Hare Krishna Movement Berlin<br />
             Ritterlandweg 16<br />
@@ -342,7 +368,7 @@
       </div>
     </div>
     <div class="footer-bottom">
-      <p>&copy; <span id="footer-year"></span> Hare Krishna Movement Berlin. All rights reserved.</p>
+      <p data-i18n="footer.copy">&copy; <span id="footer-year"></span> Hare Krishna Movement Berlin. All rights reserved.</p>
       <p class="footer-mantra">Hare Krishna Hare Krishna Krishna Krishna Hare Hare</p>
     </div>
   </footer>
@@ -355,6 +381,7 @@
     </div>
   </div>
 
+  <script src="js/i18n.js"></script>
   <script src="js/script.js"></script>
 </body>
 </html>

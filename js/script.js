@@ -229,7 +229,47 @@ document.querySelectorAll('a[href^="#"]').forEach(function (anchor) {
 
 
 /* ============================================================
-   10. CHANT AND BE HAPPY SLIDER — auto-advances every 5s
+   10. MAHA-MANTRA SECTION — trigger animations on scroll-in
+   ============================================================ */
+(function initMantraObserver() {
+  var section = document.querySelector('.mantra-section');
+  if (!section) return;
+
+  function activate() {
+    section.classList.add('is-visible');
+  }
+
+  if ('IntersectionObserver' in window) {
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting) {
+          activate();
+          /* Re-arm: remove + re-add class so animation plays again
+             each time the user scrolls back to this section */
+          io.unobserve(section);
+          /* Watch for it leaving, then re-observe so it replays */
+          var leaveIO = new IntersectionObserver(function (e2) {
+            e2.forEach(function (ev) {
+              if (!ev.isIntersecting) {
+                section.classList.remove('is-visible');
+                leaveIO.unobserve(section);
+                io.observe(section); // watch for next entry
+              }
+            });
+          }, { threshold: 0 });
+          leaveIO.observe(section);
+        }
+      });
+    }, { threshold: 0.25 });
+    io.observe(section);
+  } else {
+    activate(); // fallback
+  }
+})();
+
+
+/* ============================================================
+   11. CHANT AND BE HAPPY SLIDER — auto-advances every 5s
    ============================================================ */
 (function initChantSlider() {
   const slides  = document.querySelectorAll('.ch-slide');
@@ -309,86 +349,55 @@ document.querySelectorAll('a[href^="#"]').forEach(function (anchor) {
 
 
 /* ============================================================
-   11. FLOATING KIRTAN PLAYER — optional, user-triggered
-       Uses YouTube video Kt21pBgL2aw (Srila Prabhupada kirtan)
+   11. FLOATING KIRTAN AUDIO BUTTON — play / pause only
+       Hidden YouTube iframe for audio; no popup video panel
    ============================================================ */
 (function initKirtanPlayer() {
 
-  // Inject player HTML into body
-  const playerHTML = `
-    <div id="kirtan-player" class="kirtan-player" aria-label="Kirtan Player" role="complementary">
-      <button class="kirtan-toggle" id="kirtan-toggle" aria-label="Listen to Kirtan" title="Listen to Kirtan by Srila Prabhupada">
-        <i class="fas fa-music"></i>
-        <span>Listen to Kirtan</span>
-      </button>
-      <div class="kirtan-panel" id="kirtan-panel" aria-hidden="true">
-        <div class="kirtan-panel-header">
-          <div class="kirtan-panel-title">
-            <i class="fas fa-om"></i>
-            <span>Kirtan by Srila Prabhupada</span>
-          </div>
-          <button class="kirtan-close" id="kirtan-close" aria-label="Close player">&times;</button>
-        </div>
-        <div class="kirtan-panel-body">
-          <div class="kirtan-mantra">Hare Krishna Hare Krishna · Krishna Krishna Hare Hare</div>
-          <div id="kirtan-iframe-wrap">
-            <iframe
-              id="kirtan-iframe"
-              src=""
-              data-src="https://www.youtube.com/embed/ubbT9Jm4DOs?autoplay=1&start=61&rel=0&modestbranding=1"
-              title="Kirtan by Srila Prabhupada"
-              frameborder="0"
-              allow="autoplay; encrypted-media"
-              allowfullscreen
-            ></iframe>
-          </div>
-          <a href="https://www.youtube.com/@ISKCONBangaloreMusic" target="_blank" rel="noopener" class="kirtan-channel-link">
-            <i class="fab fa-youtube"></i> ISKCON Bangalore Music Channel
-          </a>
-        </div>
-      </div>
-    </div>
+  // Hidden iframe for audio only
+  const iframe = document.createElement('iframe');
+  iframe.id = 'kirtan-audio-iframe';
+  iframe.style.cssText = 'position:fixed;bottom:-9999px;left:-9999px;width:1px;height:1px;opacity:0;pointer-events:none;border:none;';
+  iframe.allow = 'autoplay; encrypted-media';
+  iframe.title = 'Kirtan audio';
+  document.body.appendChild(iframe);
+
+  // Floating play/pause button
+  const btn = document.createElement('button');
+  btn.id = 'kirtan-fab';
+  btn.className = 'kirtan-fab';
+  btn.setAttribute('aria-label', 'Play Kirtan');
+  btn.title = 'Kirtan — Srila Prabhupada';
+  btn.innerHTML = `
+    <span class="kirtan-fab-icon play-icon"><i class="fas fa-music"></i></span>
+    <span class="kirtan-fab-icon pause-icon" style="display:none;"><i class="fas fa-pause"></i></span>
+    <span class="kirtan-fab-label">Kirtan</span>
   `;
+  document.body.appendChild(btn);
 
-  const wrapper = document.createElement('div');
-  wrapper.innerHTML = playerHTML.trim();
-  document.body.appendChild(wrapper.firstElementChild);
+  const SRC = 'https://www.youtube.com/embed/ubbT9Jm4DOs?autoplay=1&start=61&rel=0&modestbranding=1&enablejsapi=0';
+  let playing = false;
 
-  const toggle   = document.getElementById('kirtan-toggle');
-  const panel    = document.getElementById('kirtan-panel');
-  const closeBtn = document.getElementById('kirtan-close');
-  const iframe   = document.getElementById('kirtan-iframe');
-  let   isOpen   = false;
-
-  function openPlayer() {
-    isOpen = true;
-    panel.removeAttribute('aria-hidden');
-    panel.classList.add('open');
-    toggle.classList.add('active');
-    // Lazy-load the iframe only when user opens the player
-    if (!iframe.src || iframe.src === window.location.href) {
-      iframe.src = iframe.dataset.src;
-    }
+  function play() {
+    playing = true;
+    iframe.src = SRC;
+    btn.classList.add('is-playing');
+    btn.querySelector('.play-icon').style.display  = 'none';
+    btn.querySelector('.pause-icon').style.display = '';
+    btn.setAttribute('aria-label', 'Pause Kirtan');
   }
 
-  function closePlayer() {
-    isOpen = false;
-    panel.setAttribute('aria-hidden', 'true');
-    panel.classList.remove('open');
-    toggle.classList.remove('active');
-    // Stop video by clearing src
+  function pause() {
+    playing = false;
     iframe.src = '';
+    btn.classList.remove('is-playing');
+    btn.querySelector('.play-icon').style.display  = '';
+    btn.querySelector('.pause-icon').style.display = 'none';
+    btn.setAttribute('aria-label', 'Play Kirtan');
   }
 
-  toggle.addEventListener('click', function () {
-    if (isOpen) { closePlayer(); } else { openPlayer(); }
-  });
-
-  closeBtn.addEventListener('click', closePlayer);
-
-  // Close on Escape key
-  document.addEventListener('keydown', function (e) {
-    if (e.key === 'Escape' && isOpen) closePlayer();
+  btn.addEventListener('click', function () {
+    playing ? pause() : play();
   });
 
 })();
