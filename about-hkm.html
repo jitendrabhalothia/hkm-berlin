@@ -1,0 +1,935 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="About the Hare Krishna Movement — history, global temples, and the teachings of our spiritual master Srila Prabhupada." />
+  <title>About Hare Krishna Movement | Hare Krishna Movement Berlin</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Lato:wght@300;400;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="icon" type="image/png" href="images/logo.png" />
+  <style>
+    /* ── Page-specific styles ── */
+    .guru-banner {
+      background: linear-gradient(135deg, var(--saffron) 0%, var(--gold) 100%);
+      color: #fff;
+      padding: 3rem 1.5rem;
+      text-align: center;
+    }
+    .guru-banner h2 {
+      font-size: 2rem;
+      color: #fff;
+      margin-bottom: .6rem;
+    }
+    .guru-banner p {
+      font-size: 1.1rem;
+      opacity: .92;
+      max-width: 700px;
+      margin: 0 auto;
+    }
+
+    /* Timeline */
+    .timeline { position: relative; padding: 2rem 0; }
+    .timeline::before {
+      content: '';
+      position: absolute;
+      left: 50%;
+      top: 0; bottom: 0;
+      width: 2px;
+      background: var(--saffron-light);
+      transform: translateX(-50%);
+    }
+    .tl-item {
+      display: flex;
+      gap: 2rem;
+      margin-bottom: 2.5rem;
+      position: relative;
+    }
+    .tl-item:nth-child(odd) { flex-direction: row; }
+    .tl-item:nth-child(even) { flex-direction: row-reverse; }
+    .tl-side {
+      flex: 1;
+      text-align: right;
+    }
+    .tl-item:nth-child(even) .tl-side { text-align: left; }
+    .tl-dot {
+      width: 16px; height: 16px;
+      background: var(--saffron);
+      border-radius: 50%;
+      flex-shrink: 0;
+      margin-top: 6px;
+      position: relative;
+      z-index: 1;
+      align-self: flex-start;
+    }
+    .tl-side h3 { font-size: 1.05rem; color: var(--saffron-dark); margin-bottom: .3rem; }
+    .tl-side .tl-year {
+      display: inline-block;
+      background: var(--saffron-light);
+      color: var(--saffron-dark);
+      padding: .15rem .7rem;
+      border-radius: 20px;
+      font-size: .85rem;
+      font-weight: 700;
+      margin-bottom: .4rem;
+    }
+    .tl-side p { font-size: .95rem; color: var(--text-muted); line-height: 1.6; }
+
+    /* Temples grid */
+    .temples-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 1.5rem;
+      margin-top: 2rem;
+    }
+    .temple-card {
+      background: #fff;
+      border-radius: 12px;
+      box-shadow: var(--shadow-sm);
+      overflow: hidden;
+      transition: transform .25s, box-shadow .25s;
+    }
+    .temple-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-md); }
+    .temple-card-header {
+      background: linear-gradient(135deg, var(--saffron-light) 0%, #fff8e1 100%);
+      padding: 1.2rem 1.4rem .8rem;
+      display: flex;
+      align-items: center;
+      gap: .8rem;
+    }
+    .temple-icon {
+      width: 44px; height: 44px;
+      background: var(--saffron);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+    .temple-icon i { color: #fff; font-size: 1.1rem; }
+    .temple-card-header h3 { font-size: 1rem; color: var(--text-dark); margin: 0; line-height: 1.3; }
+    .temple-card-header .temple-country {
+      font-size: .78rem;
+      color: var(--saffron-dark);
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: .05em;
+    }
+    .temple-card-body { padding: 1rem 1.4rem 1.2rem; }
+    .temple-card-body p { font-size: .9rem; color: var(--text-muted); margin-bottom: .6rem; line-height: 1.5; }
+    .temple-card-body a {
+      font-size: .85rem;
+      color: var(--saffron-dark);
+      font-weight: 600;
+      text-decoration: none;
+    }
+    .temple-card-body a:hover { text-decoration: underline; }
+
+    .temple-featured {
+      grid-column: 1 / -1;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0;
+      border-radius: 14px;
+      overflow: hidden;
+      box-shadow: var(--shadow-md);
+    }
+    .temple-featured .temple-feat-img {
+      background: linear-gradient(160deg, #e65100, var(--saffron));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 2.5rem;
+      min-height: 200px;
+    }
+    .temple-featured .temple-feat-img i {
+      font-size: 5rem;
+      color: rgba(255,255,255,.85);
+    }
+    .temple-featured .temple-feat-body {
+      background: #fff;
+      padding: 2rem 2rem 1.5rem;
+    }
+    .temple-featured .feat-badge {
+      display: inline-block;
+      background: var(--saffron);
+      color: #fff;
+      font-size: .75rem;
+      font-weight: 700;
+      letter-spacing: .06em;
+      text-transform: uppercase;
+      padding: .2rem .8rem;
+      border-radius: 20px;
+      margin-bottom: .8rem;
+    }
+    .temple-featured h3 {
+      font-size: 1.5rem;
+      color: var(--text-dark);
+      margin-bottom: .5rem;
+    }
+    .temple-featured p { font-size: .95rem; color: var(--text-muted); line-height: 1.65; margin-bottom: .8rem; }
+    .temple-featured a.btn { margin-top: .4rem; }
+
+    /* Country headings */
+    .country-heading {
+      display: flex;
+      align-items: center;
+      gap: .8rem;
+      margin: 2.5rem 0 1rem;
+    }
+    .country-heading h3 {
+      font-size: 1.15rem;
+      color: var(--saffron-dark);
+      white-space: nowrap;
+    }
+    .country-heading::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: var(--saffron-light);
+    }
+
+    /* Responsive timeline */
+    @media (max-width: 680px) {
+      .timeline::before { left: 8px; }
+      .tl-item,
+      .tl-item:nth-child(even) { flex-direction: column; padding-left: 2rem; }
+      .tl-dot { position: absolute; left: 0; }
+      .tl-side,
+      .tl-item:nth-child(even) .tl-side { text-align: left; }
+      .temple-featured { grid-template-columns: 1fr; }
+      .temple-featured .temple-feat-img { min-height: 140px; padding: 1.5rem; }
+      .temple-featured .temple-feat-img i { font-size: 3rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- =====================================================
+       NAVIGATION
+       ===================================================== -->
+  <nav class="navbar" role="navigation" aria-label="Main navigation">
+    <div class="nav-inner">
+      <a href="index.html" class="nav-logo">
+        <img src="images/logo.png" alt="Hare Krishna Movement Berlin logo" />
+      </a>
+      <ul class="nav-links" role="list">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="prabhupada.html">Srila Prabhupada</a></li>
+        <li><a href="bhakti-yoga.html">Bhakti Yoga</a></li>
+        <li><a href="programs.html">Programs</a></li>
+        <li><a href="gita-study.html">Bhagavad Gita</a></li>
+        <li><a href="gallery.html">Gallery</a></li>
+        <li><a href="about-hkm.html" class="active">About HKM</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+      <button class="nav-toggle" aria-label="Open menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+  <div class="nav-mobile">
+    <a href="index.html">Home</a>
+    <a href="prabhupada.html">Srila Prabhupada</a>
+    <a href="bhakti-yoga.html">Bhakti Yoga</a>
+    <a href="programs.html">Programs</a>
+    <a href="gita-study.html">Bhagavad Gita</a>
+    <a href="gallery.html">Gallery</a>
+    <a href="about-hkm.html" class="active">About HKM</a>
+    <a href="contact.html">Contact</a>
+  </div>
+
+  <main>
+
+    <!-- =====================================================
+         PAGE HERO
+         ===================================================== -->
+    <section class="page-hero">
+      <p class="breadcrumb"><a href="index.html">Home</a> &rsaquo; About Hare Krishna Movement</p>
+      <h1>Hare Krishna Movement</h1>
+      <p>A worldwide family united under the lotus feet of Srila Prabhupada</p>
+    </section>
+
+    <!-- =====================================================
+         SPIRITUAL MASTER BANNER
+         ===================================================== -->
+    <div class="guru-banner" role="complementary">
+      <h2><i class="fas fa-om" style="margin-right:.5rem;"></i> Our Eternal Spiritual Master</h2>
+      <p>
+        His Divine Grace A.C. Bhaktivedanta Swami <strong>Srila Prabhupada</strong> is our Founder-Acharya
+        and the sole Diksha Guru of this movement — guiding every devotee through his books, lectures,
+        letters and recordings for all time to come.
+      </p>
+    </div>
+
+    <!-- =====================================================
+         WHO WE ARE
+         ===================================================== -->
+    <section class="section" aria-label="Who we are">
+      <div class="container">
+        <div class="section-header">
+          <h2>Who We Are</h2>
+          <p>
+            The <strong>Hare Krishna Movement</strong> is a global Vaishnava community founded on the
+            timeless teachings of Srila Prabhupada. Our mission is to spread pure devotional service —
+            <em>Bhakti Yoga</em> — to every town and village, exactly as Srila Prabhupada instructed.
+          </p>
+        </div>
+        <div class="two-col-grid reveal">
+          <div class="text-col">
+            <h3>A Movement Built on Srila Prabhupada's Books</h3>
+            <p>
+              Srila Prabhupada translated and commented on more than 70 volumes of Vedic scripture —
+              including the <em>Bhagavad-Gita As It Is</em>, the <em>Srimad-Bhagavatam</em>, and
+              the <em>Chaitanya-Charitamrita</em>. These books serve as the unchanging foundation of
+              everything we teach and practice.
+            </p>
+            <p>
+              Devotees across the world study these books daily, follow the four regulative principles,
+              and chant a minimum of 16 rounds of the Hare Krishna maha-mantra every day — living proof
+              that the path Srila Prabhupada gave us works in any culture or country.
+            </p>
+            <div class="quote-block">
+              <blockquote>
+                "If you want to know Krishna, you must read my books.
+                If you read my books, you will understand Krishna."
+              </blockquote>
+              <cite>— Srila Prabhupada</cite>
+            </div>
+          </div>
+          <div class="image-col">
+            <img
+              src="images/prabhupada-speaking.png"
+              alt="Srila Prabhupada speaking"
+              class="rounded-img"
+              loading="lazy"
+            />
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =====================================================
+         HISTORY TIMELINE
+         ===================================================== -->
+    <section class="section section-alt" aria-label="History">
+      <div class="container">
+        <div class="section-header">
+          <h2>Our History</h2>
+          <p>From a single boat crossing the Atlantic to a worldwide spiritual family</p>
+        </div>
+        <div class="timeline reveal">
+
+          <div class="tl-item">
+            <div class="tl-side">
+              <span class="tl-year">1896</span>
+              <h3>Birth of Srila Prabhupada</h3>
+              <p>Abhay Charan De is born on 1 September in Calcutta (Kolkata), India,
+              into a devoted Vaishnava family.</p>
+            </div>
+            <div class="tl-dot"></div>
+            <div class="tl-side"></div>
+          </div>
+
+          <div class="tl-item">
+            <div class="tl-side"></div>
+            <div class="tl-dot"></div>
+            <div class="tl-side">
+              <span class="tl-year">1922</span>
+              <h3>Meeting His Guru</h3>
+              <p>Abhay Charan meets Srila Bhaktisiddhanta Saraswati Thakura, who
+              instructs him to spread Krishna consciousness in the English language.</p>
+            </div>
+          </div>
+
+          <div class="tl-item">
+            <div class="tl-side">
+              <span class="tl-year">1965</span>
+              <h3>Journey to America</h3>
+              <p>At 69 years old, Srila Prabhupada sails alone to New York on a
+              cargo ship, carrying three crates of books and deep faith in his
+              Guru's order.</p>
+            </div>
+            <div class="tl-dot"></div>
+            <div class="tl-side"></div>
+          </div>
+
+          <div class="tl-item">
+            <div class="tl-side"></div>
+            <div class="tl-dot"></div>
+            <div class="tl-side">
+              <span class="tl-year">1966</span>
+              <h3>ISKCON Founded</h3>
+              <p>The International Society for Krishna Consciousness (ISKCON)
+              is officially incorporated in New York City on 13 July 1966.</p>
+            </div>
+          </div>
+
+          <div class="tl-item">
+            <div class="tl-side">
+              <span class="tl-year">1970s</span>
+              <h3>Global Expansion</h3>
+              <p>Temples open across America, Europe, India, and beyond.
+              Srila Prabhupada travels the globe 14 times, personally establishing
+              communities and inspiring thousands.</p>
+            </div>
+            <div class="tl-dot"></div>
+            <div class="tl-side"></div>
+          </div>
+
+          <div class="tl-item">
+            <div class="tl-side"></div>
+            <div class="tl-dot"></div>
+            <div class="tl-side">
+              <span class="tl-year">1977</span>
+              <h3>Eternal Departure</h3>
+              <p>Srila Prabhupada departs from this world on 14 November in
+              Vrindavan, India — leaving behind 108 temples, thousands of disciples,
+              and an eternal library of Vedic knowledge.</p>
+            </div>
+          </div>
+
+          <div class="tl-item">
+            <div class="tl-side">
+              <span class="tl-year">1997</span>
+              <h3>ISKCON Bangalore Established</h3>
+              <p>ISKCON Bangalore at Hare Krishna Hill, Rajajinagar is established
+              as a major centre of pure devotional service, strictly following
+              Srila Prabhupada as the sole Diksha Guru.</p>
+            </div>
+            <div class="tl-dot"></div>
+            <div class="tl-side"></div>
+          </div>
+
+          <div class="tl-item">
+            <div class="tl-side"></div>
+            <div class="tl-dot"></div>
+            <div class="tl-side">
+              <span class="tl-year">2000s–Today</span>
+              <h3>Hare Krishna Movement Worldwide</h3>
+              <p>The Hare Krishna Movement grows to over 70 centres worldwide,
+              with temples and communities across India, Europe, Asia, and beyond —
+              all carrying Srila Prabhupada's message forward.</p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- =====================================================
+         PRABHUPADA AS DIKSHA GURU
+         ===================================================== -->
+    <section class="section" aria-label="Srila Prabhupada as Diksha Guru">
+      <div class="container">
+        <div class="section-header">
+          <h2>Srila Prabhupada — Our Diksha Guru</h2>
+          <p>
+            The Hare Krishna Movement follows the sacred principle that
+            <strong>Srila Prabhupada continues to act as the initiating (Diksha) Guru</strong>
+            for all devotees through his transcendental instructions preserved in his books,
+            lectures, letters, and conversations.
+          </p>
+        </div>
+        <div class="cards-grid reveal">
+
+          <div class="card">
+            <div class="card-icon"><i class="fas fa-book-open"></i></div>
+            <h3>Vani is Eternal</h3>
+            <p>
+              Srila Prabhupada's <em>vani</em> (words and instructions) are available to every
+              sincere seeker and carry the full potency of transcendental initiation.
+              He said: <em>"Anyone who accepts my teachings is my disciple."</em>
+            </p>
+          </div>
+
+          <div class="card">
+            <div class="card-icon"><i class="fas fa-hands-praying"></i></div>
+            <h3>Pure Paramparā</h3>
+            <p>
+              Our initiation connects every devotee directly into the unbroken chain of
+              disciplic succession (<em>paramparā</em>) coming from Lord Krishna himself,
+              with Srila Prabhupada as the transparent via medium.
+            </p>
+          </div>
+
+          <div class="card">
+            <div class="card-icon"><i class="fas fa-globe"></i></div>
+            <h3>Universal Access</h3>
+            <p>
+              Regardless of nationality, language, or background, anyone anywhere in the
+              world can receive Srila Prabhupada's mercy and take initiation through the
+              Hare Krishna Movement centres.
+            </p>
+          </div>
+
+          <div class="card">
+            <div class="card-icon"><i class="fas fa-star-of-david"></i></div>
+            <h3>Guiding Berlin</h3>
+            <p>
+              Here in Berlin, we carry the same torch. Our Saturday programs, Bhagavad-Gita
+              classes, and kirtans are all conducted according to Srila Prabhupada's
+              instructions and standards.
+            </p>
+          </div>
+
+        </div>
+
+        <div class="quote-block reveal" style="margin-top:2rem;">
+          <blockquote>
+            "Even after my physical disappearance I will be with you through my books and instructions.
+            Follow them and you will be successful in your devotional service."
+          </blockquote>
+          <cite>— Srila Prabhupada</cite>
+        </div>
+      </div>
+    </section>
+
+    <!-- =====================================================
+         OUR TEMPLES WORLDWIDE
+         ===================================================== -->
+    <section class="section section-alt" aria-label="Our Temples">
+      <div class="container">
+        <div class="section-header">
+          <h2>Our Temples Worldwide</h2>
+          <p>
+            The Hare Krishna Movement has centres across India and beyond — each temple a place
+            of pure devotion dedicated to Srila Prabhupada's mission.
+          </p>
+        </div>
+
+        <!-- Featured Temple -->
+        <div class="temples-grid reveal">
+          <div class="temple-featured">
+            <div class="temple-feat-img">
+              <i class="fas fa-gopuram"></i>
+            </div>
+            <div class="temple-feat-body">
+              <span class="feat-badge"><i class="fas fa-star"></i> Featured Temple</span>
+              <h3>Gupt Vrindavan Dham</h3>
+              <p class="temple-country" style="color:var(--saffron-dark);font-weight:700;font-size:.85rem;text-transform:uppercase;letter-spacing:.05em;margin-bottom:.6rem;">
+                Sawai Madhopur, Rajasthan, India
+              </p>
+              <p>
+                Gupt Vrindavan Dham is one of Rajasthan's most magnificent Hare Krishna temples,
+                dedicated to the divine service of Their Lordships under the guidance of Srila
+                Prabhupada's teachings. The temple complex embodies the spirit of Vrindavan —
+                the eternal abode of Lord Krishna — and serves as a major centre for pilgrimage,
+                festivals, and devotional life.
+              </p>
+              <p>
+                Thousands of devotees visit this sacred dham each year to chant, learn from
+                Srila Prabhupada's books, and experience the transcendental atmosphere
+                of pure Bhakti Yoga.
+              </p>
+              <a href="https://guptvrindavandham.org" target="_blank" rel="noopener" class="btn btn-primary">
+                <i class="fas fa-external-link-alt"></i> Visit Website
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Bangalore Headquarters -->
+        <div class="country-heading">
+          <h3><i class="fas fa-map-marker-alt" style="color:var(--saffron);margin-right:.4rem;"></i> Karnataka, India</h3>
+        </div>
+        <div class="temples-grid reveal">
+
+          <div class="temple-card">
+            <div class="temple-card-header">
+              <div class="temple-icon"><i class="fas fa-gopuram"></i></div>
+              <div>
+                <div class="temple-country">Headquarters</div>
+                <h3>ISKCON Hare Krishna Hill, Rajajinagar</h3>
+              </div>
+            </div>
+            <div class="temple-card-body">
+              <p>The main temple of ISKCON Bangalore, situated on Hare Krishna Hill, Rajajinagar, Bengaluru. A landmark spiritual centre in South India with daily programs and festivals.</p>
+              <a href="https://iskconbangalore.org" target="_blank" rel="noopener">iskconbangalore.org <i class="fas fa-external-link-alt fa-xs"></i></a>
+            </div>
+          </div>
+
+          <div class="temple-card">
+            <div class="temple-card-header">
+              <div class="temple-icon"><i class="fas fa-gopuram"></i></div>
+              <div>
+                <div class="temple-country">Bengaluru</div>
+                <h3>ISKCON Vaikuntha Hill, Vasantapura</h3>
+              </div>
+            </div>
+            <div class="temple-card-body">
+              <p>A beautiful temple on Vaikuntha Hill in South Bengaluru, known for its serene atmosphere, daily kirtans, and Akshaya Patra mid-day meal distribution.</p>
+              <a href="https://iskconbangalore.org" target="_blank" rel="noopener">iskconbangalore.org <i class="fas fa-external-link-alt fa-xs"></i></a>
+            </div>
+          </div>
+
+          <div class="temple-card">
+            <div class="temple-card-header">
+              <div class="temple-icon"><i class="fas fa-gopuram"></i></div>
+              <div>
+                <div class="temple-country">Mysuru</div>
+                <h3>Hare Krishna Movement, Mysore</h3>
+              </div>
+            </div>
+            <div class="temple-card-body">
+              <p>Active centre in the cultural city of Mysore with regular Bhagavad-Gita classes, kirtan programs, and community prasadam.</p>
+            </div>
+          </div>
+
+          <div class="temple-card">
+            <div class="temple-card-header">
+              <div class="temple-icon"><i class="fas fa-gopuram"></i></div>
+              <div>
+                <div class="temple-country">Mangaluru</div>
+                <h3>Hare Krishna Movement, Mangalore</h3>
+              </div>
+            </div>
+            <div class="temple-card-body">
+              <p>Devotional community in the coastal city of Mangalore spreading Srila Prabhupada's teachings through book distribution and outreach.</p>
+            </div>
+          </div>
+
+          <div class="temple-card">
+            <div class="temple-card-header">
+              <div class="temple-icon"><i class="fas fa-gopuram"></i></div>
+              <div>
+                <div class="temple-country">Udupi</div>
+                <h3>Hare Krishna Movement, Udupi</h3>
+              </div>
+            </div>
+            <div class="temple-card-body">
+              <p>Temple in the holy city of Udupi, offering daily worship, Gita study, and devotional programs in the spirit of pure Bhakti Yoga.</p>
+            </div>
+          </div>
+
+          <div class="temple-card">
+            <div class="temple-card-header">
+              <div class="temple-icon"><i class="fas fa-gopuram"></i></div>
+              <div>
+                <div class="temple-country">Hubballi</div>
+                <h3>Hare Krishna Movement, Hubli</h3>
+              </div>
+            </div>
+            <div class="temple-card-body">
+              <p>An energetic community in Hubli-Dharwad region, conducting regular programs, festival celebrations, and book distribution drives.</p>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- North India -->
+        <div class="country-heading">
+          <h3><i class="fas fa-map-marker-alt" style="color:var(--saffron);margin-right:.4rem;"></i> North India</h3>
+        </div>
+        <div class="temples-grid reveal">
+
+          <div class="temple-card">
+            <div class="temple-card-header">
+              <div class="temple-icon"><i class="fas fa-gopuram"></i></div>
+              <div>
+                <div class="temple-country">Rajasthan</div>
+                <h3>Gupt Vrindavan Dham, Sawai Madhopur</h3>
+              </div>
+            </div>
+            <div class="temple-card-body">
+              <p>Rajasthan's magnificent Hare Krishna temple — a sacred dham for pilgrims and devotees seeking the mercy of Srila Prabhupada.</p>
+              <a href="https://guptvrindavandham.org" target="_blank" rel="noopener">guptvrindavandham.org <i class="fas fa-external-link-alt fa-xs"></i></a>
+            </div>
+          </div>
+
+          <div class="temple-card">
+            <div class="temple-card-header">
+              <div class="temple-icon"><i class="fas fa-gopuram"></i></div>
+              <div>
+                <div class="temple-country">New Delhi</div>
+                <h3>Hare Krishna Movement, Delhi</h3>
+              </div>
+            </div>
+            <div class="temple-card-body">
+              <p>Active centre in India's capital city, hosting regular programs, Ratha Yatra festivals, and Bhagavad-Gita distribution across Delhi.</p>
+            </div>
+          </div>
+
+          <div class="temple-card">
+            <div class="temple-card-header">
+              <div class="temple-icon"><i class="fas fa-gopuram"></i></div>
+              <div>
+                <div class="temple-country">Vrindavan, UP</div>
+                <h3>Vrindavan Chandra Daya Mandir</h3>
+              </div>
+            </div>
+            <div class="temple-card-body">
+              <p>A grand temple project in the holy dham of Vrindavan — the eternal abode of Lord Krishna. This magnificent mandir will become one of the largest Vaishnava temples in the world.</p>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- South India -->
+        <div class="country-heading">
+          <h3><i class="fas fa-map-marker-alt" style="color:var(--saffron);margin-right:.4rem;"></i> South India</h3>
+        </div>
+        <div class="temples-grid reveal">
+
+          <div class="temple-card">
+            <div class="temple-card-header">
+              <div class="temple-icon"><i class="fas fa-gopuram"></i></div>
+              <div>
+                <div class="temple-country">Hyderabad</div>
+                <h3>Hare Krishna Movement, Hyderabad</h3>
+              </div>
+            </div>
+            <div class="temple-card-body">
+              <p>A thriving community in Hyderabad engaged in book distribution, kirtan, prasadam distribution, and Bhagavad-Gita outreach programs.</p>
+            </div>
+          </div>
+
+          <div class="temple-card">
+            <div class="temple-card-header">
+              <div class="temple-icon"><i class="fas fa-gopuram"></i></div>
+              <div>
+                <div class="temple-country">Chennai</div>
+                <h3>Hare Krishna Movement, Chennai</h3>
+              </div>
+            </div>
+            <div class="temple-card-body">
+              <p>Spreading pure Bhakti Yoga in South India's cultural capital through temple programs, Gita classes, and devotional outreach.</p>
+            </div>
+          </div>
+
+          <div class="temple-card">
+            <div class="temple-card-header">
+              <div class="temple-icon"><i class="fas fa-gopuram"></i></div>
+              <div>
+                <div class="temple-country">Coimbatore</div>
+                <h3>Hare Krishna Movement, Coimbatore</h3>
+              </div>
+            </div>
+            <div class="temple-card-body">
+              <p>An active centre in Tamil Nadu engaged in kirtan, prasadam seva, and nurturing a growing community of Srila Prabhupada's followers.</p>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- International -->
+        <div class="country-heading">
+          <h3><i class="fas fa-globe" style="color:var(--saffron);margin-right:.4rem;"></i> International</h3>
+        </div>
+        <div class="temples-grid reveal">
+
+          <div class="temple-card">
+            <div class="temple-card-header">
+              <div class="temple-icon"><i class="fas fa-gopuram"></i></div>
+              <div>
+                <div class="temple-country">Germany</div>
+                <h3>Hare Krishna Movement Berlin</h3>
+              </div>
+            </div>
+            <div class="temple-card-body">
+              <p>That's us! Serving Srila Prabhupada's mission in the heart of Europe with weekly kirtan, Bhagavad-Gita study, and free prasadam every Saturday.</p>
+              <a href="index.html">Visit our homepage <i class="fas fa-arrow-right fa-xs"></i></a>
+            </div>
+          </div>
+
+          <div class="temple-card">
+            <div class="temple-card-header">
+              <div class="temple-icon"><i class="fas fa-gopuram"></i></div>
+              <div>
+                <div class="temple-country">Malaysia</div>
+                <h3>Hare Krishna Movement, Malaysia</h3>
+              </div>
+            </div>
+            <div class="temple-card-body">
+              <p>Active communities in Malaysia carrying Srila Prabhupada's message to South-East Asia through festivals, book distribution, and temple programs.</p>
+            </div>
+          </div>
+
+          <div class="temple-card">
+            <div class="temple-card-header">
+              <div class="temple-icon"><i class="fas fa-gopuram"></i></div>
+              <div>
+                <div class="temple-country">Singapore</div>
+                <h3>Hare Krishna Movement, Singapore</h3>
+              </div>
+            </div>
+            <div class="temple-card-body">
+              <p>Vibrant centre in Singapore serving devotees and newcomers from across the region with regular temple programs and Gita classes.</p>
+            </div>
+          </div>
+
+          <div class="temple-card">
+            <div class="temple-card-header">
+              <div class="temple-icon"><i class="fas fa-gopuram"></i></div>
+              <div>
+                <div class="temple-country">United Kingdom</div>
+                <h3>Hare Krishna Movement, UK</h3>
+              </div>
+            </div>
+            <div class="temple-card-body">
+              <p>Carrying the torch in the United Kingdom, distributing Srila Prabhupada's books and offering devotional programs throughout Britain.</p>
+            </div>
+          </div>
+
+          <div class="temple-card">
+            <div class="temple-card-header">
+              <div class="temple-icon"><i class="fas fa-gopuram"></i></div>
+              <div>
+                <div class="temple-country">United States</div>
+                <h3>Hare Krishna Movement, USA</h3>
+              </div>
+            </div>
+            <div class="temple-card-body">
+              <p>Centres across the United States celebrating the movement Srila Prabhupada began on American soil in 1966 — continuing his mission faithfully.</p>
+            </div>
+          </div>
+
+        </div>
+
+        <p class="reveal" style="text-align:center;margin-top:2.5rem;color:var(--text-muted);font-size:.95rem;">
+          <i class="fas fa-info-circle" style="color:var(--saffron);margin-right:.3rem;"></i>
+          To find all global centres visit
+          <a href="https://guptvrindavandham.org/mandir/our-centers/" target="_blank" rel="noopener" style="color:var(--saffron-dark);font-weight:600;">
+            guptvrindavandham.org/mandir/our-centers
+          </a>
+        </p>
+
+      </div>
+    </section>
+
+    <!-- =====================================================
+         AKSHAYA PATRA
+         ===================================================== -->
+    <section class="section" aria-label="Akshaya Patra">
+      <div class="container">
+        <div class="section-header">
+          <h2>Akshaya Patra — The Inexhaustible Pot</h2>
+          <p>
+            Inspired by Srila Prabhupada's vision that <em>"no one within ten miles of a temple should go hungry,"</em>
+            the Akshaya Patra Foundation has grown into the world's largest NGO school meal programme.
+          </p>
+        </div>
+        <div class="two-col-grid reveal">
+          <div class="text-col">
+            <h3>Feeding Millions Every Day</h3>
+            <p>
+              Akshaya Patra, initiated by ISKCON Bangalore, now serves over <strong>2 million freshly cooked,
+              nutritious mid-day meals</strong> to school children across India every single day. Since its
+              founding in 2000, the programme has served over 4 billion meals.
+            </p>
+            <p>
+              The name comes from the divine pot in the Mahabharata that could produce unlimited food —
+              a fitting symbol for Srila Prabhupada's teaching that Krishna's mercy is inexhaustible.
+            </p>
+            <ul style="margin:.8rem 0 0 1.2rem;color:var(--text-muted);line-height:2;">
+              <li>2 million+ meals served daily</li>
+              <li>4 billion+ meals served since 2000</li>
+              <li>19,000+ schools across India</li>
+              <li>Serving 12+ states in India</li>
+            </ul>
+            <a href="https://www.akshayapatra.org" target="_blank" rel="noopener" class="btn btn-primary" style="margin-top:1.2rem;display:inline-flex;">
+              <i class="fas fa-external-link-alt"></i> Learn More
+            </a>
+          </div>
+          <div class="image-col">
+            <div style="background:linear-gradient(135deg,var(--saffron-light),#fff8e1);border-radius:12px;padding:3rem 2rem;text-align:center;">
+              <i class="fas fa-utensils" style="font-size:4rem;color:var(--saffron);display:block;margin-bottom:1rem;"></i>
+              <p style="font-size:2.5rem;font-weight:700;color:var(--saffron-dark);margin:0;">2 Million+</p>
+              <p style="color:var(--text-muted);margin:.3rem 0 0;">meals served every day</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =====================================================
+         CTA
+         ===================================================== -->
+    <section class="cta-banner">
+      <div class="container">
+        <h2>Join the Family of Srila Prabhupada</h2>
+        <p>
+          Come meet us in Berlin every Saturday. Chant the holy name,
+          study the Bhagavad-Gita, and taste the mercy of Srila Prabhupada.
+        </p>
+        <a href="programs.html" class="btn btn-white">
+          <i class="fas fa-calendar-alt"></i> Saturday Program
+        </a>
+        <a href="contact.html" class="btn btn-outline-white" style="margin-left:1rem;">
+          <i class="fas fa-envelope"></i> Contact Us
+        </a>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- =====================================================
+       FOOTER
+       ===================================================== -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="index.html" class="footer-logo">
+            <img src="images/logo.png" alt="Hare Krishna Movement Berlin" />
+          </a>
+          <p>Dedicated to spreading the teachings of Srila Prabhupada and Bhakti Yoga in Berlin.</p>
+          <div class="footer-social">
+            <a href="https://www.instagram.com/harekrishnaberlin" target="_blank" rel="noopener" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+            <a href="https://www.youtube.com/@ISKCONBangaloreMusic" target="_blank" rel="noopener" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+          </div>
+        </div>
+        <div class="footer-col">
+          <h4>Pages</h4>
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="prabhupada.html">Srila Prabhupada</a></li>
+            <li><a href="bhakti-yoga.html">Bhakti Yoga</a></li>
+            <li><a href="programs.html">Programs</a></li>
+            <li><a href="gita-study.html">Bhagavad Gita</a></li>
+            <li><a href="gallery.html">Gallery</a></li>
+            <li><a href="about-hkm.html">About HKM</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Programs</h4>
+          <ul>
+            <li><a href="programs.html">Saturday Program</a></li>
+            <li><a href="programs.html">Ekadashi Chanting</a></li>
+            <li><a href="programs.html">Ratha Yatra</a></li>
+            <li><a href="programs.html">Festivals</a></li>
+            <li><a href="gita-study.html">Gita Study Circle</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Visit Us</h4>
+          <address>
+            Hare Krishna Movement Berlin<br />
+            Ritterlandweg 16<br />
+            Berlin, Germany<br /><br />
+            <a href="mailto:harekrishnaberlin@gmail.com">harekrishnaberlin@gmail.com</a>
+          </address>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; <span id="footer-year"></span> Hare Krishna Movement Berlin. All rights reserved.</p>
+      <p class="footer-mantra">Hare Krishna Hare Krishna Krishna Krishna Hare Hare</p>
+    </div>
+  </footer>
+
+  <div id="lightbox" class="lightbox" role="dialog" aria-modal="true" aria-label="Image viewer">
+    <div class="lightbox-inner">
+      <button class="lightbox-close" aria-label="Close">&times;</button>
+      <img class="lightbox-img" src="" alt="" />
+      <p class="lightbox-caption"></p>
+    </div>
+  </div>
+
+  <script src="js/script.js"></script>
+</body>
+</html>

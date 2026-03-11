@@ -226,3 +226,169 @@ document.querySelectorAll('a[href^="#"]').forEach(function (anchor) {
   const yearEl = document.getElementById('footer-year');
   if (yearEl) yearEl.textContent = new Date().getFullYear();
 })();
+
+
+/* ============================================================
+   10. CHANT AND BE HAPPY SLIDER — auto-advances every 5s
+   ============================================================ */
+(function initChantSlider() {
+  const slides  = document.querySelectorAll('.ch-slide');
+  const dots    = document.querySelectorAll('.ch-dot');
+  const prevBtn = document.querySelector('.ch-prev');
+  const nextBtn = document.querySelector('.ch-next');
+  if (!slides.length) return;
+
+  let current  = 0;
+  let timer    = null;
+  const DELAY  = 5000;
+
+  // Add progress bar element
+  const inner = document.querySelector('.chant-happy-inner');
+  const prog  = document.createElement('div');
+  prog.className = 'ch-progress';
+  prog.style.width = '0%';
+  inner.appendChild(prog);
+
+  let progStart = null;
+  function animateProgress(ts) {
+    if (!progStart) progStart = ts;
+    const elapsed = ts - progStart;
+    prog.style.width = Math.min((elapsed / DELAY) * 100, 100) + '%';
+    if (elapsed < DELAY) { requestAnimationFrame(animateProgress); }
+  }
+
+  function goTo(index) {
+    slides[current].classList.remove('active');
+    slides[current].classList.add('exit');
+    setTimeout(() => { slides[current] && slides[current].classList.remove('exit'); }, 700);
+    dots[current] && dots[current].classList.remove('active');
+
+    current = (index + slides.length) % slides.length;
+    slides[current].classList.add('active');
+    dots[current] && dots[current].classList.add('active');
+
+    // Reset progress
+    prog.style.transition = 'none';
+    prog.style.width = '0%';
+    progStart = null;
+    requestAnimationFrame(animateProgress);
+
+    clearInterval(timer);
+    timer = setInterval(() => goTo(current + 1), DELAY);
+  }
+
+  // Dot clicks
+  dots.forEach((dot) => {
+    dot.addEventListener('click', () => goTo(parseInt(dot.dataset.dot, 10)));
+  });
+
+  // Arrow clicks
+  if (prevBtn) prevBtn.addEventListener('click', () => goTo(current - 1));
+  if (nextBtn) nextBtn.addEventListener('click', () => goTo(current + 1));
+
+  // Touch / swipe support
+  let touchStartX = 0;
+  inner.addEventListener('touchstart', (e) => { touchStartX = e.touches[0].clientX; }, { passive: true });
+  inner.addEventListener('touchend', (e) => {
+    const diff = touchStartX - e.changedTouches[0].clientX;
+    if (Math.abs(diff) > 40) goTo(diff > 0 ? current + 1 : current - 1);
+  });
+
+  // Pause on hover
+  inner.addEventListener('mouseenter', () => clearInterval(timer));
+  inner.addEventListener('mouseleave', () => {
+    clearInterval(timer);
+    timer = setInterval(() => goTo(current + 1), DELAY);
+  });
+
+  // Start
+  progStart = null;
+  requestAnimationFrame(animateProgress);
+  timer = setInterval(() => goTo(current + 1), DELAY);
+})();
+
+
+/* ============================================================
+   11. FLOATING KIRTAN PLAYER — optional, user-triggered
+       Uses YouTube video Kt21pBgL2aw (Srila Prabhupada kirtan)
+   ============================================================ */
+(function initKirtanPlayer() {
+
+  // Inject player HTML into body
+  const playerHTML = `
+    <div id="kirtan-player" class="kirtan-player" aria-label="Kirtan Player" role="complementary">
+      <button class="kirtan-toggle" id="kirtan-toggle" aria-label="Listen to Kirtan" title="Listen to Kirtan by Srila Prabhupada">
+        <i class="fas fa-music"></i>
+        <span>Listen to Kirtan</span>
+      </button>
+      <div class="kirtan-panel" id="kirtan-panel" aria-hidden="true">
+        <div class="kirtan-panel-header">
+          <div class="kirtan-panel-title">
+            <i class="fas fa-om"></i>
+            <span>Kirtan by Srila Prabhupada</span>
+          </div>
+          <button class="kirtan-close" id="kirtan-close" aria-label="Close player">&times;</button>
+        </div>
+        <div class="kirtan-panel-body">
+          <div class="kirtan-mantra">Hare Krishna Hare Krishna · Krishna Krishna Hare Hare</div>
+          <div id="kirtan-iframe-wrap">
+            <iframe
+              id="kirtan-iframe"
+              src=""
+              data-src="https://www.youtube.com/embed/ubbT9Jm4DOs?autoplay=1&start=61&rel=0&modestbranding=1"
+              title="Kirtan by Srila Prabhupada"
+              frameborder="0"
+              allow="autoplay; encrypted-media"
+              allowfullscreen
+            ></iframe>
+          </div>
+          <a href="https://www.youtube.com/@ISKCONBangaloreMusic" target="_blank" rel="noopener" class="kirtan-channel-link">
+            <i class="fab fa-youtube"></i> ISKCON Bangalore Music Channel
+          </a>
+        </div>
+      </div>
+    </div>
+  `;
+
+  const wrapper = document.createElement('div');
+  wrapper.innerHTML = playerHTML.trim();
+  document.body.appendChild(wrapper.firstElementChild);
+
+  const toggle   = document.getElementById('kirtan-toggle');
+  const panel    = document.getElementById('kirtan-panel');
+  const closeBtn = document.getElementById('kirtan-close');
+  const iframe   = document.getElementById('kirtan-iframe');
+  let   isOpen   = false;
+
+  function openPlayer() {
+    isOpen = true;
+    panel.removeAttribute('aria-hidden');
+    panel.classList.add('open');
+    toggle.classList.add('active');
+    // Lazy-load the iframe only when user opens the player
+    if (!iframe.src || iframe.src === window.location.href) {
+      iframe.src = iframe.dataset.src;
+    }
+  }
+
+  function closePlayer() {
+    isOpen = false;
+    panel.setAttribute('aria-hidden', 'true');
+    panel.classList.remove('open');
+    toggle.classList.remove('active');
+    // Stop video by clearing src
+    iframe.src = '';
+  }
+
+  toggle.addEventListener('click', function () {
+    if (isOpen) { closePlayer(); } else { openPlayer(); }
+  });
+
+  closeBtn.addEventListener('click', closePlayer);
+
+  // Close on Escape key
+  document.addEventListener('keydown', function (e) {
+    if (e.key === 'Escape' && isOpen) closePlayer();
+  });
+
+})();
