@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Contact Hare Krishna Movement Berlin — address, Google Maps, email, Instagram, YouTube and contact form." />
+  <title>Contact &amp; Visit Us | Hare Krishna Movement Berlin</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Lato:wght@300;400;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="icon" type="image/png" href="images/logo.png" />
+</head>
+<body>
+
+  <!-- NAVIGATION -->
+  <nav class="navbar" role="navigation" aria-label="Main navigation">
+    <div class="nav-inner">
+      <a href="index.html" class="nav-logo">
+        <img src="images/logo.png" alt="Hare Krishna Movement Berlin logo" />
+      </a>
+      <ul class="nav-links" role="list">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="prabhupada.html">Srila Prabhupada</a></li>
+        <li><a href="bhakti-yoga.html">Bhakti Yoga</a></li>
+        <li><a href="programs.html">Programs</a></li>
+        <li><a href="gita-study.html">Bhagavad Gita</a></li>
+        <li><a href="gallery.html">Gallery</a></li>
+        <li><a href="contact.html" class="active">Contact</a></li>
+      </ul>
+      <button class="nav-toggle" aria-label="Open menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+  <div class="nav-mobile">
+    <a href="index.html">Home</a>
+    <a href="prabhupada.html">Srila Prabhupada</a>
+    <a href="bhakti-yoga.html">Bhakti Yoga</a>
+    <a href="programs.html">Programs</a>
+    <a href="gita-study.html">Bhagavad Gita</a>
+    <a href="gallery.html">Gallery</a>
+    <a href="contact.html" class="active">Contact</a>
+  </div>
+
+  <main>
+
+    <!-- PAGE HERO -->
+    <section class="page-hero">
+      <p class="breadcrumb"><a href="index.html">Home</a> &rsaquo; Contact</p>
+      <h1>Contact &amp; Visit Us</h1>
+      <p>We would love to meet you — come and experience Bhakti Yoga in Berlin</p>
+    </section>
+
+
+    <!-- CONTACT SECTION -->
+    <section class="section">
+      <div class="container">
+        <div class="grid-2 fade-up" style="gap:48px;align-items:start;">
+
+          <!-- LEFT — Contact form -->
+          <div>
+            <h2 style="margin-bottom:8px;">Send Us a Message</h2>
+            <p style="color:var(--text-muted);margin-bottom:28px;">
+              Have a question about our programs or Bhakti Yoga? We are happy to help.
+            </p>
+
+            <!-- =====================================================
+                 CONTACT FORM — using Formspree
+                 Replace YOUR_FORM_ID with your actual Formspree form ID.
+                 Sign up free at https://formspree.io
+                 Example action: https://formspree.io/f/xpwqrjkz
+                 ===================================================== -->
+            <form
+              id="contact-form"
+              class="contact-form"
+              action="https://formspree.io/f/YOUR_FORM_ID"
+              method="POST"
+            >
+              <div class="grid-2" style="gap:16px;">
+                <div class="form-group">
+                  <label for="name">Your Name <span style="color:var(--saffron);">*</span></label>
+                  <input type="text" id="name" name="name" required placeholder="Radha Devi" />
+                </div>
+                <div class="form-group">
+                  <label for="email">Email Address <span style="color:var(--saffron);">*</span></label>
+                  <input type="email" id="email" name="email" required placeholder="you@example.com" />
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label for="subject">Subject</label>
+                <input type="text" id="subject" name="subject" placeholder="Question about the Saturday program" />
+              </div>
+
+              <div class="form-group">
+                <label for="message">Message <span style="color:var(--saffron);">*</span></label>
+                <textarea id="message" name="message" required placeholder="Write your message here…"></textarea>
+              </div>
+
+              <!-- Honeypot spam protection -->
+              <input type="text" name="_gotcha" style="display:none;" />
+              <!-- Redirect after submission — update to your own thank-you page if desired -->
+              <input type="hidden" name="_next" value="https://YOUR_DOMAIN.de/contact.html?sent=true" />
+
+              <button type="submit" class="btn btn-primary" style="width:100%;justify-content:center;">
+                <i class="fas fa-paper-plane"></i> Send Message
+              </button>
+
+              <p style="font-size:0.82rem;color:var(--text-muted);margin-top:12px;text-align:center;">
+                We usually reply within 1–2 days. Hare Krishna! 🙏
+              </p>
+            </form>
+
+            <!-- Simple fallback if Formspree is not set up yet -->
+            <p style="font-size:0.85rem;color:var(--text-muted);margin-top:12px;text-align:center;">
+              Or email us directly:
+              <a href="mailto:berlin@harekrishna.de"><strong>berlin@harekrishna.de</strong></a>
+            </p>
+          </div>
+
+
+          <!-- RIGHT — Contact info cards -->
+          <div>
+            <h2 style="margin-bottom:8px;">Find Us in Berlin</h2>
+            <p style="color:var(--text-muted);margin-bottom:28px;">
+              All are welcome to visit our programs — no prior booking required.
+            </p>
+
+            <div style="display:flex;flex-direction:column;gap:16px;">
+
+              <!-- Address -->
+              <div class="info-card">
+                <div class="info-card-icon"><i class="fas fa-map-marker-alt"></i></div>
+                <div class="info-card-content">
+                  <h4>Address</h4>
+                  <!-- REPLACE with your actual address -->
+                  <p>
+                    Hare Krishna Movement Berlin<br />
+                    Musterstraße 1<br />
+                    10115 Berlin, Germany
+                  </p>
+                  <!-- REPLACE the URL below with a Google Maps link to your address -->
+                  <a href="https://maps.google.com/?q=YOUR_ADDRESS_BERLIN" target="_blank" rel="noopener" style="margin-top:8px;display:inline-flex;align-items:center;gap:6px;font-size:0.88rem;font-weight:700;">
+                    <i class="fas fa-directions"></i> Get Directions
+                  </a>
+                </div>
+              </div>
+
+              <!-- Saturday program -->
+              <div class="info-card">
+                <div class="info-card-icon"><i class="fas fa-calendar-alt"></i></div>
+                <div class="info-card-content">
+                  <h4>Saturday Program</h4>
+                  <p>
+                    Every Saturday<br />
+                    4:00 PM — Kirtan<br />
+                    4:30 PM — Bhagavad-Gita class<br />
+                    5:30 PM — Free prasadam
+                  </p>
+                </div>
+              </div>
+
+              <!-- Email -->
+              <div class="info-card">
+                <div class="info-card-icon"><i class="fas fa-envelope"></i></div>
+                <div class="info-card-content">
+                  <h4>Email</h4>
+                  <!-- REPLACE with your actual email -->
+                  <a href="mailto:berlin@harekrishna.de">berlin@harekrishna.de</a>
+                </div>
+              </div>
+
+              <!-- Instagram -->
+              <div class="info-card">
+                <div class="info-card-icon"><i class="fab fa-instagram"></i></div>
+                <div class="info-card-content">
+                  <h4>Instagram</h4>
+                  <!-- REPLACE with your actual Instagram URL -->
+                  <a href="https://www.instagram.com/YOUR_INSTAGRAM" target="_blank" rel="noopener">
+                    @YOUR_INSTAGRAM
+                  </a>
+                </div>
+              </div>
+
+              <!-- YouTube -->
+              <div class="info-card">
+                <div class="info-card-icon"><i class="fab fa-youtube"></i></div>
+                <div class="info-card-content">
+                  <h4>YouTube</h4>
+                  <!-- REPLACE with your actual YouTube URL -->
+                  <a href="https://www.youtube.com/@YOUR_YOUTUBE" target="_blank" rel="noopener">
+                    YouTube Channel
+                  </a>
+                </div>
+              </div>
+
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+
+    <!-- GOOGLE MAPS EMBED -->
+    <section class="section section-alt" id="map">
+      <div class="container">
+        <div class="section-header fade-up">
+          <span class="section-label">Berlin</span>
+          <h2>Our Location</h2>
+          <div class="lotus-divider" aria-hidden="true">❀</div>
+        </div>
+
+        <!-- =====================================================
+             GOOGLE MAP EMBED
+             How to get the embed code:
+             1. Go to Google Maps and search for your address
+             2. Click "Share" → "Embed a map"
+             3. Copy the <iframe> src URL
+             4. Paste the full src URL into the iframe below
+             ===================================================== -->
+        <div class="map-container fade-up">
+          <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2427.884836892063!2d13.388860315820895!3d52.51631897981428!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47a851c655f20989%3A0x26bbfb4e84674c63!2sBrandenburger%20Tor!5e0!3m2!1sen!2sde!4v1699000000000!5m2!1sen!2sde"
+            width="100%"
+            height="400"
+            style="border:0;"
+            allowfullscreen=""
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"
+            title="Hare Krishna Movement Berlin map — REPLACE with your actual address"
+          ></iframe>
+          <!-- NOTE: The iframe above shows Brandenburg Gate as a placeholder.
+               Replace the src URL with your actual Google Maps embed code. -->
+        </div>
+        <p style="text-align:center;color:var(--text-muted);font-size:0.85rem;margin-top:12px;font-style:italic;">
+          ⚠️ Map placeholder — replace the iframe src with your actual Google Maps embed code
+        </p>
+      </div>
+    </section>
+
+
+    <!-- HOW TO GET THERE -->
+    <section class="section">
+      <div class="container">
+        <div class="section-header fade-up">
+          <span class="section-label">Getting Here</span>
+          <h2>How to Reach Us</h2>
+          <div class="lotus-divider" aria-hidden="true">❀</div>
+        </div>
+        <div class="grid-3 fade-up">
+          <div class="feature-card delay-1">
+            <div class="feature-icon"><i class="fas fa-subway"></i></div>
+            <h3>By U-Bahn / S-Bahn</h3>
+            <!-- REPLACE with nearest U-Bahn/S-Bahn stations -->
+            <p>Nearest stations: <strong>U-Bahn Station Name</strong> (Line U2) and <strong>S-Bahn Station Name</strong> (Lines S5, S7). A 5-minute walk from the station.</p>
+          </div>
+          <div class="feature-card delay-2">
+            <div class="feature-icon"><i class="fas fa-bus"></i></div>
+            <h3>By Bus</h3>
+            <!-- REPLACE with nearest bus stop -->
+            <p>Bus lines <strong>M10, 200</strong> stop directly outside. The nearest stop is <strong>Bus Stop Name</strong> — just 2 minutes on foot.</p>
+          </div>
+          <div class="feature-card delay-3">
+            <div class="feature-icon"><i class="fas fa-bicycle"></i></div>
+            <h3>By Bicycle</h3>
+            <p>Berlin is very bike-friendly. There are bicycle racks directly outside our venue. We encourage eco-friendly travel!</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- CTA -->
+    <section class="cta-banner">
+      <div class="container">
+        <h2>We Look Forward to Welcoming You</h2>
+        <p>Come and experience the joy of kirtan, the wisdom of the Gita, and the warmth of our community.</p>
+        <a href="programs.html" class="btn btn-white">
+          <i class="fas fa-calendar-alt"></i> See the Schedule
+        </a>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="index.html" class="footer-logo"><img src="images/logo.png" alt="Hare Krishna Movement Berlin" /></a>
+          <p>Dedicated to spreading the teachings of Srila Prabhupada and Bhakti Yoga in Berlin.</p>
+          <div class="footer-social">
+            <a href="https://www.instagram.com/YOUR_INSTAGRAM" target="_blank" rel="noopener" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+            <a href="https://www.youtube.com/@YOUR_YOUTUBE" target="_blank" rel="noopener" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+          </div>
+        </div>
+        <div class="footer-col">
+          <h4>Pages</h4>
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="prabhupada.html">Srila Prabhupada</a></li>
+            <li><a href="bhakti-yoga.html">Bhakti Yoga</a></li>
+            <li><a href="programs.html">Programs</a></li>
+            <li><a href="gita-study.html">Bhagavad Gita</a></li>
+            <li><a href="gallery.html">Gallery</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Programs</h4>
+          <ul>
+            <li><a href="programs.html">Saturday Program</a></li>
+            <li><a href="programs.html">Ekadashi Chanting</a></li>
+            <li><a href="programs.html">Festivals</a></li>
+            <li><a href="gita-study.html">Gita Study Circle</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Visit Us</h4>
+          <address>
+            Hare Krishna Movement Berlin<br />Musterstraße 1<br />10115 Berlin, Germany<br /><br />
+            <a href="mailto:berlin@harekrishna.de">berlin@harekrishna.de</a>
+          </address>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; <span id="footer-year"></span> Hare Krishna Movement Berlin. All rights reserved.</p>
+      <p class="footer-mantra">Hare Krishna Hare Krishna Krishna Krishna Hare Hare</p>
+    </div>
+  </footer>
+
+  <script src="js/script.js"></script>
+</body>
+</html>

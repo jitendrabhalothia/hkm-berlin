@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Photo gallery of the Hare Krishna Movement Berlin — kirtan, festivals, community gatherings and prasadam." />
+  <title>Gallery | Hare Krishna Movement Berlin</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Lato:wght@300;400;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="icon" type="image/png" href="images/logo.png" />
+
+  <!-- Extra gallery page styles -->
+  <style>
+    /* Masonry-like gallery variation for the dedicated gallery page */
+    .gallery-grid-full {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+    }
+
+    /* Featured wide item */
+    .gallery-item-wide {
+      grid-column: span 2;
+    }
+
+    .gallery-item-tall {
+      grid-row: span 2;
+    }
+
+    /* Upload hint box */
+    .upload-hint {
+      border: 2px dashed var(--divider);
+      border-radius: var(--radius-md);
+      padding: 40px 28px;
+      text-align: center;
+      color: var(--text-muted);
+      background: var(--cream);
+    }
+
+    .upload-hint-icon {
+      font-size: 2.5rem;
+      margin-bottom: 12px;
+      opacity: 0.5;
+    }
+
+    .upload-hint h4 {
+      color: var(--text-muted);
+      font-size: 1rem;
+      margin-bottom: 6px;
+    }
+
+    .upload-hint p {
+      font-size: 0.85rem;
+      margin: 0;
+    }
+
+    @media (max-width: 768px) {
+      .gallery-grid-full {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      .gallery-item-wide { grid-column: span 1; }
+      .gallery-item-tall { grid-row: span 1; }
+    }
+
+    @media (max-width: 480px) {
+      .gallery-grid-full {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAVIGATION -->
+  <nav class="navbar" role="navigation" aria-label="Main navigation">
+    <div class="nav-inner">
+      <a href="index.html" class="nav-logo">
+        <img src="images/logo.png" alt="Hare Krishna Movement Berlin logo" />
+      </a>
+      <ul class="nav-links" role="list">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="prabhupada.html">Srila Prabhupada</a></li>
+        <li><a href="bhakti-yoga.html">Bhakti Yoga</a></li>
+        <li><a href="programs.html">Programs</a></li>
+        <li><a href="gita-study.html">Bhagavad Gita</a></li>
+        <li><a href="gallery.html" class="active">Gallery</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+      <button class="nav-toggle" aria-label="Open menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+  <div class="nav-mobile">
+    <a href="index.html">Home</a>
+    <a href="prabhupada.html">Srila Prabhupada</a>
+    <a href="bhakti-yoga.html">Bhakti Yoga</a>
+    <a href="programs.html">Programs</a>
+    <a href="gita-study.html">Bhagavad Gita</a>
+    <a href="gallery.html" class="active">Gallery</a>
+    <a href="contact.html">Contact</a>
+  </div>
+
+  <main>
+
+    <!-- PAGE HERO -->
+    <section class="page-hero">
+      <p class="breadcrumb"><a href="index.html">Home</a> &rsaquo; Gallery</p>
+      <h1>Photo Gallery</h1>
+      <p>Moments of joy, devotion and community from the Hare Krishna Movement Berlin</p>
+    </section>
+
+
+    <!-- GALLERY SECTION -->
+    <section class="section">
+      <div class="container">
+
+        <!-- Filter tabs -->
+        <div class="gallery-tabs fade-up" role="tablist" aria-label="Gallery categories">
+          <button class="gallery-tab active" data-filter="all" role="tab" aria-selected="true">All Photos</button>
+          <button class="gallery-tab" data-filter="prabhupada" role="tab" aria-selected="false">Srila Prabhupada</button>
+          <button class="gallery-tab" data-filter="kirtan" role="tab" aria-selected="false">Kirtan</button>
+          <button class="gallery-tab" data-filter="festivals" role="tab" aria-selected="false">Festivals</button>
+          <button class="gallery-tab" data-filter="community" role="tab" aria-selected="false">Community</button>
+        </div>
+
+        <!-- ===================================================
+             GALLERY GRID
+             Add your own photos to the images/ folder and
+             update the src, data-src, data-caption and
+             data-category attributes below.
+             =================================================== -->
+        <div class="gallery-grid-full fade-up">
+
+          <!-- Srila Prabhupada photos -->
+          <div class="gallery-item gallery-item-wide fade-up" data-src="images/prabhupada-rathayatra.png" data-caption="Ratha Yatra — Srila Prabhupada leading the kirtan festival" data-category="kirtan">
+            <img src="images/prabhupada-rathayatra.png" alt="Ratha Yatra festival — Srila Prabhupada leading kirtan" />
+            <div class="gallery-overlay"><i class="fas fa-expand"></i></div>
+          </div>
+
+          <div class="gallery-item fade-up delay-1" data-src="images/prabhupada-namaste.png" data-caption="Srila Prabhupada — a portrait of pure devotion" data-category="prabhupada">
+            <img src="images/prabhupada-namaste.png" alt="Srila Prabhupada with hands in namaste" />
+            <div class="gallery-overlay"><i class="fas fa-expand"></i></div>
+          </div>
+
+          <div class="gallery-item gallery-item-tall fade-up delay-2" data-src="images/prabhupada-walking.png" data-caption="Srila Prabhupada walking in nature with his cane" data-category="prabhupada">
+            <img src="images/prabhupada-walking.png" alt="Srila Prabhupada walking with walking stick in nature" style="height:100%;object-fit:cover;" />
+            <div class="gallery-overlay"><i class="fas fa-expand"></i></div>
+          </div>
+
+          <div class="gallery-item fade-up delay-1" data-src="images/prabhupada-mridanga.png" data-caption="Srila Prabhupada playing the mridanga drum" data-category="kirtan">
+            <img src="images/prabhupada-mridanga.png" alt="Srila Prabhupada playing mridanga in the studio" />
+            <div class="gallery-overlay"><i class="fas fa-expand"></i></div>
+          </div>
+
+          <div class="gallery-item fade-up delay-2" data-src="images/prabhupada-speaking.png" data-caption="Srila Prabhupada giving a lecture outdoors" data-category="prabhupada">
+            <img src="images/prabhupada-speaking.png" alt="Srila Prabhupada speaking with a microphone" />
+            <div class="gallery-overlay"><i class="fas fa-expand"></i></div>
+          </div>
+
+          <div class="gallery-item gallery-item-wide fade-up delay-3" data-src="images/prabhupada-meditation.png" data-caption="Srila Prabhupada in peaceful meditation on the grass" data-category="prabhupada">
+            <img src="images/prabhupada-meditation.png" alt="Srila Prabhupada sitting in meditation on the grass" />
+            <div class="gallery-overlay"><i class="fas fa-expand"></i></div>
+          </div>
+
+          <!-- ===================================================
+               PLACEHOLDER SLOTS FOR YOUR OWN COMMUNITY PHOTOS
+               Replace the upload-hint divs below with your actual
+               <img> tags — same structure as the items above.
+
+               Example:
+               <div class="gallery-item fade-up" data-src="images/kirtan-berlin-01.jpg"
+                    data-caption="Kirtan evening in Berlin" data-category="kirtan">
+                 <img src="images/kirtan-berlin-01.jpg" alt="Kirtan in Berlin" />
+                 <div class="gallery-overlay"><i class="fas fa-expand"></i></div>
+               </div>
+               =================================================== -->
+
+          <div class="upload-hint fade-up delay-1">
+            <div class="upload-hint-icon">📷</div>
+            <h4>Add Your Kirtan Photo</h4>
+            <p>Save your image to <code>images/kirtan-01.jpg</code> and replace this block</p>
+          </div>
+
+          <div class="upload-hint fade-up delay-2">
+            <div class="upload-hint-icon">🎉</div>
+            <h4>Add a Festival Photo</h4>
+            <p>Save your image to <code>images/festival-01.jpg</code> and replace this block</p>
+          </div>
+
+          <div class="upload-hint fade-up delay-3">
+            <div class="upload-hint-icon">🍽️</div>
+            <h4>Add a Prasadam Photo</h4>
+            <p>Save your image to <code>images/prasadam-01.jpg</code> and replace this block</p>
+          </div>
+
+          <div class="upload-hint fade-up delay-1">
+            <div class="upload-hint-icon">🌿</div>
+            <h4>Add a Community Photo</h4>
+            <p>Save your image to <code>images/community-01.jpg</code> and replace this block</p>
+          </div>
+
+          <div class="upload-hint fade-up delay-2">
+            <div class="upload-hint-icon">🕌</div>
+            <h4>Add a Venue Photo</h4>
+            <p>Save your image to <code>images/venue-01.jpg</code> and replace this block</p>
+          </div>
+
+          <div class="upload-hint fade-up delay-3">
+            <div class="upload-hint-icon">🌸</div>
+            <h4>Add More Photos</h4>
+            <p>Keep adding gallery items following the same HTML pattern above</p>
+          </div>
+
+        </div>
+        <!-- END GALLERY GRID -->
+
+        <!-- Social media callout -->
+        <div class="callout fade-up" style="margin-top:48px;text-align:center;">
+          <div class="callout-icon">📱</div>
+          <h4>See More on Instagram &amp; YouTube</h4>
+          <p style="margin-bottom:20px;">
+            Follow us for regular photos and videos from our programs and festivals in Berlin.
+          </p>
+          <div style="display:flex;gap:16px;justify-content:center;flex-wrap:wrap;">
+            <!-- REPLACE with your actual Instagram and YouTube URLs -->
+            <a href="https://www.instagram.com/YOUR_INSTAGRAM" target="_blank" rel="noopener" class="btn btn-primary">
+              <i class="fab fa-instagram"></i> Instagram
+            </a>
+            <a href="https://www.youtube.com/@YOUR_YOUTUBE" target="_blank" rel="noopener" class="btn btn-outline">
+              <i class="fab fa-youtube"></i> YouTube
+            </a>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+
+    <!-- CTA -->
+    <section class="cta-banner">
+      <div class="container">
+        <h2>Come and Be Part of the Community</h2>
+        <p>Every Saturday in Berlin — create your own memories with us.</p>
+        <a href="programs.html" class="btn btn-white">
+          <i class="fas fa-calendar-alt"></i> See Programs
+        </a>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="index.html" class="footer-logo"><img src="images/logo.png" alt="Hare Krishna Movement Berlin" /></a>
+          <p>Dedicated to spreading the teachings of Srila Prabhupada and Bhakti Yoga in Berlin.</p>
+          <div class="footer-social">
+            <a href="https://www.instagram.com/YOUR_INSTAGRAM" target="_blank" rel="noopener" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+            <a href="https://www.youtube.com/@YOUR_YOUTUBE" target="_blank" rel="noopener" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+          </div>
+        </div>
+        <div class="footer-col">
+          <h4>Pages</h4>
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="prabhupada.html">Srila Prabhupada</a></li>
+            <li><a href="bhakti-yoga.html">Bhakti Yoga</a></li>
+            <li><a href="programs.html">Programs</a></li>
+            <li><a href="gita-study.html">Bhagavad Gita</a></li>
+            <li><a href="gallery.html">Gallery</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Programs</h4>
+          <ul>
+            <li><a href="programs.html">Saturday Program</a></li>
+            <li><a href="programs.html">Ekadashi Chanting</a></li>
+            <li><a href="programs.html">Festivals</a></li>
+            <li><a href="gita-study.html">Gita Study Circle</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Visit Us</h4>
+          <address>
+            Hare Krishna Movement Berlin<br />Musterstraße 1<br />10115 Berlin, Germany<br /><br />
+            <a href="mailto:berlin@harekrishna.de">berlin@harekrishna.de</a>
+          </address>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; <span id="footer-year"></span> Hare Krishna Movement Berlin. All rights reserved.</p>
+      <p class="footer-mantra">Hare Krishna Hare Krishna Krishna Krishna Hare Hare</p>
+    </div>
+  </footer>
+
+  <!-- Lightbox -->
+  <div id="lightbox" class="lightbox" role="dialog" aria-modal="true" aria-label="Image viewer">
+    <div class="lightbox-inner">
+      <button class="lightbox-close" aria-label="Close">&times;</button>
+      <img class="lightbox-img" src="" alt="" />
+      <p class="lightbox-caption"></p>
+    </div>
+  </div>
+
+  <script src="js/script.js"></script>
+</body>
+</html>
