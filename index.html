@@ -86,7 +86,7 @@
         <!-- Social icons -->
         <div class="hero-social" aria-label="Social media links">
           <!-- REPLACE href with your actual Instagram and YouTube URLs -->
-          <a href="https://www.instagram.com/YOUR_INSTAGRAM" target="_blank" rel="noopener" aria-label="Instagram">
+          <a href="https://www.instagram.com/harekrishnaberlin" target="_blank" rel="noopener" aria-label="Instagram">
             <i class="fab fa-instagram"></i>
           </a>
           <a href="https://www.youtube.com/@YOUR_YOUTUBE" target="_blank" rel="noopener" aria-label="YouTube">
@@ -103,6 +103,76 @@
         </svg>
       </div>
     </section>
+
+
+    <!-- =====================================================
+         SATURDAY PROGRAM — QUICK ACCESS BAR
+         Prominently shown right below the hero
+         ===================================================== -->
+    <section style="background:#fff;border-bottom:3px solid var(--saffron);padding:0;">
+      <div class="container">
+        <div style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:0;padding:0;">
+
+          <!-- Label -->
+          <div style="background:linear-gradient(135deg,var(--saffron),var(--saffron-dark));color:#fff;padding:22px 32px;flex-shrink:0;">
+            <p style="font-size:0.72rem;letter-spacing:0.18em;text-transform:uppercase;margin-bottom:4px;opacity:0.85;">Every Saturday</p>
+            <p style="font-family:var(--font-heading);font-size:1.2rem;font-weight:700;margin:0;">Berlin Program</p>
+          </div>
+
+          <!-- Schedule steps -->
+          <div style="display:flex;align-items:center;flex:1;flex-wrap:wrap;">
+
+            <div style="display:flex;align-items:center;padding:18px 28px;border-right:1px solid var(--divider);gap:14px;">
+              <span style="font-size:1.6rem;">🎵</span>
+              <div>
+                <p style="font-weight:700;color:var(--text-dark);margin:0;font-size:0.95rem;">Kirtan</p>
+                <p style="color:var(--saffron);font-weight:700;margin:0;font-size:0.85rem;">4:00 PM</p>
+              </div>
+            </div>
+
+            <div style="display:flex;align-items:center;padding:18px 28px;border-right:1px solid var(--divider);gap:14px;">
+              <span style="font-size:1.6rem;">📖</span>
+              <div>
+                <p style="font-weight:700;color:var(--text-dark);margin:0;font-size:0.95rem;">Bhagavad-Gita</p>
+                <p style="color:var(--saffron);font-weight:700;margin:0;font-size:0.85rem;">4:30 PM</p>
+              </div>
+            </div>
+
+            <div style="display:flex;align-items:center;padding:18px 28px;border-right:1px solid var(--divider);gap:14px;">
+              <span style="font-size:1.6rem;">💬</span>
+              <div>
+                <p style="font-weight:700;color:var(--text-dark);margin:0;font-size:0.95rem;">Q &amp; A</p>
+                <p style="color:var(--saffron);font-weight:700;margin:0;font-size:0.85rem;">5:30 PM</p>
+              </div>
+            </div>
+
+            <!-- Prasadam highlight -->
+            <div style="display:flex;align-items:center;padding:18px 28px;gap:14px;background:linear-gradient(135deg,rgba(232,121,10,0.06),rgba(201,162,39,0.06));">
+              <span style="font-size:1.6rem;">🍛</span>
+              <div>
+                <p style="font-weight:700;color:var(--saffron-dark);margin:0;font-size:0.95rem;">Free Prasadam</p>
+                <p style="color:var(--gold);font-weight:700;margin:0;font-size:0.85rem;">6:00 PM</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- CTA button -->
+          <div style="padding:18px 28px;flex-shrink:0;">
+            <a href="programs.html" class="btn btn-primary" style="white-space:nowrap;">
+              <i class="fas fa-map-marker-alt"></i> Ritterlandweg 16, Berlin
+            </a>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- Responsive style for program bar on mobile -->
+    <style>
+      @media (max-width: 768px) {
+        .prog-bar-inner { flex-direction: column; }
+      }
+    </style>
 
 
     <!-- =====================================================
@@ -432,7 +502,7 @@
           </p>
           <div class="footer-social" aria-label="Social media">
             <!-- REPLACE with your actual links -->
-            <a href="https://www.instagram.com/YOUR_INSTAGRAM" target="_blank" rel="noopener" aria-label="Instagram">
+            <a href="https://www.instagram.com/harekrishnaberlin" target="_blank" rel="noopener" aria-label="Instagram">
               <i class="fab fa-instagram"></i>
             </a>
             <a href="https://www.youtube.com/@YOUR_YOUTUBE" target="_blank" rel="noopener" aria-label="YouTube">
@@ -591,10 +661,11 @@
 
     <!-- Hidden YouTube iframe — used as fallback if mp3 is missing
          Replace YOUTUBE_VIDEO_ID with your actual ID -->
+    <!-- YouTube video: Srila Prabhupada Hare Krishna chanting -->
     <iframe
       id="yt-chanting"
       src=""
-      data-src="https://www.youtube.com/embed/YOUTUBE_VIDEO_ID?autoplay=1&loop=1&playlist=YOUTUBE_VIDEO_ID&controls=0&enablejsapi=1"
+      data-src="https://www.youtube.com/embed/Kt21pBgL2aw?autoplay=1&loop=1&playlist=Kt21pBgL2aw&controls=0&enablejsapi=1&rel=0&modestbranding=1"
       allow="autoplay; encrypted-media"
       style="display:none;width:0;height:0;border:none;">
     </iframe>

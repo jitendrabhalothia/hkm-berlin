@@ -1,176 +1,141 @@
 /* ============================================================
    HARE KRISHNA MOVEMENT BERLIN — chanting.js
-   Welcome overlay + floating audio player with mantra subtitles
+   Welcome overlay + soft background chanting player
+   YouTube video: Kt21pBgL2aw (Srila Prabhupada kirtan)
+   Volume: very low (20%) — respectful for Germany
    ============================================================ */
 
 (function () {
 
   /* ----------------------------------------------------------
-     MANTRA LINES — displayed as rotating subtitles
+     MANTRA LINES — animated subtitles in overlay + player
      ---------------------------------------------------------- */
-  var MANTRA_LINES = [
+  var MANTRA = [
     'Hare Krishna Hare Krishna',
     'Krishna Krishna Hare Hare',
     'Hare Rama Hare Rama',
     'Rama Rama Hare Hare'
   ];
 
-  /* Subtitle rotation interval in milliseconds */
-  var SUBTITLE_INTERVAL = 2800;
+  /* How long each subtitle line shows (ms) */
+  var SUBTITLE_MS = 3000;
 
-  var currentLine  = 0;
+  /* ----------------------------------------------------------
+     DOM ELEMENTS
+     ---------------------------------------------------------- */
+  var overlay    = document.getElementById('welcome-overlay');
+  var enterBtn   = document.getElementById('welcome-enter');
+  var skipBtn    = document.getElementById('welcome-skip');
+  var player     = document.getElementById('chanting-player');
+  var playBtn    = document.getElementById('chanting-play');
+  var muteBtn    = document.getElementById('chanting-mute');
+  var closeBtn   = document.getElementById('chanting-close');
+  var subtitleEl = document.getElementById('chanting-subtitle');
+  var ytFrame    = document.getElementById('yt-chanting');
+
+  /* Overlay mantra line elements */
+  var wLines = [0,1,2,3].map(function(i){ return document.getElementById('wml-'+i); });
+
+  var overlayTimer  = null;
   var subtitleTimer = null;
-  var overlayMantraTimer = null;
+  var lineIdx       = 0;
+  var isPlaying     = false;
+  var isMuted       = false;
+  var ytReady       = false;
 
   /* ----------------------------------------------------------
-     ELEMENTS
+     OVERLAY — animate mantra lines
      ---------------------------------------------------------- */
-  var overlay        = document.getElementById('welcome-overlay');
-  var enterBtn       = document.getElementById('welcome-enter');
-  var skipBtn        = document.getElementById('welcome-skip');
-  var player         = document.getElementById('chanting-player');
-  var playBtn        = document.getElementById('chanting-play');
-  var muteBtn        = document.getElementById('chanting-mute');
-  var closeBtn       = document.getElementById('chanting-close');
-  var subtitleEl     = document.getElementById('chanting-subtitle');
-  var audio          = document.getElementById('chanting-audio');
-  var ytFrame        = document.getElementById('yt-chanting');
-  var progressWrap   = document.getElementById('chanting-progress-wrap');
-  var progressBar    = document.getElementById('chanting-progress-bar');
-  var timeEl         = document.getElementById('chanting-time');
-
-  /* Overlay mantra lines */
-  var overlayLines = [
-    document.getElementById('wml-0'),
-    document.getElementById('wml-1'),
-    document.getElementById('wml-2'),
-    document.getElementById('wml-3')
-  ];
-
-  var isPlaying = false;
-  var isMuted   = false;
-  var useYouTube = false;
-
-  /* ----------------------------------------------------------
-     OVERLAY MANTRA ANIMATION
-     Cycles highlighted line on the welcome screen
-     ---------------------------------------------------------- */
-  function startOverlayMantra() {
-    var lineIndex = 0;
-    overlayMantraTimer = setInterval(function () {
-      overlayLines.forEach(function (el) {
-        if (el) el.classList.remove('active');
-      });
-      lineIndex = (lineIndex + 1) % overlayLines.length;
-      if (overlayLines[lineIndex]) {
-        overlayLines[lineIndex].classList.add('active');
-      }
-    }, SUBTITLE_INTERVAL);
+  function startOverlayAnim() {
+    var i = 0;
+    overlayTimer = setInterval(function () {
+      wLines.forEach(function (el) { if (el) el.classList.remove('active'); });
+      i = (i + 1) % wLines.length;
+      if (wLines[i]) wLines[i].classList.add('active');
+    }, SUBTITLE_MS);
   }
 
   /* ----------------------------------------------------------
-     CLOSE OVERLAY
+     CLOSE OVERLAY — fade out then remove
      ---------------------------------------------------------- */
   function closeOverlay() {
-    clearInterval(overlayMantraTimer);
-    if (overlay) {
-      overlay.classList.add('fade-out');
-      /* Remove from DOM after transition */
-      setTimeout(function () {
-        if (overlay && overlay.parentNode) {
-          overlay.parentNode.removeChild(overlay);
-        }
-        showPlayer();
-      }, 850);
-    } else {
+    clearInterval(overlayTimer);
+    if (!overlay) { showPlayer(); return; }
+
+    overlay.style.transition = 'opacity 0.7s ease';
+    overlay.style.opacity    = '0';
+    overlay.style.pointerEvents = 'none';
+
+    setTimeout(function () {
+      if (overlay && overlay.parentNode) {
+        overlay.parentNode.removeChild(overlay);
+      }
       showPlayer();
-    }
+    }, 750);
   }
 
   /* ----------------------------------------------------------
-     SHOW FLOATING PLAYER
+     SHOW PLAYER BAR
      ---------------------------------------------------------- */
   function showPlayer() {
     if (!player) return;
     player.style.display = 'flex';
-    /* Trigger animation on next frame */
-    requestAnimationFrame(function () {
+    /* Small delay so display:flex applies before transition */
+    setTimeout(function () {
       player.classList.add('visible');
-    });
-    startSubtitleRotation();
+    }, 30);
+    startSubtitles();
   }
 
   /* ----------------------------------------------------------
-     AUDIO PLAYBACK — tries HTML5 audio first, falls back to YouTube
+     LOAD YOUTUBE — load iframe src and set low volume via API
      ---------------------------------------------------------- */
-  function tryPlayAudio() {
-    if (!audio) return;
+  function loadYouTube() {
+    if (!ytFrame) return;
+    var src = ytFrame.getAttribute('data-src');
+    if (!src) return;
 
-    /* Check if src is set and file might exist */
-    var src = audio.getAttribute('src') || '';
-    if (!src || src.indexOf('YOUTUBE') !== -1) {
-      /* No audio file — use YouTube */
-      tryYouTube();
-      return;
-    }
+    ytFrame.src = src;
+    isPlaying   = true;
+    updatePlayBtn();
 
-    /* Try loading the audio */
-    audio.volume = 0.7;
-    var playPromise = audio.play();
-    if (playPromise !== undefined) {
-      playPromise.then(function () {
-        isPlaying = true;
-        updatePlayBtn();
-        if (progressWrap) progressWrap.style.display = 'flex';
-        startProgressUpdate();
-      }).catch(function () {
-        /* Autoplay blocked — show play button, don't auto-start */
-        isPlaying = false;
-        updatePlayBtn();
-        /* Try YouTube as fallback */
-        tryYouTube();
-      });
-    }
+    /* Wait for iframe to load, then set volume to 20% via postMessage */
+    ytFrame.addEventListener('load', function () {
+      ytReady = true;
+      setYTVolume(55); /* Gentle volume — audible but not loud */
+    });
   }
 
-  function tryYouTube() {
-    if (!ytFrame) return;
-    var src = ytFrame.getAttribute('data-src') || '';
-    if (src && src.indexOf('YOUTUBE_VIDEO_ID') === -1) {
-      ytFrame.src = src;
-      useYouTube = true;
-      isPlaying = true;
-      updatePlayBtn();
-    }
+  /* Send command to YouTube IFrame API */
+  function ytCommand(func, args) {
+    if (!ytFrame || !ytFrame.contentWindow) return;
+    ytFrame.contentWindow.postMessage(
+      JSON.stringify({ event: 'command', func: func, args: args || [] }),
+      '*'
+    );
+  }
+
+  function setYTVolume(vol) {
+    /* YouTube IFrame API: setVolume(0-100) */
+    ytCommand('setVolume', [vol]);
   }
 
   /* ----------------------------------------------------------
-     PLAY / PAUSE
+     PLAY / PAUSE toggle
+     If YouTube not loaded yet, load it first then play
      ---------------------------------------------------------- */
   function togglePlay() {
-    if (useYouTube) {
-      /* For YouTube: post message to IFrame API */
-      if (ytFrame && ytFrame.contentWindow) {
-        if (isPlaying) {
-          ytFrame.contentWindow.postMessage('{"event":"command","func":"pauseVideo","args":""}', '*');
-          isPlaying = false;
-        } else {
-          ytFrame.contentWindow.postMessage('{"event":"command","func":"playVideo","args":""}', '*');
-          isPlaying = true;
-        }
-      }
+    /* If YouTube not loaded yet — load and play now */
+    if (!ytFrame || !ytFrame.src) {
+      loadYouTube();
+      return;
+    }
+    if (isPlaying) {
+      ytCommand('pauseVideo');
+      isPlaying = false;
     } else {
-      if (!audio) return;
-      if (audio.paused) {
-        audio.play().then(function () {
-          isPlaying = true;
-          if (progressWrap) progressWrap.style.display = 'flex';
-          startProgressUpdate();
-        }).catch(function () {});
-      } else {
-        audio.pause();
-        isPlaying = false;
-      }
+      ytCommand('playVideo');
+      isPlaying = true;
     }
     updatePlayBtn();
   }
@@ -180,8 +145,9 @@
      ---------------------------------------------------------- */
   function toggleMute() {
     isMuted = !isMuted;
-    if (audio) audio.muted = isMuted;
+    ytCommand(isMuted ? 'mute' : 'unMute');
     if (muteBtn) muteBtn.textContent = isMuted ? '🔇' : '🔊';
+    if (muteBtn) muteBtn.title = isMuted ? 'Unmute' : 'Mute';
   }
 
   /* ----------------------------------------------------------
@@ -194,59 +160,25 @@
   }
 
   /* ----------------------------------------------------------
-     PROGRESS BAR UPDATE (HTML5 audio only)
+     SUBTITLE ROTATION in the player bar
      ---------------------------------------------------------- */
-  var progressTimer = null;
-
-  function startProgressUpdate() {
-    clearInterval(progressTimer);
-    progressTimer = setInterval(function () {
-      if (!audio || audio.paused) return;
-      var duration = audio.duration;
-      if (!duration || isNaN(duration)) return;
-      var pct = (audio.currentTime / duration) * 100;
-      if (progressBar) progressBar.style.width = pct + '%';
-      if (timeEl) timeEl.textContent = formatTime(audio.currentTime);
-    }, 1000);
-  }
-
-  function formatTime(secs) {
-    var m = Math.floor(secs / 60);
-    var s = Math.floor(secs % 60);
-    return m + ':' + (s < 10 ? '0' : '') + s;
-  }
-
-  /* Click on progress bar to seek */
-  var progressEl = document.getElementById('chanting-progress');
-  if (progressEl) {
-    progressEl.addEventListener('click', function (e) {
-      if (!audio || !audio.duration) return;
-      var rect = progressEl.getBoundingClientRect();
-      var pct  = (e.clientX - rect.left) / rect.width;
-      audio.currentTime = pct * audio.duration;
-    });
-  }
-
-  /* ----------------------------------------------------------
-     SUBTITLE ROTATION in the floating player
-     ---------------------------------------------------------- */
-  function startSubtitleRotation() {
+  function startSubtitles() {
     clearInterval(subtitleTimer);
-    currentLine = 0;
-    updateSubtitle();
+    lineIdx = 0;
+    setSubtitle();
     subtitleTimer = setInterval(function () {
-      currentLine = (currentLine + 1) % MANTRA_LINES.length;
-      updateSubtitle();
-    }, SUBTITLE_INTERVAL);
+      lineIdx = (lineIdx + 1) % MANTRA.length;
+      setSubtitle();
+    }, SUBTITLE_MS);
   }
 
-  function updateSubtitle() {
+  function setSubtitle() {
     if (!subtitleEl) return;
+    /* Reset animation */
     subtitleEl.style.animation = 'none';
-    /* Force reflow to restart animation */
-    void subtitleEl.offsetWidth;
-    subtitleEl.style.animation = '';
-    subtitleEl.textContent = MANTRA_LINES[currentLine];
+    void subtitleEl.offsetWidth; /* reflow */
+    subtitleEl.style.animation  = '';
+    subtitleEl.textContent = MANTRA[lineIdx];
   }
 
   /* ----------------------------------------------------------
@@ -254,8 +186,7 @@
      ---------------------------------------------------------- */
   function closePlayer() {
     clearInterval(subtitleTimer);
-    clearInterval(progressTimer);
-    if (audio) { audio.pause(); audio.currentTime = 0; }
+    ytCommand('stopVideo');
     if (ytFrame) ytFrame.src = '';
     if (player) {
       player.classList.remove('visible');
@@ -266,20 +197,20 @@
   }
 
   /* ----------------------------------------------------------
-     BIND EVENTS
+     BIND BUTTON EVENTS
      ---------------------------------------------------------- */
   if (enterBtn) {
     enterBtn.addEventListener('click', function () {
       closeOverlay();
-      /* Small delay to let overlay fade before starting audio */
-      setTimeout(tryPlayAudio, 400);
+      /* Start YouTube after overlay begins fading */
+      setTimeout(loadYouTube, 300);
     });
   }
 
   if (skipBtn) {
     skipBtn.addEventListener('click', function () {
       closeOverlay();
-      /* Don't start audio */
+      /* No audio — player bar still shows with subtitles only */
     });
   }
 
@@ -287,11 +218,18 @@
   if (muteBtn)  muteBtn.addEventListener('click',  toggleMute);
   if (closeBtn) closeBtn.addEventListener('click', closePlayer);
 
+  /* Close overlay with Escape key */
+  document.addEventListener('keydown', function (e) {
+    if (e.key === 'Escape' && overlay && overlay.parentNode) {
+      closeOverlay();
+    }
+  });
+
   /* ----------------------------------------------------------
-     INIT — start overlay mantra animation on load
+     INIT
      ---------------------------------------------------------- */
   document.addEventListener('DOMContentLoaded', function () {
-    startOverlayMantra();
+    startOverlayAnim();
   });
 
 })();
