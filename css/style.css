@@ -3666,7 +3666,7 @@ p:last-child {
 /* ── Srila Prabhupada section: stack on mobile ── */
 @media (max-width: 768px) {
   .split-section { gap: 28px; }
-  .split-section img { max-height: 260px; object-fit: cover; border-radius: 12px; }
+  .split-section img { max-height: 300px; object-fit: cover; object-position: top center; border-radius: 12px; }
 }
 
 /* ── Footer: single column on mobile ── */
@@ -3701,23 +3701,15 @@ p:last-child {
   background-position: center center !important;
 }
 
-/* SP section seal image — contain, no crop */
-.sp-logo-wrap {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background: #fff;
-  border-radius: 20px;
-  padding: 20px;
-  box-shadow: 0 4px 24px rgba(0,0,0,0.08);
-}
-.sp-logo-img {
+/* SP section — Srila Prabhupada photo */
+.sp-photo {
   width: 100%;
-  max-width: 380px;
-  height: auto;
-  object-fit: contain;
+  height: 420px;
+  object-fit: cover;
+  object-position: top center;
+  border-radius: 16px;
   display: block;
-  border-radius: 50%;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.15);
 }
 
 /* ============================================================
