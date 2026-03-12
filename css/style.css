@@ -3434,30 +3434,44 @@ p:last-child {
 .photo-slider-section {
   position: relative;
   width: 100%;
-  height: 520px;
   overflow: hidden;
   background: #000;
+  /* height is auto — driven by img inside */
 }
 
 .photo-slider {
   position: relative;
   width: 100%;
-  height: 100%;
 }
 
 .photo-slide {
   position: absolute;
   inset: 0;
-  background-size: cover;
-  background-position: center;
   opacity: 0;
   transition: opacity 0.9s ease;
   z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
-
+/* Make first slide (and active) take up space for height */
 .photo-slide.active {
   opacity: 1;
   z-index: 2;
+  position: relative;
+}
+
+/* White background for the seal slide */
+.photo-slide.ps-white { background: #fff; }
+/* Dark background for photo slides */
+.photo-slide.ps-dark  { background: #111; }
+
+/* Image — contain so NOTHING is ever cropped */
+.photo-slide img {
+  display: block;
+  width: 100%;
+  max-height: 540px;
+  object-fit: contain;
 }
 
 .photo-slide-caption {
@@ -3466,7 +3480,7 @@ p:last-child {
   left: 0;
   right: 0;
   padding: 20px 24px 22px;
-  background: linear-gradient(transparent, rgba(0,0,0,0.7));
+  background: linear-gradient(transparent, rgba(0,0,0,0.65));
   color: rgba(255,255,255,0.95);
   font-size: 1rem;
   font-weight: 600;
@@ -3474,6 +3488,10 @@ p:last-child {
   text-align: center;
   text-transform: uppercase;
   font-family: var(--font-heading);
+}
+/* Caption on white slide needs dark text */
+.ps-white .photo-slide-caption {
+  background: linear-gradient(transparent, rgba(0,0,0,0.45));
 }
 .photo-slide-caption span {
   color: var(--saffron);
@@ -3530,12 +3548,8 @@ p:last-child {
 }
 
 @media (max-width: 768px) {
-  .photo-slider-section { height: 380px; }
   .photo-slide-caption { font-size: 0.8rem; padding: 14px 16px 16px; }
   .ps-arrow { width: 36px; height: 36px; font-size: 0.85rem; }
-}
-@media (max-width: 480px) {
-  .photo-slider-section { height: 300px; }
 }
 
 /* ============================================================
@@ -3667,41 +3681,43 @@ p:last-child {
   .footer-bottom-mantra { font-size: .7rem; }
 }
 
-/* ── Photo slider: taller on mobile so images show fully ── */
+/* ── Photo slider: img-based so height is natural, cap on mobile ── */
 @media (max-width: 768px) {
-  .photo-slider-section { height: 400px; }
+  .photo-slide img { max-height: 380px; }
 }
 @media (max-width: 480px) {
-  .photo-slider-section { height: 320px; }
+  .photo-slide img { max-height: 300px; }
+  .photo-slide-caption { font-size: .8rem; padding: 12px 16px 14px; }
 }
 
 /* ============================================================
    HKM LOGO — show fully in slider and SP section
    ============================================================ */
 
-/* Logo slide in photo slider: contain so full circle shows */
+/* HKM Seal slide — contain so full circle + all text is visible */
 .photo-slide.ps-contain {
-  background-size: contain !important;
+  background-size: 85% auto !important;
   background-repeat: no-repeat !important;
   background-position: center center !important;
 }
 
-/* SP section logo image — contain, no crop */
+/* SP section seal image — contain, no crop */
 .sp-logo-wrap {
   display: flex;
   align-items: center;
   justify-content: center;
-  background: linear-gradient(135deg, #fff8f0 0%, #fef3dc 100%);
-  border-radius: 16px;
-  padding: 24px;
-  min-height: 280px;
+  background: #fff;
+  border-radius: 20px;
+  padding: 20px;
+  box-shadow: 0 4px 24px rgba(0,0,0,0.08);
 }
 .sp-logo-img {
   width: 100%;
-  max-width: 340px;
+  max-width: 380px;
   height: auto;
   object-fit: contain;
   display: block;
+  border-radius: 50%;
 }
 
 /* ============================================================
