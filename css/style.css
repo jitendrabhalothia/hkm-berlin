@@ -3396,7 +3396,7 @@ p:last-child {
   }
   .hero-wa-link i { margin: 0 !important; }
   /* Hide the text label — icon only */
-  .hero-wa-link > :not(i) { display: none !important; }
+  .hero-wa-link .wa-label { display: none !important; }
 
   /* Reduce vertical spacing in hero on mobile */
   .hero-content { padding: 30px 20px 24px; }
