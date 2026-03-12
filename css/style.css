@@ -3376,3 +3376,158 @@ p:last-child {
   .ch-next { right: 6px; }
   .ch-slide-content { padding: 1rem .9rem; }
 }
+
+/* ============================================================
+   MOBILE CLEAN-UP — reduce hero clutter on phones
+   ============================================================ */
+@media (max-width: 768px) {
+  /* Hide the hero kirtan badge — FAB button at bottom-right is enough on mobile */
+  .kirtan-hero-badge { display: none; }
+
+  /* Convert WhatsApp pill to plain icon circle on mobile */
+  .hero-wa-link {
+    width: 44px !important;
+    height: 44px !important;
+    border-radius: 50% !important;
+    padding: 0 !important;
+    background: rgba(37,211,102,.25) !important;
+    border: 1px solid rgba(37,211,102,.5) !important;
+    justify-content: center !important;
+  }
+  .hero-wa-link i { margin: 0 !important; }
+  /* Hide the text label — icon only */
+  .hero-wa-link > :not(i) { display: none !important; }
+
+  /* Reduce vertical spacing in hero on mobile */
+  .hero-content { padding: 30px 20px 24px; }
+  .hero-buttons { margin-bottom: 24px; gap: 10px; }
+  .hero-social   { gap: 12px; }
+  .hero-dedication { margin-bottom: 24px; }
+
+  /* Schedule line — smaller on mobile */
+  .hero-content .hero-sub + .hero-sub { font-size: .88rem !important; }
+
+  /* Prog-bar address text: shrink on mobile */
+  .prog-bar-label p { font-size: .82rem; }
+}
+
+@media (max-width: 480px) {
+  /* Stack hero buttons vertically and keep them compact */
+  .hero-buttons { flex-direction: column; align-items: center; }
+  .hero-buttons .btn { max-width: 260px; }
+}
+
+/* Hero schedule paragraph baseline style */
+.hero-schedule {
+  font-size: 1rem;
+  margin-top: .5rem;
+  opacity: .9;
+  line-height: 1.8;
+}
+@media (max-width: 768px) {
+  .hero-schedule { font-size: .88rem; line-height: 1.7; }
+}
+
+/* ============================================================
+   PHOTO SLIDER SECTION
+   ============================================================ */
+.photo-slider-section {
+  position: relative;
+  width: 100%;
+  height: 520px;
+  overflow: hidden;
+  background: #000;
+}
+
+.photo-slider {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.photo-slide {
+  position: absolute;
+  inset: 0;
+  background-size: cover;
+  background-position: center;
+  opacity: 0;
+  transition: opacity 0.9s ease;
+  z-index: 1;
+}
+
+.photo-slide.active {
+  opacity: 1;
+  z-index: 2;
+}
+
+.photo-slide-caption {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 18px 24px;
+  background: linear-gradient(transparent, rgba(0,0,0,0.65));
+  color: rgba(255,255,255,0.92);
+  font-size: 1rem;
+  font-weight: 600;
+  letter-spacing: 0.03em;
+  text-align: center;
+}
+
+/* Arrow buttons */
+.ps-arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 10;
+  background: rgba(0,0,0,0.38);
+  border: 1.5px solid rgba(255,255,255,0.3);
+  color: #fff;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: background 0.2s, transform 0.2s;
+  backdrop-filter: blur(4px);
+}
+.ps-arrow:hover { background: var(--saffron); border-color: var(--saffron); transform: translateY(-50%) scale(1.1); }
+.ps-prev { left: 16px; }
+.ps-next { right: 16px; }
+
+/* Dot navigation */
+.ps-dots {
+  position: absolute;
+  bottom: 16px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 10;
+  display: flex;
+  gap: 8px;
+}
+.ps-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  border: 1.5px solid rgba(255,255,255,0.6);
+  background: transparent;
+  cursor: pointer;
+  transition: background 0.2s, transform 0.2s;
+}
+.ps-dot.active {
+  background: var(--saffron);
+  border-color: var(--saffron);
+  transform: scale(1.25);
+}
+
+@media (max-width: 768px) {
+  .photo-slider-section { height: 340px; }
+  .photo-slide-caption { font-size: 0.85rem; padding: 12px 16px; }
+  .ps-arrow { width: 36px; height: 36px; font-size: 0.85rem; }
+}
+@media (max-width: 480px) {
+  .photo-slider-section { height: 260px; }
+}
