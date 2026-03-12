@@ -3674,3 +3674,86 @@ p:last-child {
 @media (max-width: 480px) {
   .photo-slider-section { height: 320px; }
 }
+
+/* ============================================================
+   HKM LOGO — show fully in slider and SP section
+   ============================================================ */
+
+/* Logo slide in photo slider: contain so full circle shows */
+.photo-slide.ps-contain {
+  background-size: contain !important;
+  background-repeat: no-repeat !important;
+  background-position: center center !important;
+}
+
+/* SP section logo image — contain, no crop */
+.sp-logo-wrap {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, #fff8f0 0%, #fef3dc 100%);
+  border-radius: 16px;
+  padding: 24px;
+  min-height: 280px;
+}
+.sp-logo-img {
+  width: 100%;
+  max-width: 340px;
+  height: auto;
+  object-fit: contain;
+  display: block;
+}
+
+/* ============================================================
+   MOBILE HERO — shorter so CTA button is above the fold
+   ============================================================ */
+@media (max-width: 768px) {
+  /* Hide long schedule paragraph on mobile — program bar shows it */
+  .hero-schedule { display: none; }
+
+  /* Tighter hero padding */
+  .hero-content {
+    padding: 70px 20px 28px !important;
+  }
+
+  /* Tagline: single line, smaller */
+  .hero-tagline {
+    font-size: .6rem !important;
+    letter-spacing: .1em !important;
+    padding: 4px 12px !important;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 100%;
+  }
+
+  /* H1 smaller so it fits 2 lines max */
+  .hero h1 {
+    font-size: clamp(1.6rem, 7.5vw, 2.4rem) !important;
+    margin-bottom: 10px !important;
+  }
+
+  /* Sub text tighter */
+  .hero .hero-sub {
+    font-size: .9rem !important;
+    margin-bottom: 18px !important;
+  }
+
+  /* Buttons stacked, full width */
+  .hero-buttons {
+    flex-direction: column !important;
+    gap: 10px !important;
+    margin-bottom: 18px !important;
+    align-items: stretch !important;
+  }
+  .hero-buttons .btn {
+    width: 100% !important;
+    max-width: 100% !important;
+    justify-content: center !important;
+    padding: 13px 20px !important;
+    font-size: .9rem !important;
+  }
+
+  /* Social row compact */
+  .hero-social { gap: 10px !important; }
+}
