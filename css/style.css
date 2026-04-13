@@ -3461,17 +3461,25 @@ p:last-child {
   position: relative;
 }
 
-/* White background for the seal slide */
+/* White background for the seal/logo slide */
 .photo-slide.ps-white { background: #fff; }
-/* Dark background for photo slides */
-.photo-slide.ps-dark  { background: #111; }
+/* Dark/photo slides get a neutral dark bg */
+.photo-slide.ps-dark  { background: #1a1a1a; }
 
-/* Image — contain so NOTHING is ever cropped */
+/* Photo slides — cover fills the frame, no black bars */
 .photo-slide img {
   display: block;
   width: 100%;
-  max-height: 540px;
+  height: 520px;
+  object-fit: cover;
+  object-position: center center;
+}
+
+/* Logo/seal slide — contain so text is not cut off */
+.photo-slide.ps-white img {
+  height: 520px;
   object-fit: contain;
+  padding: 20px;
 }
 
 .photo-slide-caption {
@@ -3681,13 +3689,15 @@ p:last-child {
   .footer-bottom-mantra { font-size: .7rem; }
 }
 
-/* ── Photo slider: img-based so height is natural, cap on mobile ── */
+/* ── Photo slider: mobile heights ── */
 @media (max-width: 768px) {
-  .photo-slide img { max-height: 380px; }
+  .photo-slide img       { height: 320px; }
+  .photo-slide.ps-white img { height: 320px; padding: 16px; }
 }
 @media (max-width: 480px) {
-  .photo-slide img { max-height: 300px; }
-  .photo-slide-caption { font-size: .8rem; padding: 12px 16px 14px; }
+  .photo-slide img       { height: 260px; }
+  .photo-slide.ps-white img { height: 260px; padding: 12px; }
+  .photo-slide-caption   { font-size: .8rem; padding: 12px 16px 14px; }
 }
 
 /* ============================================================
