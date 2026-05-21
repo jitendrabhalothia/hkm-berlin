@@ -47,36 +47,64 @@
       "opens": "16:00",
       "closes": "19:00"
     }],
-    "event": {
-      "@type": "Event",
-      "name": "Saturday Kirtan & Bhagavad-Gita Program Berlin",
-      "description": "Weekly Hare Krishna program: Kirtan at 4 PM, Bhagavad-Gita class at 4:30 PM, Q&A at 5:30 PM, free vegetarian prasadam at 6 PM. Open to all.",
-      "startDate": "2026-01-04T16:00",
-      "eventSchedule": {
-        "@type": "Schedule",
-        "repeatFrequency": "P1W",
-        "byDay": "Saturday",
-        "startTime": "16:00",
-        "endTime": "19:00"
+    "event": [
+      {
+        "@type": "Event",
+        "name": "Saturday Kirtan & Bhagavad-Gita Program Berlin",
+        "description": "Weekly Hare Krishna program: Kirtan at 4 PM, Bhagavad-Gita class at 4:30 PM, Q&A at 5:30 PM, free vegetarian prasadam at 6 PM. Open to all.",
+        "startDate": "2026-01-04T16:00",
+        "eventSchedule": {
+          "@type": "Schedule",
+          "repeatFrequency": "P1W",
+          "byDay": "Saturday",
+          "startTime": "16:00",
+          "endTime": "19:00"
+        },
+        "location": {
+          "@type": "Place",
+          "name": "Hare Krishna Movement Berlin",
+          "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "Ritterlandweg 16",
+            "addressLocality": "Berlin",
+            "addressCountry": "DE"
+          }
+        },
+        "organizer": {
+          "@type": "Organization",
+          "name": "Hare Krishna Movement Berlin",
+          "url": "https://harekrishnaberlin.de"
+        },
+        "isAccessibleForFree": true,
+        "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode"
       },
-      "location": {
-        "@type": "Place",
-        "name": "Hare Krishna Movement Berlin",
-        "address": {
-          "@type": "PostalAddress",
-          "streetAddress": "Ritterlandweg 16",
-          "addressLocality": "Berlin",
-          "addressCountry": "DE"
-        }
-      },
-      "organizer": {
-        "@type": "Organization",
-        "name": "Hare Krishna Movement Berlin",
-        "url": "https://harekrishnaberlin.de"
-      },
-      "isAccessibleForFree": true,
-      "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode"
-    },
+      {
+        "@type": "Event",
+        "name": "Berlin Ratha Yatra 2026 — Festival of the Chariots",
+        "description": "Berlin Ratha Yatra 2026: The ancient chariot festival of Lord Jagannath comes to the streets of Berlin. Kirtan, free vegetarian prasadam and a joyful procession. Free entry, all are welcome.",
+        "startDate": "2026-07-18T10:00",
+        "endDate": "2026-07-18T18:00",
+        "image": "https://harekrishnaberlin.de/images/ratha-yatra-2026.png",
+        "location": {
+          "@type": "Place",
+          "name": "Sri Ganesha Hindu Temple",
+          "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "Hasenheide 106",
+            "addressLocality": "Berlin",
+            "postalCode": "10967",
+            "addressCountry": "DE"
+          }
+        },
+        "organizer": {
+          "@type": "Organization",
+          "name": "Hare Krishna Movement Berlin",
+          "url": "https://harekrishnaberlin.de"
+        },
+        "isAccessibleForFree": true,
+        "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode"
+      }
+    ],
     "sameAs": [
       "https://www.instagram.com/harekrishnaberlin/",
       "https://www.youtube.com/@ISKCONBangaloreMusic"
@@ -223,6 +251,32 @@
       </div>
     </section>
 
+
+    <!-- ── RATHA YATRA 2026 EVENT BANNER ── -->
+    <section class="ry-banner-section" aria-label="Berlin Ratha Yatra 2026">
+      <div class="ry-banner-inner">
+        <div class="ry-banner-text">
+          <p class="ry-label">&#10024; Upcoming Special Event</p>
+          <h2 class="ry-title">Berlin Ratha Yatra 2026</h2>
+          <p class="ry-subtitle">The Festival of the Chariots</p>
+          <div class="ry-details">
+            <span><i class="fas fa-calendar-alt"></i> 18 July 2026</span>
+            <span><i class="fas fa-clock"></i> 10:00 AM onwards</span>
+            <span><i class="fas fa-map-marker-alt"></i> Sri Ganesha Hindu Temple, Hasenheide 106, Berlin</span>
+          </div>
+          <div class="ry-highlights">
+            <span><i class="fas fa-music"></i> Kirtan</span>
+            <span><i class="fas fa-leaf"></i> Prasadam</span>
+            <span><i class="fas fa-route"></i> Procession</span>
+          </div>
+          <p class="ry-note">Free entry &mdash; everyone is welcome! Organised by Hare Krishna Movement Berlin in cooperation with Radha Govinda Temple &amp; IHKM.</p>
+          <a href="programs.html#ratha-yatra" class="btn-primary ry-btn">Learn More</a>
+        </div>
+        <div class="ry-banner-img">
+          <img src="images/ratha-yatra-2026.png" alt="Berlin Ratha Yatra 2026 — 18 July, Sri Ganesha Hindu Temple" />
+        </div>
+      </div>
+    </section>
 
     <!-- ── PHOTO SLIDER ── -->
     <section class="photo-slider-section" aria-label="Our Community Photos">
