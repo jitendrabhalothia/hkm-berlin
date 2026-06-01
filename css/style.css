@@ -346,8 +346,11 @@ p:last-child {
 }
 
 .nav-logo img {
-  height: 48px;
+  height: 52px;
   width: auto;
+  max-width: 200px;
+  object-fit: contain;
+  border-radius: 6px;
 }
 
 /* Placeholder logo (shown when image missing) */
@@ -2586,7 +2589,7 @@ p:last-child {
 /* --- Navigation --- */
 @media (max-width: 768px) {
   .nav-inner { padding: 0 16px; height: 60px; }
-  .nav-logo img { height: 38px; }
+  .nav-logo img { height: 42px; max-width: 160px; }
 
   /* Hero */
   .hero { min-height: 100svh; }
