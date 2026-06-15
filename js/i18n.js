@@ -29,7 +29,7 @@
       'footer.ekadashi': 'Ekadashi Chanting',
       'footer.festivals':'Festivals',
       'footer.tagline':  'Dedicated to spreading the teachings of Srila Prabhupada and Bhakti Yoga in Berlin.',
-      'footer.copy':     '© {year} Hare Krishna Movement Berlin. All rights reserved.',
+      'footer.copy':     '© {year} Hare Krishna Berlin. All rights reserved.',
 
       /* HERO (index) */
       'hero.tagline':    'Bhakti Yoga • Mantra Meditation • Bhagavad-Gita Wisdom',
@@ -101,7 +101,7 @@
       /* PRABHUPADA SECTION */
       'sp.label':        'Our Spiritual Master',
       'sp.h2':           'Dedicated to Srila Prabhupada',
-      'sp.p1':           'The Hare Krishna Movement Berlin follows <strong>His Divine Grace A.C. Bhaktivedanta Swami Srila Prabhupada</strong> as our eternal Diksha Guru and Founder-Acharya. Everything we teach and practice is directly based on his books, lectures, and instructions.',
+      'sp.p1':           'The Hare Krishna Berlin follows <strong>His Divine Grace A.C. Bhaktivedanta Swami Srila Prabhupada</strong> as our eternal Diksha Guru and Founder-Acharya. Everything we teach and practice is directly based on his books, lectures, and instructions.',
       'sp.p2':           'Come as you are — no membership, no fees, no prior knowledge needed. Just an open heart and a willingness to chant.',
       'sp.btn1':         'About Srila Prabhupada',
       'sp.btn2':         'Find Us',
@@ -163,7 +163,7 @@
       'footer.ekadashi': 'Ekadashi-Gesang',
       'footer.festivals':'Feste',
       'footer.tagline':  'Gewidmet der Verbreitung von Srila Prabhupadas Lehren und Bhakti Yoga in Berlin.',
-      'footer.copy':     '© {year} Hare Krishna Movement Berlin. Alle Rechte vorbehalten.',
+      'footer.copy':     '© {year} Hare Krishna Berlin. Alle Rechte vorbehalten.',
 
       /* HERO (index) */
       'hero.tagline':    'Bhakti Yoga • Mantra-Meditation • Bhagavad-Gita Weisheit',
@@ -235,7 +235,7 @@
 
       'sp.label':        'Unser spiritueller Meister',
       'sp.h2':           'Gewidmet Srila Prabhupada',
-      'sp.p1':           'Das Hare Krishna Movement Berlin folgt <strong>Seiner Göttlichen Gnade A.C. Bhaktivedanta Swami Srila Prabhupada</strong> als unserem ewigen Diksha Guru und Gründer-Acharya. Alles, was wir lehren und praktizieren, basiert direkt auf seinen Büchern, Vorträgen und Anweisungen.',
+      'sp.p1':           'Hare Krishna Berlin folgt <strong>Seiner Göttlichen Gnade A.C. Bhaktivedanta Swami Srila Prabhupada</strong> als unserem ewigen Diksha Guru und Gründer-Acharya. Alles, was wir lehren und praktizieren, basiert direkt auf seinen Büchern, Vorträgen und Anweisungen.',
       'sp.p2':           'Komm wie du bist — keine Mitgliedschaft, keine Kosten, kein Vorwissen nötig. Nur ein offenes Herz und die Bereitschaft zu singen.',
       'sp.btn1':         'Über Srila Prabhupada',
       'sp.btn2':         'Uns finden',
