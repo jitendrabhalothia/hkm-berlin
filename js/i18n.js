@@ -34,7 +34,7 @@
       /* HERO (index) */
       'hero.tagline':    'Bhakti Yoga • Mantra Meditation • Bhagavad-Gita Wisdom',
       'hero.sub':        'Dedicated to the teachings of<br><strong>His Divine Grace A.C. Bhaktivedanta Swami Srila Prabhupada</strong>',
-      'hero.schedule':   '<i class="fas fa-calendar-alt" style="margin-right:.3rem;color:var(--gold-light);"></i>Every <strong>Saturday from 4 PM</strong> &mdash; Kirtan &middot; Bhagavad-Gita &middot; Free Prasadam<br><i class="fas fa-map-marker-alt" style="margin-right:.3rem;color:var(--gold-light);"></i>Berlin Ritterlandweg 16, Berlin &mdash; <strong>All are welcome, free of charge</strong>mdash; <strong>Join WhatsApp for location details</strong>',
+      'hero.schedule':   '<i class="fas fa-calendar-alt" style="margin-right:.3rem;color:var(--gold-light);"></i>Every <strong>Saturday from 4 PM</strong> &mdash; Kirtan &middot; Bhagavad-Gita &middot; Free Prasadam<br><i class="fab fa-whatsapp" style="margin-right:.3rem;color:var(--gold-light);"></i>Berlin &mdash; <strong>Join WhatsApp for location details</strong>',
       'hero.btn1':       'Join This Saturday',
       'hero.btn2':       'Get Directions',
 
@@ -168,7 +168,7 @@
       /* HERO (index) */
       'hero.tagline':    'Bhakti Yoga • Mantra-Meditation • Bhagavad-Gita Weisheit',
       'hero.sub':        'Gewidmet den Lehren<br><strong>Seiner Göttlichen Gnade A.C. Bhaktivedanta Swami Srila Prabhupada</strong>',
-      'hero.schedule':   '<i class="fas fa-calendar-alt" style="margin-right:.3rem;color:var(--gold-light);"></i>Jeden <strong>Samstag ab 16:00 Uhr</strong> &mdash; Kirtan &middot; Bhagavad-Gita &middot; Freies Prasadam<br><i class="fas fa-map-marker-alt" style="margin-right:.3rem;color:var(--gold-light);"></i>Berlin Ritterlandweg 16, Berlin &mdash; <strong>Alle sind willkommen, kostenlos</strong>mdash; <strong>WhatsApp für Ortsangaben beitreten</strong>',
+      'hero.schedule':   '<i class="fas fa-calendar-alt" style="margin-right:.3rem;color:var(--gold-light);"></i>Jeden <strong>Samstag ab 16:00 Uhr</strong> &mdash; Kirtan &middot; Bhagavad-Gita &middot; Freies Prasadam<br><i class="fab fa-whatsapp" style="margin-right:.3rem;color:var(--gold-light);"></i>Berlin &mdash; <strong>WhatsApp für Standortdetails beitreten</strong>',
       'hero.btn1':       'Diesen Samstag kommen',
       'hero.btn2':       'Wegbeschreibung',
 

@@ -353,6 +353,20 @@ p:last-child {
   border-radius: 6px;
 }
 
+.nav-brand-text {
+  font-family: var(--font-heading);
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--brown-deep);
+  letter-spacing: 0.02em;
+  line-height: 1.2;
+}
+
+.nav-brand-text::before {
+  content: '🪷 ';
+  font-size: 1rem;
+}
+
 /* Placeholder logo (shown when image missing) */
 .nav-logo-text {
   display: flex;
