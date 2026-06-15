@@ -34,7 +34,7 @@
       /* HERO (index) */
       'hero.tagline':    'Bhakti Yoga • Mantra Meditation • Bhagavad-Gita Wisdom',
       'hero.sub':        'Dedicated to the teachings of<br><strong>His Divine Grace A.C. Bhaktivedanta Swami Srila Prabhupada</strong>',
-      'hero.schedule':   '<i class="fas fa-calendar-alt" style="margin-right:.3rem;color:var(--gold-light);"></i>Every <strong>Saturday from 4 PM</strong> &mdash; Kirtan &middot; Bhagavad-Gita &middot; Free Prasadam<br><i class="fas fa-map-marker-alt" style="margin-right:.3rem;color:var(--gold-light);"></i>Ritterlandweg 16, Berlin &mdash; <strong>All are welcome, free of charge</strong>',
+      'hero.schedule':   '<i class="fas fa-calendar-alt" style="margin-right:.3rem;color:var(--gold-light);"></i>Every <strong>Saturday from 4 PM</strong> &mdash; Kirtan &middot; Bhagavad-Gita &middot; Free Prasadam<br><i class="fas fa-map-marker-alt" style="margin-right:.3rem;color:var(--gold-light);"></i>Berlin Ritterlandweg 16, Berlin &mdash; <strong>All are welcome, free of charge</strong>mdash; <strong>Join WhatsApp for location details</strong>',
       'hero.btn1':       'Join This Saturday',
       'hero.btn2':       'Get Directions',
 
@@ -49,7 +49,7 @@
       'prog.qa.time':    '5:30 PM',
       'prog.prasadam':   'Free Prasadam',
       'prog.prasadam.time':'6:00 PM',
-      'prog.btn':        'Ritterlandweg 16',
+      'prog.btn':        'Join WhatsApp for Location',
 
       /* MANTRA SECTION */
       'mantra.label':    'The Hare Krishna Maha-Mantra',
@@ -67,7 +67,7 @@
       'slide3.desc':     'Live chanting every Saturday at 4:00 PM — no experience required. All welcome.',
       'slide3.btn':      'See Programs',
       'slide4.label':    'Free Every Saturday at 6 PM',
-      'slide4.h2':       'Free Prasadam<br><em>Ritterlandweg 16</em>',
+      'slide4.h2':       'Free Prasadam<br><em>Berlin</em>',
       'slide4.desc':     'Sanctified vegetarian food offered to Krishna — nourishing body, mind and soul.',
       'slide4.btn':      'Get Directions',
       'slide5.label':    'Words of Wisdom',
@@ -108,7 +108,7 @@
 
       /* CTA */
       'cta.h2':          'You Are Invited This Saturday',
-      'cta.p':           'Come as you are — no membership, no fees, no experience needed.<br>Just an open heart. <strong>Ritterlandweg 16, Berlin · Every Saturday from 4 PM</strong>',
+      'cta.p':           'Come as you are — no membership, no fees, no experience needed.<br>Just an open heart. <strong>Berlin · Every Saturday from 4 PM · Join WhatsApp for location</strong>',
       'cta.btn1':        'See the Schedule',
       'cta.btn2':        'Get Directions',
 
@@ -135,7 +135,7 @@
       'about.centers.sub': 'By the mercy of <strong>His Divine Grace Srila Prabhupada</strong>, over <strong>70 Hare Krishna Movement temples</strong> have been established across India and around the world. Each one stands as a living testimony to his vision — that every town and village should hear the holy name of Krishna.',
       'about.centers.note':'These are <em>some</em> of those temples. Come visit us in Berlin — we are part of this same worldwide family, dedicated to the same mission.',
       'about.cta.h2':    'Join Us in Berlin',
-      'about.cta.p':     'Every Saturday · Ritterlandweg 16, Berlin · Free prasadam at 6 PM',
+      'about.cta.p':     'Every Saturday · Berlin · Free prasadam at 6 PM · Join WhatsApp for location',
 
       /* CONTACT */
       'contact.cta.h2':  'Come and Chant with Us',
@@ -168,7 +168,7 @@
       /* HERO (index) */
       'hero.tagline':    'Bhakti Yoga • Mantra-Meditation • Bhagavad-Gita Weisheit',
       'hero.sub':        'Gewidmet den Lehren<br><strong>Seiner Göttlichen Gnade A.C. Bhaktivedanta Swami Srila Prabhupada</strong>',
-      'hero.schedule':   '<i class="fas fa-calendar-alt" style="margin-right:.3rem;color:var(--gold-light);"></i>Jeden <strong>Samstag ab 16:00 Uhr</strong> &mdash; Kirtan &middot; Bhagavad-Gita &middot; Freies Prasadam<br><i class="fas fa-map-marker-alt" style="margin-right:.3rem;color:var(--gold-light);"></i>Ritterlandweg 16, Berlin &mdash; <strong>Alle sind willkommen, kostenlos</strong>',
+      'hero.schedule':   '<i class="fas fa-calendar-alt" style="margin-right:.3rem;color:var(--gold-light);"></i>Jeden <strong>Samstag ab 16:00 Uhr</strong> &mdash; Kirtan &middot; Bhagavad-Gita &middot; Freies Prasadam<br><i class="fas fa-map-marker-alt" style="margin-right:.3rem;color:var(--gold-light);"></i>Berlin Ritterlandweg 16, Berlin &mdash; <strong>Alle sind willkommen, kostenlos</strong>mdash; <strong>WhatsApp für Ortsangaben beitreten</strong>',
       'hero.btn1':       'Diesen Samstag kommen',
       'hero.btn2':       'Wegbeschreibung',
 
@@ -183,7 +183,7 @@
       'prog.qa.time':    '17:30 Uhr',
       'prog.prasadam':   'Freies Prasadam',
       'prog.prasadam.time':'18:00 Uhr',
-      'prog.btn':        'Ritterlandweg 16',
+      'prog.btn':        'Join WhatsApp for Location',
 
       /* MANTRA SECTION */
       'mantra.label':    'Das Hare Krishna Maha-Mantra',
@@ -201,7 +201,7 @@
       'slide3.desc':     'Live-Kirtan jeden Samstag um 16:00 Uhr — keine Erfahrung nötig. Alle willkommen.',
       'slide3.btn':      'Programme ansehen',
       'slide4.label':    'Jeden Samstag kostenlos um 18:00 Uhr',
-      'slide4.h2':       'Freies Prasadam<br><em>Ritterlandweg 16</em>',
+      'slide4.h2':       'Freies Prasadam<br><em>Berlin</em>',
       'slide4.desc':     'Geheiligte vegetarische Speisen, die Krishna angeboten werden — nährend für Körper, Geist und Seele.',
       'slide4.btn':      'Wegbeschreibung',
       'slide5.label':    'Worte der Weisheit',
@@ -242,7 +242,7 @@
 
       /* CTA */
       'cta.h2':          'Du bist diesen Samstag eingeladen',
-      'cta.p':           'Komm wie du bist — keine Mitgliedschaft, keine Kosten, keine Erfahrung nötig.<br>Nur ein offenes Herz. <strong>Ritterlandweg 16, Berlin · Jeden Samstag ab 16:00 Uhr</strong>',
+      'cta.p':           'Komm wie du bist — keine Mitgliedschaft, keine Kosten, keine Erfahrung nötig.<br>Nur ein offenes Herz. <strong>Berlin · Jeden Samstag ab 16:00 Uhr · WhatsApp für Standort</strong>',
       'cta.btn1':        'Programm ansehen',
       'cta.btn2':        'Wegbeschreibung',
 
@@ -269,7 +269,7 @@
       'about.centers.sub': 'Durch die Gnade von <strong>Seiner Göttlichen Gnade Srila Prabhupada</strong> wurden über <strong>70 Hare Krishna Bewegungs-Tempel</strong> in Indien und auf der ganzen Welt errichtet. Jeder ist ein lebendiges Zeugnis seiner Vision — dass jede Stadt und jedes Dorf den heiligen Namen Krishnas hören soll.',
       'about.centers.note':'Dies sind <em>einige</em> dieser Tempel. Besuche uns in Berlin — wir sind Teil dieser weltweiten Familie.',
       'about.cta.h2':    'Komm zu uns in Berlin',
-      'about.cta.p':     'Jeden Samstag · Ritterlandweg 16, Berlin · Freies Prasadam um 18:00 Uhr',
+      'about.cta.p':     'Jeden Samstag · Berlin · Freies Prasadam um 18:00 Uhr · WhatsApp beitreten',
 
       /* CONTACT */
       'contact.cta.h2':  'Komm und singe mit uns',
