@@ -281,6 +281,59 @@
       </div>
     </section>
 
+    <!-- ── LORD JAGANNATH BLESSING WHEEL ── -->
+    <section class="blessing-wheel-section" id="blessing-wheel" aria-label="Lord Jagannath's Blessing Wheel">
+      <div class="container">
+        <div class="section-header fade-up">
+          <span class="section-label">✨ Ratha Yatra 2026</span>
+          <h2 class="blessing-wheel-title">Receive Lord Jagannath's Blessing</h2>
+          <p class="blessing-wheel-sub">Spin the wheel and discover what Lord Jagannath wants to tell you for Ratha Yatra</p>
+        </div>
+
+        <div class="wheel-wrapper fade-up">
+          <!-- Pointer -->
+          <div class="wheel-pointer">▼</div>
+
+          <!-- Canvas Wheel -->
+          <canvas id="blessingWheel" width="380" height="380"></canvas>
+
+          <!-- Center image -->
+          <div class="wheel-center-img">
+            <img src="images/jagannath-closeup.jpg" alt="Lord Jagannath" />
+          </div>
+        </div>
+
+        <div style="text-align:center;margin-top:28px;" class="fade-up">
+          <button id="spinBtn" class="spin-btn">
+            <i class="fas fa-dharmachakra"></i> Spin for Blessing
+          </button>
+          <p class="wheel-hint">Click the wheel or the button to spin</p>
+        </div>
+      </div>
+
+      <!-- Blessing Modal -->
+      <div id="blessingModal" class="blessing-modal" role="dialog" aria-modal="true" aria-labelledby="blessingTitle">
+        <div class="blessing-modal-inner">
+          <div class="blessing-modal-icon" id="blessingIcon">🌸</div>
+          <h3 id="blessingTitle">Lord Jagannath's Blessing</h3>
+          <p class="blessing-label" id="blessingLabel">Joy</p>
+          <p class="blessing-text" id="blessingText">Loading...</p>
+          <div class="blessing-modal-actions">
+            <a id="shareWhatsApp" href="#" target="_blank" rel="noopener" class="btn-blessing-share">
+              <i class="fab fa-whatsapp"></i> Share on WhatsApp
+            </a>
+            <button id="closeBlessingModal" class="btn-blessing-close">
+              <i class="fas fa-redo"></i> Spin Again
+            </button>
+          </div>
+          <a href="volunteer.html" class="blessing-volunteer-link">
+            🙏 Join Ratha Yatra as a Volunteer
+          </a>
+        </div>
+      </div>
+      <div id="blessingOverlay" class="blessing-overlay"></div>
+    </section>
+
     <!-- ── PHOTO SLIDER ── -->
     <section class="photo-slider-section" aria-label="Our Community Photos">
       <div class="photo-slider" id="photoSlider">
@@ -476,5 +529,6 @@
 
   <script src="js/i18n.js"></script>
   <script src="js/script.js"></script>
+  <script src="js/blessing-wheel.js"></script>
 </body>
 </html>
