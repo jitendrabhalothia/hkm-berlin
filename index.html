@@ -303,11 +303,24 @@
           </div>
         </div>
 
-        <div style="text-align:center;margin-top:28px;" class="fade-up">
-          <button id="spinBtn" class="spin-btn">
-            <i class="fas fa-dharmachakra"></i> Spin for Blessing
-          </button>
-          <p class="wheel-hint">Click the wheel or the button to spin</p>
+        <div class="wheel-name-box fade-up">
+          <label for="devoteeName" class="wheel-name-label">
+            <i class="fas fa-user-circle"></i> Enter your name to receive your personal blessing
+          </label>
+          <div class="wheel-name-input-wrap">
+            <input
+              type="text"
+              id="devoteeName"
+              class="wheel-name-input"
+              placeholder="Your name..."
+              maxlength="40"
+              autocomplete="off"
+            />
+            <button id="spinBtn" class="spin-btn" disabled>
+              <i class="fas fa-dharmachakra"></i> Receive My Blessing
+            </button>
+          </div>
+          <p class="wheel-hint" id="wheelHint">Type your name above to spin the wheel</p>
         </div>
       </div>
 
@@ -417,7 +430,7 @@
             <img src="images/prabhupada-meditation.png" alt="His Divine Grace A.C. Bhaktivedanta Swami Srila Prabhupada" class="sp-photo" />
           </div>
           <div>
-            <p class="section-label" style="font-size:.8rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--saffron);margin-bottom:12px;" data-i18n="sp.label">Our Spiritual Master</p>
+            <p class="section-label" style="font-size:.8rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--saffron);margin-bottom:12px;" data-i18n="sp.label">Our Spiritual Teacher</p>
 
             <!-- Prabhupada title card -->
             <div class="sp-title-card">
@@ -431,7 +444,7 @@
             <div class="lotus-divider" aria-hidden="true">❀</div>
             <p data-i18n-html="sp.p1">
               The Hare Krishna Berlin follows <strong>His Divine Grace A.C. Bhaktivedanta
-              Swami Srila Prabhupada</strong> as our eternal Diksha Guru and Founder-Acharya. Everything
+              Swami Srila Prabhupada</strong> as our Founder-Acharya and eternal Spiritual Teacher. Everything
               we teach and practice is directly based on his books, lectures, and instructions.
             </p>
             <p data-i18n="sp.p2">

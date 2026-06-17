@@ -6,49 +6,49 @@
       icon: '🌸',
       label: 'Joy',
       color: '#e84393',
-      text: 'Lord Jagannath blesses you with boundless joy! Come dance and sing His holy names at Ratha Yatra in Berlin. Your happiness will inspire everyone around you.'
+      text: '{name}, Lord Jagannath blesses you with boundless Joy! Come dance and sing His holy names at Ratha Yatra in Berlin on 18 July. Your happiness will light up the whole procession!'
     },
     {
       icon: '☮️',
       label: 'Peace',
       color: '#3b82f6',
-      text: 'Lord Jagannath grants you deep inner peace. His chariot carries away all worries and anxieties. Surrender everything to Him and experience true tranquillity.'
+      text: '{name}, Lord Jagannath grants you deep inner Peace. His chariot carries away all worries and anxieties. Surrender everything to Him and experience true tranquillity at Ratha Yatra.'
     },
     {
       icon: '🌟',
       label: 'Prosperity',
       color: '#f59e0b',
-      text: 'Lord Jagannath showers you with abundance and blessings. Seeing His chariot destroys all misfortune. Come to Ratha Yatra and receive His infinite mercy.'
+      text: '{name}, Lord Jagannath showers you with Prosperity and blessings! Seeing His chariot destroys all misfortune. Come to Ratha Yatra on 18 July and receive His infinite mercy.'
     },
     {
       icon: '🙏',
       label: 'Devotion',
       color: '#8b5cf6',
-      text: 'Lord Jagannath is awakening pure devotion in your heart. Chant Hare Krishna and be happy! This Ratha Yatra is your golden opportunity to deepen your love for the Lord.'
+      text: '{name}, Lord Jagannath is awakening pure Devotion in your heart. Chant Hare Krishna and be happy! This Ratha Yatra is your golden opportunity to deepen your love for the Lord.'
     },
     {
       icon: '🌺',
       label: 'Healing',
       color: '#10b981',
-      text: 'Lord Jagannath heals body, mind, and soul. His sacred prasadam purifies everything it touches. Come receive His healing grace at Ratha Yatra on 18 July.'
+      text: '{name}, Lord Jagannath blesses you with Healing for body, mind, and soul. His sacred prasadam purifies everything it touches. Come receive His healing grace at Ratha Yatra on 18 July.'
     },
     {
       icon: '🔱',
       label: 'Protection',
       color: '#ef4444',
-      text: 'Lord Jagannath is protecting you and your family. Take shelter under His divine chariot and fear nothing. He watches over all who come to Him with an open heart.'
+      text: '{name}, Lord Jagannath is watching over you with His Protection. Take shelter under His divine chariot and fear nothing. He guards all who come to Him with an open heart.'
     },
     {
       icon: '💛',
       label: 'Divine Love',
       color: '#f97316',
-      text: 'Lord Jagannath fills your heart with divine love — the highest treasure in all creation. Come celebrate this love with 1000+ devotees at Berlin Ratha Yatra!'
+      text: '{name}, Lord Jagannath fills your heart with Divine Love — the highest treasure in all creation. Come celebrate this love with 1000+ devotees at Berlin Ratha Yatra on 18 July!'
     },
     {
       icon: '🌈',
       label: 'Liberation',
       color: '#06b6d4',
-      text: '"Seeing Lord Jagannath\'s Ratha Yatra destroys all sinful reactions." — Brahmanda Purana. This Ratha Yatra on 18 July is your moment of liberation. Do not miss it!'
+      text: '{name}, the scriptures say: "Seeing Lord Jagannath\'s Ratha Yatra destroys all sinful reactions." — Brahmanda Purana. This 18 July is your moment of Liberation. Do not miss it!'
     }
   ];
 
@@ -61,6 +61,28 @@
   const radius = canvas.width / 2;
   let currentAngle = 0;
   let spinning = false;
+
+  // Enable/disable spin button based on name input
+  const nameInput = document.getElementById('devoteeName');
+  const spinBtn   = document.getElementById('spinBtn');
+  const hintEl    = document.getElementById('wheelHint');
+
+  nameInput.addEventListener('input', function () {
+    const val = this.value.trim();
+    if (val.length > 0) {
+      spinBtn.disabled = false;
+      hintEl.textContent = 'Click the button or the wheel to spin!';
+      hintEl.style.color = '#f5c842';
+    } else {
+      spinBtn.disabled = true;
+      hintEl.textContent = 'Type your name above to spin the wheel';
+      hintEl.style.color = '';
+    }
+  });
+
+  nameInput.addEventListener('keydown', function (e) {
+    if (e.key === 'Enter' && !spinBtn.disabled) startSpin();
+  });
 
   function drawWheel(angle) {
     ctx.clearRect(0, 0, canvas.width, canvas.height);
@@ -78,7 +100,7 @@
 
     for (let i = 0; i < numSegments; i++) {
       const startAngle = angle + i * arcSize;
-      const endAngle = startAngle + arcSize;
+      const endAngle   = startAngle + arcSize;
       const b = blessings[i];
 
       // Segment fill
@@ -100,11 +122,10 @@
       ctx.rotate(startAngle + arcSize / 2);
       ctx.textAlign = 'right';
 
-      // Icon
       ctx.font = '22px serif';
+      ctx.fillStyle = '#fff';
       ctx.fillText(b.icon, radius - 18, 7);
 
-      // Label
       ctx.font = 'bold 12px Lato, sans-serif';
       ctx.fillStyle = '#fff';
       ctx.shadowColor = 'rgba(0,0,0,0.6)';
@@ -114,7 +135,7 @@
       ctx.restore();
     }
 
-    // Center circle (white cover for the image overlay)
+    // Center white circle for image overlay
     ctx.beginPath();
     ctx.arc(radius, radius, 44, 0, 2 * Math.PI);
     ctx.fillStyle = '#fff';
@@ -126,36 +147,36 @@
 
   drawWheel(currentAngle);
 
-  // Click on canvas to spin
-  canvas.addEventListener('click', startSpin);
-  document.getElementById('spinBtn').addEventListener('click', startSpin);
+  canvas.addEventListener('click', function () {
+    if (!spinBtn.disabled) startSpin();
+  });
+  spinBtn.addEventListener('click', startSpin);
 
   function startSpin() {
     if (spinning) return;
     spinning = true;
-    document.getElementById('spinBtn').disabled = true;
+    spinBtn.disabled = true;
+    nameInput.disabled = true;
 
-    const totalRotation = (Math.random() * 4 + 6) * 2 * Math.PI; // 6-10 full rotations
-    const duration = 4000 + Math.random() * 1500; // 4-5.5 seconds
-    const startTime = performance.now();
-    const startAngle = currentAngle;
+    const totalRotation = (Math.random() * 4 + 6) * 2 * Math.PI;
+    const duration      = 4000 + Math.random() * 1500;
+    const startTime     = performance.now();
+    const startAngle    = currentAngle;
 
-    function easeOut(t) {
-      return 1 - Math.pow(1 - t, 4);
-    }
+    function easeOut(t) { return 1 - Math.pow(1 - t, 4); }
 
     function animate(now) {
-      const elapsed = now - startTime;
+      const elapsed  = now - startTime;
       const progress = Math.min(elapsed / duration, 1);
-      const eased = easeOut(progress);
-      currentAngle = startAngle + totalRotation * eased;
+      currentAngle   = startAngle + totalRotation * easeOut(progress);
       drawWheel(currentAngle);
 
       if (progress < 1) {
         requestAnimationFrame(animate);
       } else {
         spinning = false;
-        document.getElementById('spinBtn').disabled = false;
+        nameInput.disabled = false;
+        spinBtn.disabled = nameInput.value.trim().length === 0;
         showBlessing();
       }
     }
@@ -164,39 +185,38 @@
   }
 
   function showBlessing() {
-    // Calculate which segment is at the top (pointer at top = -PI/2)
+    const name       = nameInput.value.trim() || 'Dear Devotee';
     const normalised = (((-currentAngle - Math.PI / 2) % (2 * Math.PI)) + 2 * Math.PI) % (2 * Math.PI);
-    const index = Math.floor(normalised / arcSize) % numSegments;
-    const b = blessings[index];
+    const index      = Math.floor(normalised / arcSize) % numSegments;
+    const b          = blessings[index];
+    const fullText   = b.text.replace(/\{name\}/g, name);
 
-    document.getElementById('blessingIcon').textContent = b.icon;
+    document.getElementById('blessingIcon').textContent  = b.icon;
     document.getElementById('blessingLabel').textContent = b.label;
-    document.getElementById('blessingTitle').textContent = 'Lord Jagannath Blesses You with ' + b.label;
-    document.getElementById('blessingText').textContent = b.text;
+    document.getElementById('blessingTitle').textContent = name + ', Lord Jagannath blesses you with ' + b.label + '!';
+    document.getElementById('blessingText').textContent  = fullText;
 
     // WhatsApp share
     const msg = encodeURIComponent(
-      b.icon + ' Lord Jagannath blesses me with ' + b.label + '!\n\n"' + b.text +
-      '"\n\nCome to Berlin Ratha Yatra 2026 — 18 July! 🎡\nharekrishnaberlin.de'
+      b.icon + ' ' + name + ', Lord Jagannath blesses you with ' + b.label + '!\n\n' +
+      fullText + '\n\n🎡 Berlin Ratha Yatra — 18 July 2026\nharekrishnaberlin.de/volunteer.html'
     );
     document.getElementById('shareWhatsApp').href = 'https://wa.me/?text=' + msg;
 
-    // Modal background color
     document.querySelector('.blessing-modal-inner').style.borderTop = '5px solid ' + b.color;
-    document.getElementById('blessingIcon').style.background = b.color + '22';
-    document.getElementById('blessingIcon').style.borderColor = b.color;
+    document.getElementById('blessingIcon').style.background   = b.color + '22';
+    document.getElementById('blessingIcon').style.borderColor  = b.color;
 
     document.getElementById('blessingModal').classList.add('active');
     document.getElementById('blessingOverlay').classList.add('active');
   }
 
-  document.getElementById('closeBlessingModal').addEventListener('click', function () {
+  document.getElementById('closeBlessingModal').addEventListener('click', closeModal);
+  document.getElementById('blessingOverlay').addEventListener('click', closeModal);
+
+  function closeModal() {
     document.getElementById('blessingModal').classList.remove('active');
     document.getElementById('blessingOverlay').classList.remove('active');
-  });
-  document.getElementById('blessingOverlay').addEventListener('click', function () {
-    document.getElementById('blessingModal').classList.remove('active');
-    document.getElementById('blessingOverlay').classList.remove('active');
-  });
+  }
 
 })();

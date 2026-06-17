@@ -99,9 +99,9 @@
       'sp.36':           'On November 14, 1977, Srila Prabhupada left this world physically in Vrindavana, India — the holy land of Krishna — surrounded by his loving disciples, leaving behind an eternal spiritual legacy.',
 
       /* PRABHUPADA SECTION */
-      'sp.label':        'Our Spiritual Master',
+      'sp.label':        'Our Spiritual Teacher',
       'sp.h2':           'Dedicated to Srila Prabhupada',
-      'sp.p1':           'The Hare Krishna Berlin follows <strong>His Divine Grace A.C. Bhaktivedanta Swami Srila Prabhupada</strong> as our eternal Diksha Guru and Founder-Acharya. Everything we teach and practice is directly based on his books, lectures, and instructions.',
+      'sp.p1':           'The Hare Krishna Berlin follows <strong>His Divine Grace A.C. Bhaktivedanta Swami Srila Prabhupada</strong> as our Founder-Acharya and eternal Spiritual Teacher. Everything we teach and practice is directly based on his books, lectures, and instructions.',
       'sp.p2':           'Come as you are — no membership, no fees, no prior knowledge needed. Just an open heart and a willingness to chant.',
       'sp.btn1':         'About Srila Prabhupada',
       'sp.btn2':         'Find Us',
@@ -129,7 +129,7 @@
       'ph.about.p':        'Global Centers — spreading Bhakti Yoga to every town and village',
 
       /* ABOUT HKM */
-      'about.guru.h2':   'Our Eternal Spiritual Master',
+      'about.guru.h2':   'Our Spiritual Teacher',
       'about.guru.p':    '<strong>His Divine Grace A.C. Bhaktivedanta Swami Srila Prabhupada</strong> is our Founder-Acharya and eternal Diksha Guru. Every centre of the Hare Krishna Movement is dedicated to his instructions and his books.',
       'about.centers.h2':  'Some of Our Temples Worldwide',
       'about.centers.sub': 'By the mercy of <strong>His Divine Grace Srila Prabhupada</strong>, over <strong>70 Hare Krishna Movement temples</strong> have been established across India and around the world. Each one stands as a living testimony to his vision — that every town and village should hear the holy name of Krishna.',
@@ -235,7 +235,7 @@
 
       'sp.label':        'Unser spiritueller Meister',
       'sp.h2':           'Gewidmet Srila Prabhupada',
-      'sp.p1':           'Hare Krishna Berlin folgt <strong>Seiner Göttlichen Gnade A.C. Bhaktivedanta Swami Srila Prabhupada</strong> als unserem ewigen Diksha Guru und Gründer-Acharya. Alles, was wir lehren und praktizieren, basiert direkt auf seinen Büchern, Vorträgen und Anweisungen.',
+      'sp.p1':           'Hare Krishna Berlin folgt <strong>Seiner Göttlichen Gnade A.C. Bhaktivedanta Swami Srila Prabhupada</strong> als unserem Gründer-Acharya und ewigen spirituellen Lehrer. Alles, was wir lehren und praktizieren, basiert direkt auf seinen Büchern, Vorträgen und Anweisungen.',
       'sp.p2':           'Komm wie du bist — keine Mitgliedschaft, keine Kosten, kein Vorwissen nötig. Nur ein offenes Herz und die Bereitschaft zu singen.',
       'sp.btn1':         'Über Srila Prabhupada',
       'sp.btn2':         'Uns finden',
@@ -264,7 +264,7 @@
 
       /* ABOUT HKM */
       'about.guru.h2':   'Unser ewiger spiritueller Meister',
-      'about.guru.p':    '<strong>Seine Göttliche Gnade A.C. Bhaktivedanta Swami Srila Prabhupada</strong> ist unser Gründer-Acharya und ewiger Diksha Guru. Jedes Zentrum der Hare Krishna Bewegung ist seinen Anweisungen und Büchern gewidmet.',
+      'about.guru.p':    '<strong>Seine Göttliche Gnade A.C. Bhaktivedanta Swami Srila Prabhupada</strong> ist unser Gründer-Acharya und ewiger spiritueller Lehrer. Jedes Zentrum der Hare Krishna Bewegung ist seinen Anweisungen und Büchern gewidmet.',
       'about.centers.h2':  'Einige unserer Tempel weltweit',
       'about.centers.sub': 'Durch die Gnade von <strong>Seiner Göttlichen Gnade Srila Prabhupada</strong> wurden über <strong>70 Hare Krishna Bewegungs-Tempel</strong> in Indien und auf der ganzen Welt errichtet. Jeder ist ein lebendiges Zeugnis seiner Vision — dass jede Stadt und jedes Dorf den heiligen Namen Krishnas hören soll.',
       'about.centers.note':'Dies sind <em>einige</em> dieser Tempel. Besuche uns in Berlin — wir sind Teil dieser weltweiten Familie.',
