@@ -199,7 +199,12 @@
     // WhatsApp share
     const msg = encodeURIComponent(
       b.icon + ' ' + name + ', Lord Jagannath blesses you with ' + b.label + '!\n\n' +
-      fullText + '\n\n🎡 Berlin Ratha Yatra — 18 July 2026\nharekrishnaberlin.de/volunteer.html'
+      fullText +
+      '\n\n\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\n' +
+      '\uD83C\uDFA1 Spin the wheel & get YOUR blessing:\n\uD83D\uDC49 harekrishnaberlin.de\n\n' +
+      '\uD83D\uDE4F Want to serve at Ratha Yatra?\n\uD83D\uDC49 harekrishnaberlin.de/volunteer.html\n' +
+      '\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\n' +
+      'Berlin Ratha Yatra \u2014 18 July 2026'
     );
     document.getElementById('shareWhatsApp').href = 'https://wa.me/?text=' + msg;
 
