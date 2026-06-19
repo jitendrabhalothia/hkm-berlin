@@ -4203,3 +4203,84 @@ p:last-child {
   .wheel-name-input { max-width: 100%; }
   .wheel-name-input-wrap { flex-direction: column; align-items: center; }
 }
+
+/* ============================================================
+   PARTNERS & SUPPORTERS TICKER
+   ============================================================ */
+.partners-section {
+  background: #f9f6f0;
+  border-top: 1px solid #e8dfc8;
+  border-bottom: 1px solid #e8dfc8;
+  padding: 28px 0;
+  overflow: hidden;
+}
+.partners-header {
+  text-align: center;
+  font-size: .75rem;
+  font-weight: 700;
+  letter-spacing: .18em;
+  text-transform: uppercase;
+  color: #b08d57;
+  margin-bottom: 20px;
+}
+.partners-ticker-wrap {
+  overflow: hidden;
+  width: 100%;
+  position: relative;
+}
+.partners-ticker-wrap::before,
+.partners-ticker-wrap::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 80px;
+  z-index: 2;
+  pointer-events: none;
+}
+.partners-ticker-wrap::before {
+  left: 0;
+  background: linear-gradient(to right, #f9f6f0, transparent);
+}
+.partners-ticker-wrap::after {
+  right: 0;
+  background: linear-gradient(to left, #f9f6f0, transparent);
+}
+.partners-ticker {
+  display: flex;
+  align-items: center;
+  gap: 60px;
+  width: max-content;
+  animation: partnerScroll 18s linear infinite;
+}
+.partners-ticker:hover { animation-play-state: paused; }
+@keyframes partnerScroll {
+  0%   { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+.partner-logo-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  text-decoration: none;
+  flex-shrink: 0;
+  transition: transform .2s;
+}
+.partner-logo-item:hover { transform: scale(1.05); }
+.partner-logo-item img {
+  height: 60px;
+  width: auto;
+  max-width: 160px;
+  object-fit: contain;
+  filter: grayscale(20%);
+  transition: filter .2s;
+}
+.partner-logo-item:hover img { filter: grayscale(0%); }
+.partner-logo-item span {
+  font-size: .68rem;
+  font-weight: 700;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  color: #b08d57;
+}
