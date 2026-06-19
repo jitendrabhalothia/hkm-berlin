@@ -4284,3 +4284,18 @@ p:last-child {
   text-transform: uppercase;
   color: #b08d57;
 }
+.partner-text-badge {
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-heading);
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: #1a3a6b;
+  background: #f0f4ff;
+  border: 2px solid #c5d3f0;
+  border-radius: 10px;
+  padding: 0 20px;
+  white-space: nowrap;
+}
