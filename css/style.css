@@ -4433,9 +4433,26 @@ p:last-child {
 }
 .shloka-ticker-start {
   font-size: 1rem;
-  padding: 0 16px 0 8px;
+  padding: 0 20px;
   flex-shrink: 0;
 }
+.shloka-ticker-line {
+  font-family: var(--font-heading);
+  font-size: 0.82rem;
+  font-style: italic;
+  letter-spacing: 0.06em;
+  padding: 0 6px;
+  white-space: nowrap;
+}
+.shloka-ticker-dash {
+  color: rgba(200,160,80,0.5);
+  padding: 0 10px;
+  flex-shrink: 0;
+}
+.shloka-c1 { color: #f0d060; }
+.shloka-c2 { color: #f5a54a; }
+.shloka-c3 { color: #fff8e7; }
+.shloka-c4 { color: #f0b8a0; }
 
 /* ============================================================
    COUNTDOWN TIMER
