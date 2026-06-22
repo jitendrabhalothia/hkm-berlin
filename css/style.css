@@ -4415,19 +4415,26 @@ p:last-child {
   0%   { transform: translateX(0); }
   100% { transform: translateX(-50%); }
 }
-.mantra-ticker-word {
+.mantra-ticker-phrase {
   font-family: var(--font-heading);
   font-size: 1.05rem;
   font-style: italic;
-  letter-spacing: 0.08em;
+  letter-spacing: 0.06em;
   color: #f0d060;
-  padding: 0 6px;
+  padding: 0 4px;
+  white-space: nowrap;
 }
 .mantra-ticker-dot {
   color: var(--saffron);
   font-size: 1.2rem;
-  padding: 0 10px;
+  padding: 0 14px;
   opacity: 0.8;
+  flex-shrink: 0;
+}
+.shloka-ticker-start {
+  font-size: 1rem;
+  padding: 0 16px 0 8px;
+  flex-shrink: 0;
 }
 
 /* ============================================================
