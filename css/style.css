@@ -4322,6 +4322,115 @@ p:last-child {
 }
 
 /* ============================================================
+   TOP SHLOKA TICKER BAR
+   ============================================================ */
+.shloka-ticker-bar {
+  background: linear-gradient(90deg, #1a0a00 0%, #2c1a0e 50%, #1a0a00 100%);
+  border-bottom: 1px solid rgba(200,160,80,0.35);
+  overflow: hidden;
+  white-space: nowrap;
+  padding: 7px 0;
+  position: relative;
+  z-index: 1001;
+}
+.shloka-ticker-bar::before,
+.shloka-ticker-bar::after {
+  content: '';
+  position: absolute;
+  top: 0; bottom: 0;
+  width: 60px;
+  z-index: 2;
+  pointer-events: none;
+}
+.shloka-ticker-bar::before {
+  left: 0;
+  background: linear-gradient(to right, #1a0a00, transparent);
+}
+.shloka-ticker-bar::after {
+  right: 0;
+  background: linear-gradient(to left, #1a0a00, transparent);
+}
+.shloka-ticker-track {
+  display: inline-flex;
+  align-items: center;
+  gap: 0;
+  animation: shlokaScroll 35s linear infinite;
+  white-space: nowrap;
+}
+.shloka-ticker-track:hover { animation-play-state: paused; }
+@keyframes shlokaScroll {
+  0%   { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+.shloka-ticker-text {
+  font-family: var(--font-heading);
+  font-size: 0.82rem;
+  color: #f0d060;
+  letter-spacing: 0.06em;
+  padding: 0 32px;
+  font-style: italic;
+}
+.shloka-ticker-sep {
+  color: rgba(200,160,80,0.6);
+  font-size: 1rem;
+  padding: 0 8px;
+  flex-shrink: 0;
+}
+
+/* ============================================================
+   BOTTOM MANTRA TICKER
+   ============================================================ */
+.mantra-ticker-wrap {
+  background: linear-gradient(90deg, #1a0a00 0%, #2c1608 50%, #1a0a00 100%);
+  border-top: 1px solid rgba(200,160,80,0.3);
+  overflow: hidden;
+  padding: 10px 0;
+  position: relative;
+}
+.mantra-ticker-wrap::before,
+.mantra-ticker-wrap::after {
+  content: '';
+  position: absolute;
+  top: 0; bottom: 0;
+  width: 80px;
+  z-index: 2;
+  pointer-events: none;
+}
+.mantra-ticker-wrap::before {
+  left: 0;
+  background: linear-gradient(to right, #1a0a00, transparent);
+}
+.mantra-ticker-wrap::after {
+  right: 0;
+  background: linear-gradient(to left, #1a0a00, transparent);
+}
+.mantra-ticker-track {
+  display: inline-flex;
+  align-items: center;
+  white-space: nowrap;
+  animation: mantraScroll 22s linear infinite;
+}
+.mantra-ticker-track:hover { animation-play-state: paused; }
+@keyframes mantraScroll {
+  0%   { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+.mantra-ticker-word {
+  font-family: var(--font-heading);
+  font-size: 1.05rem;
+  font-style: italic;
+  letter-spacing: 0.08em;
+  color: #f0d060;
+  padding: 0 6px;
+}
+.mantra-ticker-dot {
+  color: var(--saffron);
+  font-size: 1.2rem;
+  padding: 0 10px;
+  opacity: 0.8;
+}
+
+/* ============================================================
    COUNTDOWN TIMER
    ============================================================ */
 .ry-countdown {
