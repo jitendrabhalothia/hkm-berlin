@@ -4419,9 +4419,9 @@ p:last-child {
   font-family: var(--font-heading);
   font-size: 1.05rem;
   font-style: italic;
-  letter-spacing: 0.06em;
+  letter-spacing: 0.08em;
   color: #f0d060;
-  padding: 0 28px;
+  padding: 0 60px;
   white-space: nowrap;
 }
 .mantra-ticker-dot {
