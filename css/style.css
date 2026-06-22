@@ -4453,6 +4453,7 @@ p:last-child {
 .shloka-c2 { color: #f5a54a; }
 .shloka-c3 { color: #fff8e7; }
 .shloka-c4 { color: #f0b8a0; }
+.shloka-ticker-gap { display: inline-block; width: 48px; flex-shrink: 0; }
 
 /* ============================================================
    COUNTDOWN TIMER
