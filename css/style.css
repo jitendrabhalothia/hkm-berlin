@@ -619,6 +619,27 @@ p:last-child {
   margin-bottom: 40px;
 }
 
+/* Hero event badge */
+.hero-event-badge {
+  display: inline-flex;
+  align-items: center;
+  background: rgba(245, 200, 66, 0.18);
+  border: 1px solid rgba(245, 200, 66, 0.6);
+  color: #fff;
+  font-size: 0.9rem;
+  font-weight: 600;
+  padding: 6px 16px;
+  border-radius: 30px;
+  margin-bottom: 14px;
+  letter-spacing: 0.03em;
+  backdrop-filter: blur(6px);
+  animation: heroBadgePulse 2s ease-in-out infinite;
+}
+@keyframes heroBadgePulse {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(245,200,66,0.3); }
+  50%       { box-shadow: 0 0 0 8px rgba(245,200,66,0); }
+}
+
 .hero-social {
   display: flex;
   gap: 16px;
@@ -4298,4 +4319,103 @@ p:last-child {
   border-radius: 10px;
   padding: 0 20px;
   white-space: nowrap;
+}
+
+/* ============================================================
+   COUNTDOWN TIMER
+   ============================================================ */
+.ry-countdown {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin: 16px 0 20px;
+  flex-wrap: wrap;
+}
+.ry-cd-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: rgba(255,255,255,0.12);
+  border: 1px solid rgba(245,200,66,0.5);
+  border-radius: 10px;
+  padding: 10px 14px;
+  min-width: 64px;
+}
+.ry-cd-num {
+  font-family: var(--font-heading);
+  font-size: 2rem;
+  font-weight: 700;
+  color: #f5c842;
+  line-height: 1;
+}
+.ry-cd-label {
+  font-size: 0.65rem;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.75);
+  margin-top: 4px;
+}
+.ry-cd-sep {
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: #f5c842;
+  margin-bottom: 18px;
+}
+@media (max-width: 480px) {
+  .ry-cd-item { min-width: 52px; padding: 8px 10px; }
+  .ry-cd-num { font-size: 1.5rem; }
+}
+
+/* ============================================================
+   FLOATING WHATSAPP BUTTON
+   ============================================================ */
+.fab-whatsapp {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  z-index: 9999;
+  width: 58px;
+  height: 58px;
+  border-radius: 50%;
+  background: #25D366;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.6rem;
+  box-shadow: 0 4px 20px rgba(37,211,102,0.45);
+  text-decoration: none;
+  transition: transform 0.25s, box-shadow 0.25s;
+  animation: fabPulse 2.5s ease-in-out infinite;
+}
+.fab-whatsapp:hover {
+  transform: scale(1.12);
+  box-shadow: 0 6px 28px rgba(37,211,102,0.6);
+  color: #fff;
+}
+@keyframes fabPulse {
+  0%, 100% { box-shadow: 0 4px 20px rgba(37,211,102,0.45); }
+  50%       { box-shadow: 0 4px 30px rgba(37,211,102,0.75), 0 0 0 8px rgba(37,211,102,0.12); }
+}
+.fab-whatsapp-tooltip {
+  position: fixed;
+  bottom: 90px;
+  right: 24px;
+  z-index: 9998;
+  background: #1a1a1a;
+  color: #fff;
+  font-size: 0.8rem;
+  padding: 6px 12px;
+  border-radius: 20px;
+  white-space: nowrap;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.25s;
+}
+.fab-whatsapp:hover + .fab-whatsapp-tooltip {
+  opacity: 1;
+}
+@media (max-width: 600px) {
+  .fab-whatsapp { width: 50px; height: 50px; font-size: 1.4rem; bottom: 18px; right: 18px; }
+  .fab-whatsapp-tooltip { display: none; }
 }
