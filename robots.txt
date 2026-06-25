@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://bhaktiyogaberlin.de/sitemap.xml
+Sitemap: https://bhaktiyogagermany.de/sitemap.xml
