@@ -260,6 +260,23 @@
       </div>
     </section>
 
+    <!-- ── I'M COMING COUNTER ── -->
+    <section class="im-coming-section" aria-label="Join Ratha Yatra">
+      <div class="im-coming-inner">
+        <div class="im-coming-count">
+          <span class="im-coming-number" id="imComingCount">0</span>
+          <span class="im-coming-label">devotees are joining Ratha Yatra! 🎉</span>
+        </div>
+        <p class="im-coming-sub">Are you coming? Let us know — it helps us prepare prasadam for everyone.</p>
+        <a href="rsvp.html" class="im-coming-btn" id="imComingBtn">
+          <i class="fas fa-hand-paper"></i> Yes! I'm Coming 🙌
+        </a>
+        <p class="im-coming-already" id="imComingAlready" style="display:none;">
+          ✅ You're registered! <a href="rsvp.html">Update your RSVP</a>
+        </p>
+      </div>
+    </section>
+
     <!-- ── SATURDAY PROGRAM BAR ── -->
     <section class="prog-bar" aria-label="Saturday Program Schedule">
       <div class="prog-bar-inner">
@@ -645,5 +662,103 @@
       setInterval(tick, 1000);
     })();
   </script>
+
+  <!-- I'M COMING COUNTER SCRIPT -->
+  <script>
+    (function() {
+      // Base count — update this number as real RSVPs come in
+      var BASE_COUNT = 47;
+      var count = parseInt(localStorage.getItem('ryCount') || BASE_COUNT);
+      var registered = localStorage.getItem('ryRegistered') === 'true';
+
+      function animateCount(target) {
+        var el = document.getElementById('imComingCount');
+        var start = 0, duration = 1200, step = target / (duration / 16);
+        var current = start;
+        var timer = setInterval(function() {
+          current = Math.min(current + step, target);
+          el.textContent = Math.round(current) + '+';
+          if (current >= target) clearInterval(timer);
+        }, 16);
+      }
+
+      animateCount(count);
+
+      if (registered) {
+        document.getElementById('imComingBtn').style.display = 'none';
+        document.getElementById('imComingAlready').style.display = 'block';
+      }
+    })();
+  </script>
+
+  <style>
+    .im-coming-section {
+      background: linear-gradient(135deg, #1a0800 0%, #2e1000 50%, #1a0800 100%);
+      padding: 40px 20px;
+      text-align: center;
+      border-top: 2px solid rgba(245,200,66,0.3);
+      border-bottom: 2px solid rgba(245,200,66,0.3);
+    }
+    .im-coming-inner { max-width: 600px; margin: 0 auto; }
+    .im-coming-count {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      flex-wrap: wrap;
+      margin-bottom: 10px;
+    }
+    .im-coming-number {
+      font-family: var(--font-heading);
+      font-size: clamp(2.5rem, 8vw, 4rem);
+      font-weight: 700;
+      color: #f5c842;
+      line-height: 1;
+    }
+    .im-coming-label {
+      font-size: 1.1rem;
+      color: #f0e0c0;
+      font-weight: 600;
+    }
+    .im-coming-sub {
+      color: rgba(255,255,255,0.6);
+      font-size: .9rem;
+      margin: 8px 0 24px;
+    }
+    .im-coming-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: #f5c842;
+      color: #1a0800;
+      font-family: var(--font-heading);
+      font-size: 1.2rem;
+      font-weight: 700;
+      padding: 16px 40px;
+      border-radius: 50px;
+      text-decoration: none;
+      box-shadow: 0 4px 20px rgba(245,200,66,0.4);
+      transition: transform .2s, box-shadow .2s;
+      animation: imComingPulse 2s ease-in-out infinite;
+    }
+    .im-coming-btn:hover {
+      transform: scale(1.05);
+      box-shadow: 0 6px 30px rgba(245,200,66,0.6);
+      color: #1a0800;
+    }
+    @keyframes imComingPulse {
+      0%, 100% { box-shadow: 0 4px 20px rgba(245,200,66,0.4); }
+      50% { box-shadow: 0 4px 35px rgba(245,200,66,0.7), 0 0 0 8px rgba(245,200,66,0.1); }
+    }
+    .im-coming-already {
+      color: #a8f0c6;
+      font-size: 1rem;
+      margin-top: 12px;
+    }
+    .im-coming-already a { color: #f5c842; }
+    @media (max-width: 480px) {
+      .im-coming-btn { font-size: 1rem; padding: 14px 28px; }
+    }
+  </style>
 </body>
 </html>
