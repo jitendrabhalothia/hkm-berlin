@@ -170,6 +170,19 @@
         </div>
 
         <div class="rsvp-form-wrap fade-up">
+          <div data-fs-success id="rsvpSuccess" style="display:none;">
+            <div class="rsvp-success-inner">
+              <div style="font-size:3rem;margin-bottom:12px;">🙏</div>
+              <h3>Hare Krishna! You're registered!</h3>
+              <p>Thank you for registering for Ratha Yatra Berlin 2026. We look forward to celebrating with you on <strong>18 July 2026</strong>.</p>
+              <p style="margin-top:12px;">Join our WhatsApp community for event updates:</p>
+              <a href="https://chat.whatsapp.com/JUv8eQ0oPebKOfKXuZx1gO" target="_blank" rel="noopener" class="btn btn-primary" style="margin-top:12px;">
+                <i class="fab fa-whatsapp"></i> Join WhatsApp Community
+              </a>
+            </div>
+          </div>
+          <div data-fs-error style="display:none;color:#c0392b;text-align:center;padding:16px;font-weight:600;"></div>
+
           <form class="rsvp-form" id="rsvpForm">
 
             <div class="rsvp-form-row">
@@ -222,26 +235,12 @@
             </div>
 
             <div style="text-align:center;margin-top:8px;">
-              <button type="submit" class="btn btn-primary rsvp-submit-btn" id="rsvpSubmitBtn">
+              <button type="submit" class="btn btn-primary rsvp-submit-btn" data-fs-submit-btn>
                 <i class="fas fa-check-circle"></i> Confirm My Attendance — Hare Krishna!
               </button>
-              <p id="rsvpError" style="display:none;color:#c0392b;margin-top:12px;font-weight:600;">Something went wrong. Please try again or email us at harekrishnaberlin@gmail.com</p>
             </div>
 
           </form>
-
-          <!-- Success message (shown after redirect) -->
-          <div class="rsvp-success" id="rsvpSuccess" style="display:none;">
-            <div class="rsvp-success-inner">
-              <div style="font-size:3rem;margin-bottom:12px;">🙏</div>
-              <h3>Hare Krishna! You're registered!</h3>
-              <p>Thank you for registering for Ratha Yatra Berlin 2026. We look forward to celebrating with you on <strong>18 July 2026</strong>.</p>
-              <p style="margin-top:12px;">Join our WhatsApp community for event updates:</p>
-              <a href="https://chat.whatsapp.com/JUv8eQ0oPebKOfKXuZx1gO" target="_blank" rel="noopener" class="btn btn-primary" style="margin-top:12px;">
-                <i class="fab fa-whatsapp"></i> Join WhatsApp Community
-              </a>
-            </div>
-          </div>
 
         </div>
       </div>
@@ -339,37 +338,10 @@
   <script>document.getElementById('footer-year').textContent = new Date().getFullYear();</script>
   <script src="js/script.js"></script>
   <script>
-    document.getElementById('rsvpForm').addEventListener('submit', function(e) {
-      e.preventDefault();
-      var btn = document.getElementById('rsvpSubmitBtn');
-      var errEl = document.getElementById('rsvpError');
-      btn.disabled = true;
-      btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Sending...';
-      errEl.style.display = 'none';
-
-      var data = new FormData(this);
-
-      fetch('https://formspree.io/f/xjgqwyqj', {
-        method: 'POST',
-        body: data,
-        headers: { 'Accept': 'application/json' }
-      })
-      .then(function(res) {
-        if (res.ok) {
-          document.getElementById('rsvpForm').style.display = 'none';
-          document.getElementById('rsvpSuccess').style.display = 'block';
-          document.getElementById('rsvp-form').scrollIntoView({ behavior: 'smooth' });
-        } else {
-          return res.json().then(function(json) { throw json; });
-        }
-      })
-      .catch(function() {
-        btn.disabled = false;
-        btn.innerHTML = '<i class="fas fa-check-circle"></i> Confirm My Attendance — Hare Krishna!';
-        errEl.style.display = 'block';
-      });
-    });
+    window.formspree = window.formspree || function () { (formspree.q = formspree.q || []).push(arguments); };
+    formspree('initForm', { formElement: '#rsvpForm', formId: 'xjgqwyqj' });
   </script>
+  <script src="https://unpkg.com/@formspree/ajax@1" defer></script>
 
   <style>
     /* RSVP HERO */
