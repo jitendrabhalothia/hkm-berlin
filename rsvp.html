@@ -170,7 +170,7 @@
         </div>
 
         <div class="rsvp-form-wrap fade-up">
-          <form action="https://formspree.io/f/xjgqwyqj" method="POST" class="rsvp-form" id="rsvpForm">
+          <form class="rsvp-form" id="rsvpForm">
 
             <div class="rsvp-form-row">
               <div class="rsvp-form-group">
@@ -221,13 +221,11 @@
               <textarea id="message" name="message" rows="3" placeholder="Any questions, special needs, or just say Hare Krishna! 🙏"></textarea>
             </div>
 
-            <input type="hidden" name="_subject" value="Ratha Yatra Berlin 2026 — New RSVP Registration" />
-            <input type="hidden" name="_next" value="https://bhaktiyogagermany.de/rsvp.html?submitted=true" />
-
             <div style="text-align:center;margin-top:8px;">
-              <button type="submit" class="btn btn-primary rsvp-submit-btn">
+              <button type="submit" class="btn btn-primary rsvp-submit-btn" id="rsvpSubmitBtn">
                 <i class="fas fa-check-circle"></i> Confirm My Attendance — Hare Krishna!
               </button>
+              <p id="rsvpError" style="display:none;color:#c0392b;margin-top:12px;font-weight:600;">Something went wrong. Please try again or email us at harekrishnaberlin@gmail.com</p>
             </div>
 
           </form>
@@ -341,12 +339,36 @@
   <script>document.getElementById('footer-year').textContent = new Date().getFullYear();</script>
   <script src="js/script.js"></script>
   <script>
-    // Show success message if redirected back after form submit
-    if (window.location.search.includes('submitted=true')) {
-      document.getElementById('rsvpForm').style.display = 'none';
-      document.getElementById('rsvpSuccess').style.display = 'block';
-      document.getElementById('rsvp-form').scrollIntoView({ behavior: 'smooth' });
-    }
+    document.getElementById('rsvpForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      var btn = document.getElementById('rsvpSubmitBtn');
+      var errEl = document.getElementById('rsvpError');
+      btn.disabled = true;
+      btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Sending...';
+      errEl.style.display = 'none';
+
+      var data = new FormData(this);
+
+      fetch('https://formspree.io/f/xjgqwyqj', {
+        method: 'POST',
+        body: data,
+        headers: { 'Accept': 'application/json' }
+      })
+      .then(function(res) {
+        if (res.ok) {
+          document.getElementById('rsvpForm').style.display = 'none';
+          document.getElementById('rsvpSuccess').style.display = 'block';
+          document.getElementById('rsvp-form').scrollIntoView({ behavior: 'smooth' });
+        } else {
+          return res.json().then(function(json) { throw json; });
+        }
+      })
+      .catch(function() {
+        btn.disabled = false;
+        btn.innerHTML = '<i class="fas fa-check-circle"></i> Confirm My Attendance — Hare Krishna!';
+        errEl.style.display = 'block';
+      });
+    });
   </script>
 
   <style>
