@@ -4408,7 +4408,7 @@ p:last-child {
   display: inline-flex;
   align-items: center;
   white-space: nowrap;
-  animation: mantraScroll 22s linear infinite;
+  animation: mantraScroll 70s linear infinite;
 }
 .mantra-ticker-track:hover { animation-play-state: paused; }
 @keyframes mantraScroll {
