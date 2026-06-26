@@ -283,11 +283,11 @@
           <span class="im-coming-label">devotees are joining Ratha Yatra! 🎉</span>
         </div>
         <p class="im-coming-sub">Are you coming? Let us know — it helps us prepare prasadam for everyone.</p>
-        <a href="rsvp.html" class="im-coming-btn" id="imComingBtn">
+        <button class="im-coming-btn" id="imComingBtn" onclick="imComingClick()">
           <i class="fas fa-hand-paper"></i> Yes! I'm Coming 🙌
-        </a>
+        </button>
         <p class="im-coming-already" id="imComingAlready" style="display:none;">
-          ✅ You're registered! <a href="rsvp.html">Update your RSVP</a>
+          ✅ Jai Jagannath! See you on 18 July 🙏
         </p>
       </div>
     </section>
@@ -717,25 +717,36 @@
 
   <!-- I'M COMING COUNTER SCRIPT -->
   <script>
+    var BASE_COUNT = 47;
+
+    function animateCount(target, from) {
+      var el = document.getElementById('imComingCount');
+      var start = from || 0;
+      var duration = 900;
+      var step = (target - start) / (duration / 16);
+      var current = start;
+      var timer = setInterval(function() {
+        current = Math.min(current + step, target);
+        el.textContent = Math.round(current) + '+';
+        if (current >= target) clearInterval(timer);
+      }, 16);
+    }
+
+    function imComingClick() {
+      if (localStorage.getItem('ryRegistered') === 'true') return;
+      var newCount = parseInt(localStorage.getItem('ryCount') || BASE_COUNT) + 1;
+      localStorage.setItem('ryCount', newCount);
+      localStorage.setItem('ryRegistered', 'true');
+      var prev = newCount - 1;
+      animateCount(newCount, prev);
+      document.getElementById('imComingBtn').style.display = 'none';
+      document.getElementById('imComingAlready').style.display = 'block';
+    }
+
     (function() {
-      // Base count — update this number as real RSVPs come in
-      var BASE_COUNT = 47;
       var count = parseInt(localStorage.getItem('ryCount') || BASE_COUNT);
       var registered = localStorage.getItem('ryRegistered') === 'true';
-
-      function animateCount(target) {
-        var el = document.getElementById('imComingCount');
-        var start = 0, duration = 1200, step = target / (duration / 16);
-        var current = start;
-        var timer = setInterval(function() {
-          current = Math.min(current + step, target);
-          el.textContent = Math.round(current) + '+';
-          if (current >= target) clearInterval(timer);
-        }, 16);
-      }
-
-      animateCount(count);
-
+      animateCount(count, 0);
       if (registered) {
         document.getElementById('imComingBtn').style.display = 'none';
         document.getElementById('imComingAlready').style.display = 'block';
@@ -788,6 +799,8 @@
       font-weight: 700;
       padding: 16px 40px;
       border-radius: 50px;
+      border: none;
+      cursor: pointer;
       text-decoration: none;
       box-shadow: 0 4px 20px rgba(245,200,66,0.4);
       transition: transform .2s, box-shadow .2s;
