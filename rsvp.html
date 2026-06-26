@@ -57,7 +57,10 @@
   </script>
 </head>
 <body>
-<nav class="navbar" role="navigation" aria-label="Main navigation">
+
+
+
+  <nav class="navbar" role="navigation" aria-label="Main navigation">
     <div class="nav-inner">
       <a href="index.html" class="nav-logo">
         <span class="nav-brand-text">Hare Krishna Berlin Devotees</span>
@@ -95,7 +98,222 @@
     <!-- HERO -->
     <section class="rsvp-hero">
       <div class="rsvp-hero-inner">
-        
+        <p class="ry-label">&#10024; Festival of the Chariots &mdash; Free Entry</p>
+        <h1>Join Ratha Yatra Berlin 2026</h1>
+        <p class="rsvp-hero-sub">Lord Jagannath's chariot rolls through Berlin on <strong>18 July 2026</strong>.<br />
+        Register your attendance — free for everyone. All are welcome.</p>
+        <div class="rsvp-hero-details">
+          <span><i class="fas fa-calendar-alt"></i> Saturday, 18 July 2026</span>
+          <span><i class="fas fa-clock"></i> 10:00 AM – 8:00 PM</span>
+          <span><i class="fas fa-map-marker-alt"></i> Sri Ganesha Hindu Temple, Hasenheide 106, Berlin</span>
+        </div>
+        <a href="#rsvp-form" class="btn btn-primary" style="margin-top:28px;display:inline-flex;gap:8px;align-items:center;">
+          <i class="fas fa-check-circle"></i> Register Now — It's Free
+        </a>
+      </div>
+    </section>
+
+    <!-- EVENT HIGHLIGHTS -->
+    <section class="section">
+      <div class="container">
+        <div class="section-header fade-up">
+          <span class="section-label">What to Expect</span>
+          <h2>A Day of Joy & Devotion</h2>
+          <div class="lotus-divider" aria-hidden="true">❀</div>
+        </div>
+        <div class="grid-3 fade-up">
+          <div class="feature-card delay-1">
+            <div class="feature-icon"><i class="fas fa-dharmachakra"></i></div>
+            <h3>Chariot Procession</h3>
+            <p>Pull Lord Jagannath's magnificent chariot through the streets of Berlin. A rare and sacred experience.</p>
+          </div>
+          <div class="feature-card delay-2">
+            <div class="feature-icon"><i class="fas fa-music"></i></div>
+            <h3>Kirtan & Music</h3>
+            <p>Live kirtan, devotional music and the joyful chanting of Hare Krishna Maha Mantra throughout the day.</p>
+          </div>
+          <div class="feature-card delay-3">
+            <div class="feature-icon"><i class="fas fa-seedling"></i></div>
+            <h3>Free Prasadam</h3>
+            <p>Free vegan &amp; vegetarian sacred prasadam for 600+ guests. Prepared with love and devotion.</p>
+          </div>
+          <div class="feature-card delay-1">
+            <div class="feature-icon"><i class="fas fa-om"></i></div>
+            <h3>Spiritual Programs</h3>
+            <p>Bhagavad-Gita talks, mantra meditation, and blessings from Lord Jagannath, Baladeva and Subhadra.</p>
+          </div>
+          <div class="feature-card delay-2">
+            <div class="feature-icon"><i class="fas fa-users"></i></div>
+            <h3>600+ Devotees</h3>
+            <p>Join hundreds of devotees and guests from across Berlin and beyond for this divine celebration.</p>
+          </div>
+          <div class="feature-card delay-3">
+            <div class="feature-icon"><i class="fas fa-ticket-alt"></i></div>
+            <h3>Free Entry</h3>
+            <p>Absolutely free. No tickets, no registration fee. Everyone is welcome — families, children, friends.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- RSVP FORM -->
+    <section class="section section-alt" id="rsvp-form">
+      <div class="container">
+        <div class="section-header fade-up">
+          <span class="section-label">Register Your Attendance</span>
+          <h2>RSVP — Ratha Yatra Berlin 2026</h2>
+          <div class="lotus-divider" aria-hidden="true">❀</div>
+          <p style="color:#666;margin-top:.8rem;">Let us know you are coming — helps us prepare enough prasadam for everyone 🙏</p>
+        </div>
+
+        <div class="rsvp-form-wrap fade-up">
+          <form action="https://formspree.io/f/harekrishnaberlin-rsvp" method="POST" class="rsvp-form" id="rsvpForm">
+
+            <div class="rsvp-form-row">
+              <div class="rsvp-form-group">
+                <label for="name"><i class="fas fa-user"></i> Your Name *</label>
+                <input type="text" id="name" name="name" placeholder="e.g. Radha Devi" required />
+              </div>
+              <div class="rsvp-form-group">
+                <label for="email"><i class="fas fa-envelope"></i> Email Address *</label>
+                <input type="email" id="email" name="email" placeholder="your@email.com" required />
+              </div>
+            </div>
+
+            <div class="rsvp-form-row">
+              <div class="rsvp-form-group">
+                <label for="phone"><i class="fas fa-phone"></i> WhatsApp / Phone (optional)</label>
+                <input type="tel" id="phone" name="phone" placeholder="+49 ..." />
+              </div>
+              <div class="rsvp-form-group">
+                <label for="guests"><i class="fas fa-users"></i> Number of Guests (including yourself) *</label>
+                <select id="guests" name="guests" required>
+                  <option value="">Select...</option>
+                  <option value="1">Just me (1)</option>
+                  <option value="2">2 people</option>
+                  <option value="3">3 people</option>
+                  <option value="4">4 people</option>
+                  <option value="5">5 people</option>
+                  <option value="6+">6 or more</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="rsvp-form-group">
+              <label><i class="fas fa-seedling"></i> Dietary preference</label>
+              <div class="rsvp-radio-group">
+                <label class="rsvp-radio"><input type="radio" name="diet" value="vegan" /> Vegan</label>
+                <label class="rsvp-radio"><input type="radio" name="diet" value="vegetarian" checked /> Vegetarian</label>
+                <label class="rsvp-radio"><input type="radio" name="diet" value="both" /> Both fine</label>
+              </div>
+            </div>
+
+            <div class="rsvp-form-group">
+              <label for="city"><i class="fas fa-map-marker-alt"></i> Where are you coming from?</label>
+              <input type="text" id="city" name="city" placeholder="e.g. Berlin, Hamburg, Frankfurt..." />
+            </div>
+
+            <div class="rsvp-form-group">
+              <label for="message"><i class="fas fa-comment"></i> Message or questions (optional)</label>
+              <textarea id="message" name="message" rows="3" placeholder="Any questions, special needs, or just say Hare Krishna! 🙏"></textarea>
+            </div>
+
+            <input type="hidden" name="_subject" value="Ratha Yatra Berlin 2026 — New RSVP Registration" />
+            <input type="hidden" name="_next" value="https://bhaktiyogagermany.de/rsvp.html?submitted=true" />
+
+            <div style="text-align:center;margin-top:8px;">
+              <button type="submit" class="btn btn-primary rsvp-submit-btn">
+                <i class="fas fa-check-circle"></i> Confirm My Attendance — Hare Krishna!
+              </button>
+            </div>
+
+          </form>
+
+          <!-- Success message (shown after redirect) -->
+          <div class="rsvp-success" id="rsvpSuccess" style="display:none;">
+            <div class="rsvp-success-inner">
+              <div style="font-size:3rem;margin-bottom:12px;">🙏</div>
+              <h3>Hare Krishna! You're registered!</h3>
+              <p>Thank you for registering for Ratha Yatra Berlin 2026. We look forward to celebrating with you on <strong>18 July 2026</strong>.</p>
+              <p style="margin-top:12px;">Join our WhatsApp community for event updates:</p>
+              <a href="https://chat.whatsapp.com/JUv8eQ0oPebKOfKXuZx1gO" target="_blank" rel="noopener" class="btn btn-primary" style="margin-top:12px;">
+                <i class="fab fa-whatsapp"></i> Join WhatsApp Community
+              </a>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ALSO WANT TO VOLUNTEER? -->
+    <section class="section">
+      <div class="container" style="text-align:center;">
+        <div class="section-header fade-up">
+          <span class="section-label">Go Further in Seva</span>
+          <h2>Want to Volunteer Too?</h2>
+          <div class="lotus-divider" aria-hidden="true">❀</div>
+          <p style="color:#666;margin-top:.8rem;max-width:560px;margin-left:auto;margin-right:auto;">
+            Help make Ratha Yatra happen! Join our volunteer team for kirtan, prasadam, chariot making, security and more.
+          </p>
+        </div>
+        <a href="volunteer.html" class="btn btn-primary fade-up" style="display:inline-flex;gap:8px;align-items:center;">
+          <i class="fas fa-hands-helping"></i> Register as a Volunteer
+        </a>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="cta-banner">
+      <div class="container">
+        <h2>Hare Krishna! See You on 18 July 🙏</h2>
+        <p>Questions? Join our WhatsApp community or send us an email.</p>
+        <div style="display:flex;gap:14px;flex-wrap:wrap;justify-content:center;margin-top:1.2rem;">
+          <a href="https://chat.whatsapp.com/JUv8eQ0oPebKOfKXuZx1gO" target="_blank" rel="noopener" class="btn btn-white">
+            <i class="fab fa-whatsapp"></i> Join WhatsApp
+          </a>
+          <a href="programs.html#ratha-yatra" class="btn btn-outline-white">
+            <i class="fas fa-info-circle"></i> Event Details
+          </a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-col">
+          <a href="index.html" class="footer-logo">
+            <span class="nav-brand-text" style="color:#fff;">Hare Krishna Berlin Devotees</span>
+          </a>
+          <p class="footer-tagline">Inspired by the teachings of Srila Prabhupada</p>
+        </div>
+        <div class="footer-col">
+          <h4>Quick Links</h4>
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="programs.html">Programs</a></li>
+            <li><a href="rsvp.html">RSVP Ratha Yatra</a></li>
+            <li><a href="volunteer.html">Volunteer</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Connect</h4>
+          <div class="footer-social">
+            <a href="https://www.instagram.com/harekrishnaberlin" target="_blank" rel="noopener" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+            <a href="https://chat.whatsapp.com/JUv8eQ0oPebKOfKXuZx1gO" target="_blank" rel="noopener" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+          </div>
+          <p style="margin-top:12px;font-size:.85rem;color:#ccc;">
+            <a href="mailto:harekrishnaberlin@gmail.com" style="color:#ccc;">harekrishnaberlin@gmail.com</a>
+          </p>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; <span id="footer-year"></span> Hare Krishna Berlin. All rights reserved.</p>
       </div>
     </div>
     <!-- BOTTOM MANTRA TICKER -->
@@ -105,7 +323,7 @@
         <span class="mantra-ticker-phrase">Hare Krishna Hare Krishna Krishna Krishna Hare Hare Hare Rama Hare Rama Rama Rama Hare Hare</span>
       </div>
     </div>
-</footer>
+  </footer>
 
   <!-- Floating WhatsApp Button -->
   <a href="https://chat.whatsapp.com/JUv8eQ0oPebKOfKXuZx1gO" class="fab-whatsapp" target="_blank" rel="noopener" aria-label="Join WhatsApp Community"><i class="fab fa-whatsapp"></i></a>

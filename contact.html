@@ -30,6 +30,8 @@
 <body>
 
   <!-- NAVIGATION -->
+
+
 <nav class="navbar" role="navigation" aria-label="Main navigation">
     <div class="nav-inner">
       <a href="index.html" class="nav-logo">
@@ -65,7 +67,248 @@
 
     <!-- PAGE HERO -->
     <section class="page-hero">
-      
+      <p class="breadcrumb" data-i18n-html="ct.14"><a href="index.html" data-i18n="nav.home">Home</a> &rsaquo; Contact</p>
+      <h1 data-i18n="ph.contact.h1">Contact &amp; Visit Us</h1>
+      <p data-i18n="ct.15">We would love to meet you — come and experience Bhakti Yoga in Berlin</p>
+    </section>
+
+
+    <!-- CONTACT SECTION -->
+    <section class="section">
+      <div class="container">
+        <div class="grid-2 fade-up" style="gap:48px;align-items:start;">
+
+          <!-- LEFT — Contact form -->
+          <div>
+            <h2 style="margin-bottom:8px;" data-i18n="ct.1">Send Us a Message</h2>
+            <p style="color:var(--text-muted);margin-bottom:28px;" data-i18n="ct.16">Have a question about our programs or Bhakti Yoga? We are happy to help.</p>
+
+            <!-- =====================================================
+                 CONTACT FORM — using Formspree
+                 Replace YOUR_FORM_ID with your actual Formspree form ID.
+                 Sign up free at https://formspree.io
+                 Example action: https://formspree.io/f/xpwqrjkz
+                 ===================================================== -->
+            <form
+              id="contact-form"
+              class="contact-form"
+              action="https://formspree.io/f/harekrishnaberlin"
+              method="POST"
+            >
+              <div class="grid-2" style="gap:16px;">
+                <div class="form-group">
+                  <label for="name" data-i18n-html="ct.52">Your Name <span style="color:var(--saffron);" data-i18n="ct.47">*</span></label>
+                  <input type="text" id="name" name="name" required placeholder="Radha Devi" />
+                </div>
+                <div class="form-group">
+                  <label for="email" data-i18n-html="ct.53">Email Address <span style="color:var(--saffron);" data-i18n="ct.48">*</span></label>
+                  <input type="email" id="email" name="email" required placeholder="you@example.com" />
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label for="subject" data-i18n="ct.54">Subject</label>
+                <input type="text" id="subject" name="subject" placeholder="Question about the Saturday program" />
+              </div>
+
+              <div class="form-group">
+                <label for="message" data-i18n-html="ct.55">Message <span style="color:var(--saffron);" data-i18n="ct.49">*</span></label>
+                <textarea id="message" name="message" required placeholder="Write your message here…"></textarea>
+              </div>
+
+              <!-- Honeypot spam protection -->
+              <input type="text" name="_gotcha" style="display:none;" />
+              <!-- Redirect after submission — update to your own thank-you page if desired -->
+              <input type="hidden" name="_next" value="https://bhaktiyogagermany.de/contact.html?sent=true" />
+
+              <button type="submit" class="btn btn-primary" style="width:100%;justify-content:center;">
+                <i class="fas fa-paper-plane"></i> Send Message
+              </button>
+
+              <p style="font-size:0.82rem;color:var(--text-muted);margin-top:12px;text-align:center;" data-i18n="ct.17">We usually reply within 1–2 days. Hare Krishna! 🙏</p>
+            </form>
+
+            <!-- Simple fallback if Formspree is not set up yet -->
+            <p style="font-size:0.85rem;color:var(--text-muted);margin-top:12px;text-align:center;" data-i18n-html="ct.18">Or email us directly:
+              <a href="mailto:harekrishnaberlin@gmail.com"><strong>harekrishnaberlin@gmail.com</strong></a></p>
+          </div>
+
+
+          <!-- RIGHT — Contact info cards -->
+          <div>
+            <h2 style="margin-bottom:8px;" data-i18n="ct.2">Find Us in Berlin</h2>
+            <p style="color:var(--text-muted);margin-bottom:28px;" data-i18n="ct.19">All are welcome to visit our programs — no prior booking required.</p>
+
+            <div style="display:flex;flex-direction:column;gap:16px;">
+
+              <!-- Location via WhatsApp -->
+              <div class="info-card">
+                <div class="info-card-icon"><i class="fab fa-whatsapp"></i></div>
+                <div class="info-card-content">
+                  <h4>Location</h4>
+                  <p>Berlin, Germany</p>
+                  <a href="https://chat.whatsapp.com/JUv8eQ0oPebKOfKXuZx1gO" target="_blank" rel="noopener" style="margin-top:8px;display:inline-flex;align-items:center;gap:6px;font-size:0.88rem;font-weight:700;color:var(--saffron);">
+                    <i class="fab fa-whatsapp"></i> Join WhatsApp for location details
+                  </a>
+                </div>
+              </div>
+
+              <!-- Saturday program -->
+              <div class="info-card">
+                <div class="info-card-icon"><i class="fas fa-calendar-alt"></i></div>
+                <div class="info-card-content">
+                  <h4 data-i18n="ct.10">Saturday Program</h4>
+                  <p data-i18n-html="ct.21">Every Saturday<br />
+                    4:00 PM — Kirtan<br />
+                    4:30 PM — Bhagavad-Gita class<br />
+                    6:00 PM — Free prasadam</p>
+                </div>
+              </div>
+
+              <!-- Phone -->
+              <div class="info-card">
+                <div class="info-card-icon"><i class="fas fa-phone-alt"></i></div>
+                <div class="info-card-content">
+                  <h4>Phone / WhatsApp</h4>
+                  <a href="tel:+4915256584487">+49 152 565 84487</a>
+                </div>
+              </div>
+
+              <!-- Email -->
+              <div class="info-card">
+                <div class="info-card-icon"><i class="fas fa-envelope"></i></div>
+                <div class="info-card-content">
+                  <h4 data-i18n="ct.11">Email</h4>
+                  <a href="mailto:harekrishnaberlin@gmail.com">harekrishnaberlin@gmail.com</a>
+                </div>
+              </div>
+
+              <!-- Instagram -->
+              <div class="info-card">
+                <div class="info-card-icon"><i class="fab fa-instagram"></i></div>
+                <div class="info-card-content">
+                  <h4 data-i18n="ct.12">Instagram</h4>
+                  <!-- REPLACE with your actual Instagram URL -->
+                  <a href="https://www.instagram.com/harekrishnaberlin" target="_blank" rel="noopener">
+                    @harekrishnaberlin
+                  </a>
+                </div>
+              </div>
+
+              <!-- YouTube -->
+              <div class="info-card">
+                <div class="info-card-icon"><i class="fab fa-youtube"></i></div>
+                <div class="info-card-content">
+                  <h4>YouTube</h4>
+                  <a href="https://www.youtube.com/@harekrishnaberlin" target="_blank" rel="noopener">
+                    @harekrishnaberlin
+                  </a>
+                </div>
+              </div>
+
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+
+    <!-- LOCATION VIA WHATSAPP -->
+    <section class="section section-alt" id="map">
+      <div class="container">
+        <div class="section-header fade-up">
+          <span class="section-label">Berlin</span>
+          <h2>How to Find Us</h2>
+          <div class="lotus-divider" aria-hidden="true">❀</div>
+        </div>
+        <div style="text-align:center;max-width:560px;margin:0 auto;" class="fade-up">
+          <p style="font-size:1.1rem;color:#555;margin-bottom:24px;">We hold our weekly programs at a private location in Berlin. Join our WhatsApp community and we will share the exact address with you.</p>
+          <a href="https://chat.whatsapp.com/JUv8eQ0oPebKOfKXuZx1gO" target="_blank" rel="noopener" class="btn btn-primary" style="font-size:1rem;padding:14px 32px;">
+            <i class="fab fa-whatsapp"></i> &nbsp;Join WhatsApp for Location Details
+          </a>
+          <p style="margin-top:18px;font-size:.9rem;color:#888;">Programs every Saturday from 4 PM &mdash; Berlin</p>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- WhatsApp Community -->
+    <section class="section section-alt">
+      <div class="container">
+        <div class="whatsapp-community-block fade-up">
+          <div class="wa-icon-wrap">
+            <i class="fab fa-whatsapp"></i>
+          </div>
+          <div class="wa-text">
+            <h2>Join Our WhatsApp Community</h2>
+            <p>Stay connected with the Hare Krishna community in Berlin. Get updates about Saturday programs, special events, and daily inspiration — right on your phone.</p>
+            <a href="https://chat.whatsapp.com/JUv8eQ0oPebKOfKXuZx1gO" target="_blank" rel="noopener" class="btn btn-primary wa-join-btn">
+              <i class="fab fa-whatsapp"></i> Join Hare Krishna Berlin Community
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="cta-banner">
+      <div class="container">
+        <h2 data-i18n="ct.5">We Look Forward to Welcoming You</h2>
+        <p data-i18n="ct.26">Come and experience the joy of kirtan, the wisdom of the Gita, and the warmth of our community.</p>
+        <a href="programs.html" class="btn btn-white">
+          <i class="fas fa-calendar-alt"></i> See the Schedule
+        </a>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="index.html" class="footer-logo"><span class="nav-brand-text" style="color:#fff;font-size:1.1rem;">Hare Krishna Berlin Devotees</span></a>
+          <p data-i18n="footer.tagline">Dedicated to spreading the teachings of Srila Prabhupada and Bhakti Yoga in Berlin.</p>
+          <div class="footer-social">
+            <a href="https://www.instagram.com/harekrishnaberlin" target="_blank" rel="noopener" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+            
+            <a href="https://chat.whatsapp.com/JUv8eQ0oPebKOfKXuZx1gO" target="_blank" rel="noopener" aria-label="WhatsApp Community"><i class="fab fa-whatsapp"></i></a>
+          </div>
+        </div>
+        <div class="footer-col">
+          <h4 data-i18n="footer.pages">Pages</h4>
+          <ul>
+            <li data-i18n-html="ct.35"><a href="index.html" data-i18n="nav.home">Home</a></li>
+            <li data-i18n-html="ct.36"><a href="prabhupada.html" data-i18n="nav.prabhupada">Srila Prabhupada</a></li>
+            <li data-i18n-html="ct.37"><a href="bhakti-yoga.html" data-i18n="nav.bhakti">Bhakti Yoga</a></li>
+            <li data-i18n-html="ct.38"><a href="programs.html" data-i18n="nav.programs">Programs</a></li>
+            <li data-i18n-html="ct.39"><a href="gita-study.html" data-i18n="nav.gita">Bhagavad Gita</a></li>
+            <li data-i18n-html="ct.40"><a href="gallery.html" data-i18n="nav.gallery">Gallery</a></li>
+        <li data-i18n-html="ct.42"><a href="contact.html" data-i18n="nav.contact">Contact</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4 data-i18n="footer.programs">Programs</h4>
+          <ul>
+            <li data-i18n-html="ct.43"><a href="programs.html">Saturday Program</a></li>
+            <li data-i18n-html="ct.44"><a href="programs.html">Ekadashi Chanting</a></li>
+            <li data-i18n-html="ct.45"><a href="programs.html">Festivals</a></li>
+            <li data-i18n-html="ct.46"><a href="gita-study.html">Gita Study Circle</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4 data-i18n="footer.visit">Visit Us</h4>
+          <address>
+            Hare Krishna Berlin Devotees<br />Berlin, Germany<br /><br />
+            <a href="mailto:harekrishnaberlin@gmail.com">harekrishnaberlin@gmail.com</a>
+          </address>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p data-i18n="footer.copy">&copy; <span id="footer-year"></span> Hare Krishna Berlin. All rights reserved.</p>
 
       
     </div>
@@ -76,6 +319,7 @@
       <span class="mantra-ticker-phrase">Hare Krishna Hare Krishna Krishna Krishna Hare Hare Hare Rama Hare Rama Rama Rama Hare Hare</span>
     </div>
   </div>
+
 </footer>
 
   <script src="js/i18n.js"></script>
