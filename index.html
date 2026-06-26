@@ -275,20 +275,82 @@
       </div>
     </section>
 
-    <!-- ── I'M COMING COUNTER ── -->
-    <section class="im-coming-section" aria-label="Join Ratha Yatra">
-      <div class="im-coming-inner">
-        <div class="im-coming-count">
-          <span class="im-coming-number" id="imComingCount">0</span>
-          <span class="im-coming-label">devotees are joining Ratha Yatra! 🎉</span>
+    <!-- ── RATHA YATRA QUIZ ── -->
+    <section class="quiz-section" aria-label="Ratha Yatra Quiz" id="ry-quiz">
+      <div class="quiz-inner">
+        <div class="quiz-header">
+          <span class="section-label" style="color:#f5c842;border-color:rgba(245,200,66,.4);">Test Your Knowledge</span>
+          <h2 class="quiz-title">Ratha Yatra Quiz 🎡</h2>
+          <p class="quiz-sub">How much do you know about the Festival of the Chariots?</p>
         </div>
-        <p class="im-coming-sub">Are you coming? Let us know — it helps us prepare prasadam for everyone.</p>
-        <button class="im-coming-btn" id="imComingBtn" onclick="imComingClick()">
-          <i class="fas fa-hand-paper"></i> Yes! I'm Coming 🙌
-        </button>
-        <p class="im-coming-already" id="imComingAlready" style="display:none;">
-          ✅ Jai Jagannath! See you on 18 July 🙏
-        </p>
+
+        <!-- Progress bar -->
+        <div class="quiz-progress-wrap" id="quizProgressWrap">
+          <div class="quiz-progress-bar" id="quizProgressBar"></div>
+          <span class="quiz-progress-text" id="quizProgressText">Question 1 of 4</span>
+        </div>
+
+        <!-- Questions -->
+        <div class="quiz-card" id="quizCard">
+
+          <div class="quiz-q" id="q0">
+            <p class="quiz-question">What does the name <strong>"Jagannath"</strong> mean in Sanskrit?</p>
+            <div class="quiz-options">
+              <button class="quiz-opt" onclick="answer(0,0,1)">Lord of the Skies</button>
+              <button class="quiz-opt" onclick="answer(0,1,1)">Lord of the Universe</button>
+              <button class="quiz-opt" onclick="answer(0,2,1)">Lord of Devotion</button>
+              <button class="quiz-opt" onclick="answer(0,3,1)">Lord of Knowledge</button>
+            </div>
+            <p class="quiz-fact" id="fact0">🌍 <em>"Jagat"</em> means universe and <em>"natha"</em> means Lord. Srila Prabhupada wrote: <em>"Jagannath is the Lord of everyone — He belongs to all castes, all religions, all nations."</em></p>
+          </div>
+
+          <div class="quiz-q" id="q1" style="display:none;">
+            <p class="quiz-question">In which Indian city did Ratha Yatra originate over 5,000 years ago?</p>
+            <div class="quiz-options">
+              <button class="quiz-opt" onclick="answer(1,0,2)">Vrindavan</button>
+              <button class="quiz-opt" onclick="answer(1,1,2)">Mathura</button>
+              <button class="quiz-opt" onclick="answer(1,2,2)">Puri</button>
+              <button class="quiz-opt" onclick="answer(1,3,2)">Dwarka</button>
+            </div>
+            <p class="quiz-fact" id="fact1">🏙️ The Jagannath Temple in Puri, Odisha is one of the four sacred dhamas (holy places) mentioned in the Vedic scriptures. Srila Prabhupada visited Puri personally and was deeply inspired by Lord Jagannath.</p>
+          </div>
+
+          <div class="quiz-q" id="q2" style="display:none;">
+            <p class="quiz-question">Srila Prabhupada organised the first Ratha Yatra outside India in which Western city?</p>
+            <div class="quiz-options">
+              <button class="quiz-opt" onclick="answer(2,0,0)">San Francisco</button>
+              <button class="quiz-opt" onclick="answer(2,1,0)">London</button>
+              <button class="quiz-opt" onclick="answer(2,2,0)">New York</button>
+              <button class="quiz-opt" onclick="answer(2,3,0)">Los Angeles</button>
+            </div>
+            <p class="quiz-fact" id="fact2">🌉 In 1967, Srila Prabhupada organised the first ever Ratha Yatra outside India on the streets of San Francisco. It was a historic moment — tens of thousands of people joined. Today Ratha Yatra is celebrated in hundreds of cities worldwide!</p>
+          </div>
+
+          <div class="quiz-q" id="q3" style="display:none;">
+            <p class="quiz-question">How many chariots are pulled in the traditional Ratha Yatra of Puri?</p>
+            <div class="quiz-options">
+              <button class="quiz-opt" onclick="answer(3,0,2)">1 chariot</button>
+              <button class="quiz-opt" onclick="answer(3,1,2)">2 chariots</button>
+              <button class="quiz-opt" onclick="answer(3,2,2)">3 chariots</button>
+              <button class="quiz-opt" onclick="answer(3,3,2)">7 chariots</button>
+            </div>
+            <p class="quiz-fact" id="fact3">🎪 Three chariots carry Lord Jagannath, His brother Lord Baladeva, and His sister Subhadra Devi. Lord Jagannath's chariot is called Nandighosa, with 16 wheels and decorated in yellow and red cloth.</p>
+          </div>
+
+        </div>
+
+        <!-- Result screen -->
+        <div class="quiz-result" id="quizResult" style="display:none;">
+          <div class="quiz-result-icon" id="quizResultIcon">🏆</div>
+          <h3 class="quiz-result-title" id="quizResultTitle">Excellent!</h3>
+          <p class="quiz-result-score" id="quizResultScore"></p>
+          <p class="quiz-result-msg" id="quizResultMsg"></p>
+          <div style="display:flex;flex-wrap:wrap;gap:12px;justify-content:center;margin-top:24px;">
+            <a href="rsvp.html" class="btn btn-primary"><i class="fas fa-calendar-check"></i> Join Ratha Yatra Berlin</a>
+            <button class="btn btn-outline" onclick="restartQuiz()" style="background:transparent;border:2px solid rgba(245,200,66,.5);color:#f5c842;cursor:pointer;">↩ Play Again</button>
+          </div>
+        </div>
+
       </div>
     </section>
 
@@ -715,114 +777,144 @@
     })();
   </script>
 
-  <!-- I'M COMING COUNTER SCRIPT -->
+  <!-- QUIZ SCRIPT -->
   <script>
-    var BASE_COUNT = 47;
+    // correct answer index for each question
+    var correctAnswers = [1, 2, 0, 2];
+    var currentQ = 0;
+    var score = 0;
+    var total = 4;
 
-    function animateCount(target, from) {
-      var el = document.getElementById('imComingCount');
-      var start = from || 0;
-      var duration = 900;
-      var step = (target - start) / (duration / 16);
-      var current = start;
-      var timer = setInterval(function() {
-        current = Math.min(current + step, target);
-        el.textContent = Math.round(current) + '+';
-        if (current >= target) clearInterval(timer);
-      }, 16);
+    function answer(qIdx, chosen, correct) {
+      var opts = document.querySelectorAll('#q' + qIdx + ' .quiz-opt');
+      opts.forEach(function(btn, i) {
+        btn.disabled = true;
+        if (i === correct) btn.classList.add('correct');
+        else if (i === chosen) btn.classList.add('wrong');
+      });
+      document.getElementById('fact' + qIdx).classList.add('show');
+      if (chosen === correct) score++;
+
+      // Advance after short delay
+      setTimeout(function() {
+        currentQ++;
+        updateProgress();
+        if (currentQ < total) {
+          document.getElementById('q' + (currentQ - 1)).style.display = 'none';
+          document.getElementById('q' + currentQ).style.display = 'block';
+        } else {
+          showResult();
+        }
+      }, 2200);
     }
 
-    function imComingClick() {
-      if (localStorage.getItem('ryRegistered') === 'true') return;
-      var newCount = parseInt(localStorage.getItem('ryCount') || BASE_COUNT) + 1;
-      localStorage.setItem('ryCount', newCount);
-      localStorage.setItem('ryRegistered', 'true');
-      var prev = newCount - 1;
-      animateCount(newCount, prev);
-      document.getElementById('imComingBtn').style.display = 'none';
-      document.getElementById('imComingAlready').style.display = 'block';
-    }
-
-    (function() {
-      var count = parseInt(localStorage.getItem('ryCount') || BASE_COUNT);
-      var registered = localStorage.getItem('ryRegistered') === 'true';
-      animateCount(count, 0);
-      if (registered) {
-        document.getElementById('imComingBtn').style.display = 'none';
-        document.getElementById('imComingAlready').style.display = 'block';
+    function updateProgress() {
+      var pct = (currentQ / total) * 100;
+      document.getElementById('quizProgressBar').style.width = pct + '%';
+      if (currentQ < total) {
+        document.getElementById('quizProgressText').textContent = 'Question ' + (currentQ + 1) + ' of ' + total;
+      } else {
+        document.getElementById('quizProgressText').textContent = 'Complete!';
+        document.getElementById('quizProgressBar').style.width = '100%';
       }
-    })();
+    }
+
+    function showResult() {
+      document.getElementById('quizCard').style.display = 'none';
+      document.getElementById('quizResult').style.display = 'block';
+      var icons = ['😊', '👏', '🌟', '🏆'];
+      var titles = ['Good start!', 'Well done!', 'Great job!', 'Excellent!'];
+      var msgs = [
+        'Ratha Yatra is full of wonders — come to Berlin on 18 July to experience it yourself!',
+        'You know the festival well! Come celebrate Lord Jagannath with us in Berlin on 18 July.',
+        'Impressive! Srila Prabhupada would be pleased. Join us at Ratha Yatra Berlin on 18 July!',
+        'Perfect score! You are truly a devotee at heart. See you at Ratha Yatra Berlin on 18 July! Jai Jagannath! 🙏'
+      ];
+      var idx = Math.min(score, 3);
+      document.getElementById('quizResultIcon').textContent = icons[idx];
+      document.getElementById('quizResultTitle').textContent = titles[idx];
+      document.getElementById('quizResultScore').textContent = 'You scored ' + score + ' out of ' + total;
+      document.getElementById('quizResultMsg').textContent = msgs[idx];
+    }
+
+    function restartQuiz() {
+      currentQ = 0; score = 0;
+      document.getElementById('quizResult').style.display = 'none';
+      document.getElementById('quizCard').style.display = 'block';
+      for (var i = 0; i < total; i++) {
+        var qEl = document.getElementById('q' + i);
+        qEl.style.display = i === 0 ? 'block' : 'none';
+        qEl.querySelectorAll('.quiz-opt').forEach(function(b) {
+          b.disabled = false;
+          b.classList.remove('correct','wrong');
+        });
+        document.getElementById('fact' + i).classList.remove('show');
+      }
+      updateProgress();
+      document.getElementById('quizProgressText').textContent = 'Question 1 of ' + total;
+      document.getElementById('quizProgressBar').style.width = '0%';
+    }
   </script>
 
   <style>
-    .im-coming-section {
-      background: linear-gradient(135deg, #1a0800 0%, #2e1000 50%, #1a0800 100%);
-      padding: 40px 20px;
-      text-align: center;
-      border-top: 2px solid rgba(245,200,66,0.3);
-      border-bottom: 2px solid rgba(245,200,66,0.3);
+    /* ── QUIZ SECTION ── */
+    .quiz-section {
+      background: linear-gradient(135deg, #0d0800 0%, #1a0e00 50%, #0d0800 100%);
+      padding: 60px 20px;
+      border-top: 2px solid rgba(245,200,66,0.25);
+      border-bottom: 2px solid rgba(245,200,66,0.25);
     }
-    .im-coming-inner { max-width: 600px; margin: 0 auto; }
-    .im-coming-count {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 12px;
-      flex-wrap: wrap;
-      margin-bottom: 10px;
-    }
-    .im-coming-number {
-      font-family: var(--font-heading);
-      font-size: clamp(2.5rem, 8vw, 4rem);
-      font-weight: 700;
-      color: #f5c842;
-      line-height: 1;
-    }
-    .im-coming-label {
-      font-size: 1.1rem;
-      color: #f0e0c0;
-      font-weight: 600;
-    }
-    .im-coming-sub {
-      color: rgba(255,255,255,0.6);
-      font-size: .9rem;
-      margin: 8px 0 24px;
-    }
-    .im-coming-btn {
-      display: inline-flex;
-      align-items: center;
-      gap: 10px;
-      background: #f5c842;
-      color: #1a0800;
-      font-family: var(--font-heading);
-      font-size: 1.2rem;
-      font-weight: 700;
-      padding: 16px 40px;
-      border-radius: 50px;
-      border: none;
+    .quiz-inner { max-width: 680px; margin: 0 auto; text-align: center; }
+    .quiz-title { color: #f5c842; font-size: clamp(1.6rem,4vw,2.2rem); margin: 12px 0 6px; }
+    .quiz-sub { color: rgba(255,255,255,0.55); font-size: .95rem; margin-bottom: 28px; }
+
+    /* Progress */
+    .quiz-progress-wrap { background: rgba(255,255,255,0.08); border-radius: 50px; height: 6px; margin-bottom: 8px; position: relative; overflow: hidden; }
+    .quiz-progress-bar { height: 100%; background: linear-gradient(90deg,#f5c842,#ffaa00); border-radius: 50px; width: 0%; transition: width .5s ease; }
+    .quiz-progress-text { color: rgba(255,255,255,0.4); font-size: .8rem; display: block; margin-bottom: 24px; }
+
+    /* Card */
+    .quiz-card { background: rgba(255,255,255,0.04); border: 1px solid rgba(245,200,66,0.2); border-radius: 20px; padding: 32px 28px; text-align: left; }
+    .quiz-question { color: #fff; font-size: 1.1rem; font-family: var(--font-heading); margin: 0 0 24px; line-height: 1.5; }
+
+    /* Options */
+    .quiz-options { display: grid; gap: 10px; }
+    .quiz-opt {
+      background: rgba(255,255,255,0.07);
+      border: 1.5px solid rgba(255,255,255,0.15);
+      color: #e0d0b0;
+      padding: 13px 20px;
+      border-radius: 10px;
+      font-size: .97rem;
       cursor: pointer;
-      text-decoration: none;
-      box-shadow: 0 4px 20px rgba(245,200,66,0.4);
-      transition: transform .2s, box-shadow .2s;
-      animation: imComingPulse 2s ease-in-out infinite;
+      text-align: left;
+      transition: background .18s, border-color .18s, transform .1s;
     }
-    .im-coming-btn:hover {
-      transform: scale(1.05);
-      box-shadow: 0 6px 30px rgba(245,200,66,0.6);
-      color: #1a0800;
+    .quiz-opt:hover:not(:disabled) { background: rgba(245,200,66,0.12); border-color: rgba(245,200,66,0.5); transform: translateX(4px); }
+    .quiz-opt.correct { background: rgba(80,200,100,0.2); border-color: #50c864; color: #a8f0b0; }
+    .quiz-opt.wrong   { background: rgba(220,60,60,0.2);  border-color: #e05050; color: #f0a0a0; }
+
+    /* Fun fact */
+    .quiz-fact {
+      margin-top: 18px; padding: 14px 18px;
+      background: rgba(245,200,66,0.08); border-left: 3px solid #f5c842;
+      border-radius: 0 10px 10px 0; color: #e0d0a0; font-size: .88rem; line-height: 1.7;
+      max-height: 0; overflow: hidden; opacity: 0;
+      transition: max-height .5s ease, opacity .5s ease, margin .3s;
     }
-    @keyframes imComingPulse {
-      0%, 100% { box-shadow: 0 4px 20px rgba(245,200,66,0.4); }
-      50% { box-shadow: 0 4px 35px rgba(245,200,66,0.7), 0 0 0 8px rgba(245,200,66,0.1); }
-    }
-    .im-coming-already {
-      color: #a8f0c6;
-      font-size: 1rem;
-      margin-top: 12px;
-    }
-    .im-coming-already a { color: #f5c842; }
+    .quiz-fact.show { max-height: 200px; opacity: 1; }
+
+    /* Result */
+    .quiz-result { padding: 20px 0; }
+    .quiz-result-icon { font-size: 4rem; margin-bottom: 12px; animation: popIn .4s ease; }
+    .quiz-result-title { color: #f5c842; font-size: 1.8rem; margin: 0 0 8px; }
+    .quiz-result-score { color: #fff; font-size: 1.1rem; font-weight: 700; margin: 0 0 10px; }
+    .quiz-result-msg { color: rgba(255,255,255,0.65); font-size: .95rem; max-width: 480px; margin: 0 auto; line-height: 1.6; }
+    @keyframes popIn { from { transform: scale(0.5); opacity: 0; } to { transform: scale(1); opacity: 1; } }
+
     @media (max-width: 480px) {
-      .im-coming-btn { font-size: 1rem; padding: 14px 28px; }
+      .quiz-card { padding: 24px 18px; }
+      .quiz-opt { font-size: .9rem; padding: 11px 14px; }
     }
   </style>
 </body>
