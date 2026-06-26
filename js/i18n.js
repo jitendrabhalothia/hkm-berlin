@@ -28,7 +28,7 @@
       'footer.sat3':     'Free Prasadam – 6 PM',
       'footer.ekadashi': 'Ekadashi Chanting',
       'footer.festivals':'Festivals',
-      'footer.tagline':  'Dedicated to spreading the teachings of Srila Prabhupada and Bhakti Yoga in Berlin.',
+      'footer.tagline':  'Inspired by Srila Prabhupada's teachings on Bhakti Yoga in Berlin.',
       'footer.copy':     '© {year} Hare Krishna Berlin. All rights reserved.',
 
       /* HERO (index) */
