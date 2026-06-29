@@ -146,36 +146,18 @@
           <p style="color:#666;margin-top:.8rem;">Please register so we can prepare properly. Hare Krishna! 🙏</p>
         </div>
 
-        <div class="rsvp-form-wrap fade-up">
-
-          <!-- SUCCESS — shown by Formspree after submission -->
-          <div data-fs-success>
-            <div class="rsvp-success-inner">
-              <div style="font-size:3rem;margin-bottom:12px;">🙏</div>
-              <h3>Jaya Nṛsiṁhadeva! You're registered!</h3>
-              <p>Thank you for registering for the Śrī Nṛsiṁha Havan on <strong>18 July 2026 at 9:45 AM</strong>.</p>
-              <p style="margin-top:10px;">Join our WhatsApp for updates and the exact location:</p>
-              <a href="https://chat.whatsapp.com/JUv8eQ0oPebKOfKXuZx1gO" target="_blank" rel="noopener" class="btn btn-primary" style="margin-top:14px;">
-                <i class="fab fa-whatsapp"></i> Join WhatsApp Community
-              </a>
-            </div>
-          </div>
-
-          <!-- ERROR — shown by Formspree on error -->
-          <div data-fs-error style="color:#c0392b;text-align:center;padding:16px;font-weight:600;"></div>
+        <div class="rsvp-form-wrap fade-up" id="formWrap">
 
           <form class="rsvp-form" id="rsvpForm">
 
             <div class="rsvp-form-row">
               <div class="rsvp-form-group">
                 <label for="name"><i class="fas fa-user"></i> Your Name *</label>
-                <input type="text" id="name" name="name" placeholder="e.g. Radha Devi" required data-fs-field />
-                <span data-fs-error="name" style="color:#c0392b;font-size:.85rem;"></span>
+                <input type="text" id="name" name="name" placeholder="e.g. Radha Devi" required />
               </div>
               <div class="rsvp-form-group">
                 <label for="email"><i class="fas fa-envelope"></i> Email Address *</label>
-                <input type="email" id="email" name="email" placeholder="your@email.com" required data-fs-field />
-                <span data-fs-error="email" style="color:#c0392b;font-size:.85rem;"></span>
+                <input type="email" id="email" name="email" placeholder="your@email.com" required />
               </div>
             </div>
 
@@ -218,7 +200,7 @@
             </div>
 
             <div style="text-align:center;margin-top:8px;">
-              <button type="submit" class="btn btn-primary rsvp-submit-btn" data-fs-submit-btn>
+              <button type="submit" class="btn btn-primary rsvp-submit-btn">
                 <i class="fas fa-fire"></i> Register — Jaya Nṛsiṁhadeva!
               </button>
             </div>
@@ -290,10 +272,45 @@
   <script>document.getElementById('footer-year').textContent = new Date().getFullYear();</script>
   <script src="js/script.js"></script>
   <script>
-    window.formspree = window.formspree || function () { (formspree.q = formspree.q || []).push(arguments); };
-    formspree('initForm', { formElement: '#rsvpForm', formId: 'xjgqwyqj' });
+    document.getElementById('rsvpForm').addEventListener('submit', async function(e) {
+      e.preventDefault();
+      var btn = this.querySelector('[type=submit]');
+      btn.disabled = true;
+      btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Submitting...';
+
+      try {
+        var res = await fetch('https://formspree.io/f/xjgqwyqj', {
+          method: 'POST',
+          body: new FormData(this),
+          headers: { 'Accept': 'application/json' }
+        });
+
+        if (res.ok) {
+          // Replace the entire form wrap with the success message
+          document.getElementById('formWrap').innerHTML = `
+            <div class="rsvp-success-inner">
+              <div style="font-size:3.5rem;margin-bottom:14px;">🙏</div>
+              <h3>Jaya Nṛsiṁhadeva! You're registered!</h3>
+              <p>Thank you — we have received your registration for the<br>
+              <strong>Śrī Nṛsiṁha Havan on 18 July 2026 at 9:45 AM</strong>.</p>
+              <p style="margin-top:12px;">Join our WhatsApp for updates and exact location:</p>
+              <a href="https://chat.whatsapp.com/JUv8eQ0oPebKOfKXuZx1gO" target="_blank" rel="noopener"
+                 class="btn btn-primary" style="margin-top:16px;display:inline-flex;gap:8px;align-items:center;">
+                <i class="fab fa-whatsapp"></i> Join WhatsApp Community
+              </a>
+            </div>`;
+        } else {
+          btn.disabled = false;
+          btn.innerHTML = '<i class="fas fa-fire"></i> Register — Jaya Nṛsiṁhadeva!';
+          alert('Something went wrong. Please try again or contact us on WhatsApp.');
+        }
+      } catch(err) {
+        btn.disabled = false;
+        btn.innerHTML = '<i class="fas fa-fire"></i> Register — Jaya Nṛsiṁhadeva!';
+        alert('Network error. Please check your connection and try again.');
+      }
+    });
   </script>
-  <script src="https://unpkg.com/@formspree/ajax@1" defer></script>
 
   <style>
     .rsvp-hero {
