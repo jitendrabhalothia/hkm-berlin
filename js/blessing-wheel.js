@@ -201,8 +201,8 @@
       b.icon + ' ' + name + ', Lord Jagannath blesses you with ' + b.label + '!\n\n' +
       fullText +
       '\n\n\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\n' +
-      '\uD83C\uDFA1 Spin the wheel & get YOUR blessing:\n\uD83D\uDC49 harekrishnaberlin.de\n\n' +
-      '\uD83D\uDE4F Want to serve at Ratha Yatra?\n\uD83D\uDC49 harekrishnaberlin.de/volunteer.html\n' +
+      '\uD83C\uDFA1 Spin the wheel & get YOUR blessing:\n\uD83D\uDC49 bhaktiyogagermany.de\n\n' +
+      '\uD83D\uDE4F Want to serve at Ratha Yatra?\n\uD83D\uDC49 bhaktiyogagermany.de/volunteer.html\n' +
       '\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\n' +
       'Berlin Ratha Yatra \u2014 18 July 2026'
     );
