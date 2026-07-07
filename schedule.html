@@ -69,22 +69,246 @@
       </div>
     </section>
 
-    <!-- MASTER TIMELINE BAR -->
-    <section style="background:#1a0a00;padding:24px 20px;overflow-x:auto;">
-      <div style="max-width:900px;margin:0 auto;">
-        <p style="color:#f5c842;font-size:.75rem;font-weight:700;letter-spacing:.12em;margin:0 0 14px;text-align:center;">MASTER TIMELINE — 18 JULY 2026</p>
-        <div class="master-timeline">
-          <div class="mt-block" style="background:#e53935;">4:30 AM<br><small>Cooking begins</small></div>
-          <div class="mt-block" style="background:#1e88e5;">6:00 AM<br><small>Logistics</small></div>
-          <div class="mt-block" style="background:#fb8c00;">8:00 AM<br><small>Puja Seva</small></div>
-          <div class="mt-block" style="background:#8e24aa;">8:30 AM<br><small>Security · Decor</small></div>
-          <div class="mt-block" style="background:#f5c842;color:#1a0a00;">9:00 AM<br><small>Kirtan · Media</small></div>
-          <div class="mt-block" style="background:#e91e63;">9:30 AM<br><small>Serving · Welcome · Cleanup</small></div>
-          <div class="mt-block" style="background:#ff6f00;">9:45 AM<br><small>🔥 Havan</small></div>
-          <div class="mt-block" style="background:#43a047;">11:00 AM<br><small>🎡 Procession</small></div>
-          <div class="mt-block" style="background:#00897b;">1:30 PM<br><small>🍛 Prasādam</small></div>
-          <div class="mt-block" style="background:#795548;">3:00 PM+<br><small>Cleanup</small></div>
-        </div>
+    <!-- GANTT TIMELINE -->
+    <section style="background:#0d0800;padding:36px 0 40px;">
+      <div style="text-align:center;padding:0 20px 20px;">
+        <p style="color:#f5c842;font-size:.75rem;font-weight:700;letter-spacing:.12em;margin:0 0 6px;">VISUAL EVENT TIMELINE — 18 JULY 2026</p>
+        <h2 style="color:#fff;margin:0 0 6px;font-size:1.4rem;">Full Day Gantt Chart</h2>
+        <p style="color:#888;font-size:.82rem;margin:0;">← Scroll left / right to navigate the full day →</p>
+      </div>
+
+      <div class="gantt-scroll">
+        <div class="gantt-table">
+
+          <!-- TIME HEADER -->
+          <div class="gantt-row" style="border-bottom:2px solid rgba(245,200,66,.3);">
+            <div class="gantt-label gantt-label-head">Group</div>
+            <div style="position:relative;width:2160px;height:36px;flex-shrink:0;">
+              <!-- hour markers every hour 4AM–10PM -->
+              <span class="g-hour" style="left:0px;">4 AM</span>
+              <span class="g-hour" style="left:120px;">5 AM</span>
+              <span class="g-hour" style="left:240px;">6 AM</span>
+              <span class="g-hour" style="left:360px;">7 AM</span>
+              <span class="g-hour" style="left:480px;">8 AM</span>
+              <span class="g-hour" style="left:600px;">9 AM</span>
+              <span class="g-hour" style="left:720px;">10 AM</span>
+              <span class="g-hour" style="left:840px;">11 AM</span>
+              <span class="g-hour" style="left:960px;">12 PM</span>
+              <span class="g-hour" style="left:1080px;">1 PM</span>
+              <span class="g-hour" style="left:1200px;">2 PM</span>
+              <span class="g-hour" style="left:1320px;">3 PM</span>
+              <span class="g-hour" style="left:1440px;">4 PM</span>
+              <span class="g-hour" style="left:1560px;">5 PM</span>
+              <span class="g-hour" style="left:1680px;">6 PM</span>
+              <span class="g-hour" style="left:1800px;">7 PM</span>
+              <span class="g-hour" style="left:1920px;">8 PM</span>
+              <span class="g-hour" style="left:2040px;">9 PM</span>
+              <span class="g-hour" style="left:2120px;">10 PM</span>
+              <!-- key event markers -->
+              <span class="g-event-mark" style="left:690px;" title="Havan 9:45 AM">🔥</span>
+              <span class="g-event-mark" style="left:840px;" title="Procession 11 AM">🎡</span>
+              <span class="g-event-mark" style="left:1140px;" title="Prasādam 1:30 PM">🍛</span>
+            </div>
+          </div>
+
+          <!-- ROW 1: Food Cooking + Serving (20 volunteers) -->
+          <div class="gantt-row">
+            <div class="gantt-label">
+              <span class="g-icon">🍳</span>
+              <span class="g-name">Food Cooking &amp; Serving</span>
+              <span class="g-vol">20 vol</span>
+            </div>
+            <div class="gantt-bars">
+              <div class="g-bar" style="left:0;width:1140px;background:#43a047;">Cooking — 4:00 AM</div>
+              <div class="g-bar" style="left:1140px;width:300px;background:#00897b;">Food Serving</div>
+            </div>
+          </div>
+
+          <!-- ROW 2: Logistics & Transport (2 volunteers) -->
+          <div class="gantt-row">
+            <div class="gantt-label">
+              <span class="g-icon">🚛</span>
+              <span class="g-name">Logistics &amp; Transport</span>
+              <span class="g-vol">2 vol</span>
+            </div>
+            <div class="gantt-bars">
+              <div class="g-bar" style="left:240px;width:240px;background:#1e88e5;">Transports</div>
+              <div class="g-bar" style="left:1560px;width:120px;background:#546e7a;">Returns</div>
+            </div>
+          </div>
+
+          <!-- ROW 3: Decoration (10 volunteers) -->
+          <div class="gantt-row">
+            <div class="gantt-label">
+              <span class="g-icon">🌸</span>
+              <span class="g-name">Decoration</span>
+              <span class="g-vol">10 vol</span>
+            </div>
+            <div class="gantt-bars">
+              <div class="g-bar" style="left:420px;width:420px;background:#8e24aa;">Decoration — 7:30 AM</div>
+            </div>
+          </div>
+
+          <!-- ROW 4: Sound (2 volunteers) -->
+          <div class="gantt-row">
+            <div class="gantt-label">
+              <span class="g-icon">🔊</span>
+              <span class="g-name">Sound</span>
+              <span class="g-vol">2 vol</span>
+            </div>
+            <div class="gantt-bars">
+              <div class="g-bar" style="left:480px;width:1080px;background:#00897b;">Sound — 8:00 AM to 5:00 PM</div>
+            </div>
+          </div>
+
+          <!-- ROW 5: Media Coverage (5 volunteers) -->
+          <div class="gantt-row">
+            <div class="gantt-label">
+              <span class="g-icon">📸</span>
+              <span class="g-name">Media &amp; Coverage</span>
+              <span class="g-vol">5 vol</span>
+            </div>
+            <div class="gantt-bars">
+              <div class="g-bar" style="left:480px;width:1080px;background:#5c6bc0;">Coverage — 8:00 AM to 5:00 PM</div>
+            </div>
+          </div>
+
+          <!-- ROW 6: Security (15 volunteers) -->
+          <div class="gantt-row">
+            <div class="gantt-label">
+              <span class="g-icon">🛡️</span>
+              <span class="g-name">Security &amp; Crowd Control</span>
+              <span class="g-vol">15 vol</span>
+            </div>
+            <div class="gantt-bars">
+              <div class="g-bar" style="left:540px;width:780px;background:#e53935;">Security — 8:30 AM to 3:00 PM</div>
+            </div>
+          </div>
+
+          <!-- ROW 7: Kirtan & Cultural (10 volunteers) -->
+          <div class="gantt-row">
+            <div class="gantt-label">
+              <span class="g-icon">🎶</span>
+              <span class="g-name">Kirtan &amp; Music</span>
+              <span class="g-vol">10 vol</span>
+            </div>
+            <div class="gantt-bars">
+              <div class="g-bar" style="left:540px;width:600px;background:#c87000;">Kirtan — 8:30 AM</div>
+              <div class="g-bar" style="left:1140px;width:300px;background:#fb8c00;">Cultural</div>
+            </div>
+          </div>
+
+          <!-- ROW 8: Deities Arrival (4 volunteers) -->
+          <div class="gantt-row">
+            <div class="gantt-label">
+              <span class="g-icon">🪷</span>
+              <span class="g-name">Deities Arrival</span>
+              <span class="g-vol">4 vol</span>
+            </div>
+            <div class="gantt-bars">
+              <div class="g-bar" style="left:600px;width:180px;background:#ff8f00;">Deities Arrive — 9:00 AM</div>
+            </div>
+          </div>
+
+          <!-- ROW 9: Havan Preparation (6 volunteers) -->
+          <div class="gantt-row">
+            <div class="gantt-label">
+              <span class="g-icon">🔥</span>
+              <span class="g-name">Havan Preparation</span>
+              <span class="g-vol">6 vol</span>
+            </div>
+            <div class="gantt-bars">
+              <div class="g-bar" style="left:540px;width:150px;background:#e65100;">Havan Prep — 8:30 AM</div>
+            </div>
+          </div>
+
+          <!-- ROW 10: Havan / Aarti (6 volunteers) -->
+          <div class="gantt-row">
+            <div class="gantt-label">
+              <span class="g-icon">🔥</span>
+              <span class="g-name">Havan &amp; Aarti</span>
+              <span class="g-vol">6 vol</span>
+            </div>
+            <div class="gantt-bars">
+              <div class="g-bar" style="left:690px;width:90px;background:#ff6f00;font-size:.7rem;">Havan 9:45</div>
+            </div>
+          </div>
+
+          <!-- ROW 11: Deities to Rath (6 volunteers) -->
+          <div class="gantt-row">
+            <div class="gantt-label">
+              <span class="g-icon">🚩</span>
+              <span class="g-name">Deities to Rath</span>
+              <span class="g-vol">6 vol</span>
+            </div>
+            <div class="gantt-bars">
+              <div class="g-bar" style="left:750px;width:90px;background:#f5c842;color:#1a0a00;font-size:.7rem;">10:15 AM</div>
+            </div>
+          </div>
+
+          <!-- ROW 12: Puja Seva / Guru Puja / Gaur Arti (4 volunteers) -->
+          <div class="gantt-row">
+            <div class="gantt-label">
+              <span class="g-icon">🪔</span>
+              <span class="g-name">Puja Seva &amp; Aarti</span>
+              <span class="g-vol">4 vol</span>
+            </div>
+            <div class="gantt-bars">
+              <div class="g-bar" style="left:780px;width:240px;background:#4a148c;">Guru Puja &amp; Jagannath Aarti</div>
+              <div class="g-bar" style="left:1320px;width:120px;background:#e91e63;">Gaur Ārati</div>
+            </div>
+          </div>
+
+          <!-- ROW 13: VIP Act (4 volunteers) -->
+          <div class="gantt-row">
+            <div class="gantt-label">
+              <span class="g-icon">👑</span>
+              <span class="g-name">VIP Guest Relations</span>
+              <span class="g-vol">4 vol</span>
+            </div>
+            <div class="gantt-bars">
+              <div class="g-bar" style="left:780px;width:120px;background:#006064;">VIP Act</div>
+            </div>
+          </div>
+
+          <!-- ROW 14: Procession (10 volunteers) -->
+          <div class="gantt-row">
+            <div class="gantt-label">
+              <span class="g-icon">🎡</span>
+              <span class="g-name">Procession</span>
+              <span class="g-vol">10 vol</span>
+            </div>
+            <div class="gantt-bars">
+              <div class="g-bar" style="left:840px;width:300px;background:#f5c842;color:#1a0a00;">🎡 Grand Procession — 11:00 AM</div>
+            </div>
+          </div>
+
+          <!-- ROW 15: Cleanup (15 volunteers) -->
+          <div class="gantt-row" style="border-bottom:none;">
+            <div class="gantt-label">
+              <span class="g-icon">🧹</span>
+              <span class="g-name">Cleanup</span>
+              <span class="g-vol">15 vol</span>
+            </div>
+            <div class="gantt-bars">
+              <div class="g-bar" style="left:1320px;width:840px;background:#795548;">Cleanup &amp; Returns — 3:00 PM to 10:00 PM</div>
+            </div>
+          </div>
+
+        </div><!-- /gantt-table -->
+      </div><!-- /gantt-scroll -->
+
+      <!-- LEGEND -->
+      <div style="display:flex;flex-wrap:wrap;gap:10px;justify-content:center;padding:20px 20px 0;">
+        <span class="g-legend" style="background:#43a047;">Cooking</span>
+        <span class="g-legend" style="background:#1e88e5;">Transport</span>
+        <span class="g-legend" style="background:#8e24aa;">Decoration</span>
+        <span class="g-legend" style="background:#e53935;">Security</span>
+        <span class="g-legend" style="background:#c87000;">Kirtan</span>
+        <span class="g-legend" style="background:#ff6f00;">Havan</span>
+        <span class="g-legend" style="background:#f5c842;color:#1a0a00;">Procession</span>
+        <span class="g-legend" style="background:#00897b;">Serving</span>
+        <span class="g-legend" style="background:#795548;">Cleanup</span>
       </div>
     </section>
 
@@ -506,10 +730,47 @@
   <script src="js/script.js"></script>
 
   <style>
-    /* MASTER TIMELINE */
-    .master-timeline { display:flex; flex-wrap:wrap; gap:6px; justify-content:center; }
-    .mt-block { padding:8px 14px; border-radius:8px; font-size:.72rem; font-weight:700; color:#fff; text-align:center; line-height:1.4; }
-    .mt-block small { font-weight:400; opacity:.9; display:block; }
+    /* GANTT CHART */
+    .gantt-scroll { overflow-x:auto; overflow-y:visible; padding-bottom:8px; }
+    .gantt-table { display:inline-flex; flex-direction:column; min-width:100%; }
+    .gantt-row { display:flex; align-items:stretch; border-bottom:1px solid rgba(255,255,255,.07); }
+    .gantt-row:hover { background:rgba(255,255,255,.02); }
+    .gantt-label {
+      min-width:180px; max-width:180px; flex-shrink:0;
+      position:sticky; left:0; z-index:3;
+      background:#0d0800;
+      display:flex; flex-direction:column; justify-content:center;
+      padding:8px 12px; gap:2px;
+      border-right:1px solid rgba(245,200,66,.2);
+    }
+    .gantt-label-head { background:#0d0800; justify-content:flex-end; padding-bottom:6px; }
+    .gantt-label-head::after { content:''; display:block; }
+    .g-icon { font-size:1rem; line-height:1; }
+    .g-name { font-size:.78rem; font-weight:700; color:#f0e0c0; line-height:1.3; }
+    .g-vol { font-size:.7rem; color:#888; }
+    .gantt-bars { position:relative; width:2160px; flex-shrink:0; height:44px; }
+    .g-bar {
+      position:absolute; top:6px; height:32px; border-radius:6px;
+      display:flex; align-items:center; padding:0 8px;
+      font-size:.72rem; font-weight:700; color:#fff; white-space:nowrap;
+      overflow:hidden; text-overflow:ellipsis;
+      box-shadow:0 2px 8px rgba(0,0,0,.3);
+      transition:filter .15s;
+    }
+    .g-bar:hover { filter:brightness(1.15); z-index:2; }
+    .g-hour {
+      position:absolute; bottom:4px; font-size:.68rem; font-weight:700;
+      color:#f5c842; opacity:.7; transform:translateX(-50%);
+      white-space:nowrap;
+    }
+    .g-event-mark {
+      position:absolute; bottom:4px; font-size:.9rem; transform:translateX(-50%);
+      cursor:help;
+    }
+    .g-legend {
+      padding:4px 12px; border-radius:20px; font-size:.72rem;
+      font-weight:700; color:#fff;
+    }
 
     /* TEAM CARDS */
     .team-card { background:#fff; border-radius:16px; margin-bottom:12px; box-shadow:0 2px 16px rgba(0,0,0,.07); border:1px solid #f0e8d0; overflow:hidden; }
