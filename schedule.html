@@ -318,6 +318,25 @@
         <h2 style="text-align:center;color:#1a0a00;margin:0 0 8px;">Team Responsibilities</h2>
         <p style="text-align:center;color:#888;font-size:.9rem;margin:0 0 36px;">Click any team to expand full schedule &amp; deployment details</p>
 
+        <!-- PRABHUPADA QUOTES -->
+        <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:20px;margin-bottom:48px;">
+          <div class="pq-card">
+            <div class="pq-mark">"</div>
+            <p class="pq-text">Anyone who sees Lord Jagannātha on the chariot, even once, is freed from all sinful reactions accumulated over many lifetimes. There is no doubt about this.</p>
+            <p class="pq-attr">— Śrīla Prabhupāda</p>
+          </div>
+          <div class="pq-card">
+            <div class="pq-mark">"</div>
+            <p class="pq-text">Simply by participating in Ratha Yātrā, one gets the benefit of visiting all the holy places of the universe — Vṛndāvana, Dvārakā, Mathurā — all at once.</p>
+            <p class="pq-attr">— Śrīla Prabhupāda</p>
+          </div>
+          <div class="pq-card">
+            <div class="pq-mark">"</div>
+            <p class="pq-text">Anyone who participates in Ratha Yātrā — pulling the rope, cooking, serving — goes back to Godhead. This is the promise of the scriptures.</p>
+            <p class="pq-attr">— Śrīla Prabhupāda</p>
+          </div>
+        </div>
+
         <!-- TEAM 1 — SECURITY -->
         <div class="team-card" data-color="#e53935">
           <button class="team-header" onclick="toggleTeam(this)" aria-expanded="false">
@@ -802,6 +821,12 @@
 
     .team-tags { display:flex; flex-wrap:wrap; gap:8px; margin-bottom:10px; }
     .tag { background:rgba(245,200,66,.15); color:#c87000; font-size:.72rem; font-weight:700; padding:3px 10px; border-radius:20px; letter-spacing:.05em; }
+    /* PRABHUPADA QUOTE CARDS */
+    .pq-card { background:linear-gradient(135deg,#1a0a00,#2a1200); border:1px solid rgba(245,200,66,.35); border-radius:16px; padding:28px 24px; }
+    .pq-mark { font-size:2.5rem; color:rgba(245,200,66,.35); font-family:serif; line-height:1; margin-bottom:6px; }
+    .pq-text { color:#f0e0c0; font-size:.9rem; line-height:1.9; font-style:italic; margin:0 0 14px; }
+    .pq-attr { color:#f5c842; font-size:.75rem; font-weight:700; letter-spacing:.08em; margin:0; }
+
     .coordinator-badge {
       display:inline-flex; align-items:center; gap:6px;
       background:linear-gradient(135deg,#fffbf0,#fff8e0);
