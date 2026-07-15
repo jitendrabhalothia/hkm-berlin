@@ -4636,3 +4636,33 @@ p:last-child {
   .fab-whatsapp { width: 50px; height: 50px; font-size: 1.4rem; bottom: 18px; right: 18px; }
   .fab-whatsapp-tooltip { display: none; }
 }
+
+/* Homepage program cards */
+.hp-program-card {
+  background: #fff;
+  border: 1px solid #f0e8d0;
+  border-radius: 18px;
+  padding: 28px 24px;
+  text-decoration: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+.hp-program-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 36px rgba(0,0,0,.12);
+}
+.hp-prog-icon {
+  width: 56px;
+  height: 56px;
+  border-radius: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 16px;
+}
+.hp-prog-icon i { font-size: 1.4rem; color: #fff; }
+.hp-program-card h3 { color: #1a0a00; font-size: 1.05rem; margin: 0 0 8px; }
+.hp-program-card p { color: #666; font-size: .87rem; line-height: 1.75; margin: 0 0 16px; flex: 1; }
+.hp-prog-link { color: #c87000; font-size: .85rem; font-weight: 700; margin-top: auto; }
