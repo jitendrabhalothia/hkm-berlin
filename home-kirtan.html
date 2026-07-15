@@ -50,15 +50,23 @@
 
   <main>
 
-    <!-- FULL-WIDTH BANNER IMAGE HERO -->
-    <section class="hk-banner-hero">
-      <img src="images/home-kirtan-banner.png"
-           alt="Invite Hare Krishna Kirtan to Your Home in Berlin — Free Home Program. Kirtan, Mantra Meditation, Spiritual Talk, Family Gathering."
-           class="hk-banner-img" />
-      <div class="hk-banner-overlay">
-        <a href="#book" class="btn btn-primary hk-cta-btn">
-          <i class="fas fa-home"></i> Book Your Free Home Kirtan
-        </a>
+    <!-- HERO -->
+    <section class="hk-text-hero">
+      <div class="hk-text-hero-inner">
+        <p class="ry-label">✨ Free Home Program · Berlin</p>
+        <h1>Invite Hare Krishna<br><span>Kirtan to Your Home</span></h1>
+        <p class="hk-hero-sub">Bring peace, blessings and spiritual joy to your family and friends.<br><em>Let the Holy Name transform your home.</em></p>
+        <div class="hk-hero-pills">
+          <span>🎵 Live Kirtan</span>
+          <span>🧘 Mantra Meditation</span>
+          <span>📖 Spiritual Talk</span>
+          <span>🏠 Home Blessing</span>
+        </div>
+        <div class="hk-hero-actions">
+          <a href="#book" class="btn btn-primary hk-cta-btn"><i class="fas fa-calendar-alt"></i> Book via Google Form</a>
+          <a href="https://chat.whatsapp.com/JUv8eQ0oPebKOfKXuZx1gO" target="_blank" rel="noopener" class="btn" style="background:rgba(255,255,255,.12);color:#fff;border:2px solid rgba(255,255,255,.4);border-radius:10px;padding:14px 28px;font-weight:700;"><i class="fab fa-whatsapp"></i> Book via WhatsApp</a>
+        </div>
+        <p style="color:rgba(255,255,255,.4);font-size:.8rem;margin-top:16px;">100% Free · Open to All · All Berlin Areas</p>
       </div>
     </section>
 
@@ -235,7 +243,33 @@
           <p style="color:#666;margin-top:.8rem;">Fill in your details and we'll confirm within 24 hours. 🙏</p>
         </div>
 
+        <!-- WHATSAPP QUICK BOOK -->
+        <div class="fade-up" style="background:linear-gradient(135deg,#25D366,#128C7E);border-radius:16px;padding:28px 32px;margin-bottom:28px;text-align:center;">
+          <i class="fab fa-whatsapp" style="font-size:2.2rem;color:#fff;margin-bottom:10px;display:block;"></i>
+          <h3 style="color:#fff;margin:0 0 8px;font-size:1.2rem;">Fastest: Book via WhatsApp</h3>
+          <p style="color:rgba(255,255,255,.85);font-size:.9rem;margin:0 0 16px;">Just send us a message — we reply within a few hours and confirm everything.</p>
+          <a href="https://chat.whatsapp.com/JUv8eQ0oPebKOfKXuZx1gO" target="_blank" rel="noopener"
+             style="background:#fff;color:#128C7E;font-weight:800;padding:13px 28px;border-radius:10px;text-decoration:none;font-size:.95rem;display:inline-flex;align-items:center;gap:8px;">
+            <i class="fab fa-whatsapp"></i> Open WhatsApp &amp; Book
+          </a>
+          <p style="color:rgba(255,255,255,.6);font-size:.78rem;margin:12px 0 0;">Tell us: your name · preferred date &amp; time · occasion · area in Berlin</p>
+        </div>
+
+        <!-- GOOGLE FORM EMBED -->
         <div id="homeKirtanFormWrap" class="fade-up">
+          <p style="text-align:center;color:#888;font-size:.88rem;margin-bottom:16px;">Or fill the booking form below 👇</p>
+          <div style="background:#fff;border-radius:16px;overflow:hidden;box-shadow:0 8px 40px rgba(0,0,0,.10);border:1px solid #f0e8d0;">
+            <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSe_PLACEHOLDER_REPLACE_THIS/viewform?embedded=true"
+                    width="100%" height="900" frameborder="0" marginheight="0" marginwidth="0"
+                    title="Home Kirtan Booking Form"
+                    style="display:block;">
+              Loading booking form…
+            </iframe>
+          </div>
+        </div>
+
+        <!-- FALLBACK until Google Form is set up -->
+        <div id="homeKirtanFormWrap-fallback" class="fade-up">
           <form id="homeKirtanForm" class="hk-form">
 
             <div class="hk-form-row">
@@ -431,11 +465,16 @@
   <script src="js/script.js"></script>
 
   <style>
-    /* BANNER HERO */
-    .hk-banner-hero { position:relative; background:#0d0800; }
-    .hk-banner-img { width:100%; display:block; max-height:520px; object-fit:cover; object-position:center; }
-    .hk-banner-overlay { position:absolute; bottom:0; left:0; right:0; background:linear-gradient(to top, rgba(13,8,0,.9) 0%, rgba(13,8,0,.3) 60%, transparent 100%); padding:36px 20px; text-align:center; }
-    .hk-cta-btn { font-size:1.1rem; padding:16px 40px; border-radius:12px; box-shadow:0 6px 30px rgba(245,200,66,.4); }
+    /* TEXT HERO */
+    .hk-text-hero { background:linear-gradient(135deg,#0d0800 0%,#1a0e00 50%,#0d0800 100%); padding:90px 20px 64px; text-align:center; }
+    .hk-text-hero-inner { max-width:720px; margin:0 auto; }
+    .hk-text-hero h1 { font-size:clamp(2.2rem,6vw,3.8rem); color:#f5c842; margin:16px 0 18px; line-height:1.15; }
+    .hk-text-hero h1 span { color:#f0e0c0; font-size:.75em; display:block; }
+    .hk-hero-sub { color:#e0d0b0; font-size:1.05rem; line-height:1.8; margin:0 0 24px; }
+    .hk-hero-pills { display:flex; flex-wrap:wrap; justify-content:center; gap:10px; margin-bottom:28px; }
+    .hk-hero-pills span { background:rgba(245,200,66,.12); border:1px solid rgba(245,200,66,.35); color:#f5c842; padding:6px 16px; border-radius:20px; font-size:.82rem; font-weight:700; }
+    .hk-hero-actions { display:flex; flex-wrap:wrap; gap:14px; justify-content:center; }
+    .hk-cta-btn { font-size:1.05rem; padding:15px 32px; border-radius:11px; box-shadow:0 6px 28px rgba(245,200,66,.35); }
 
     /* TRUST BAR */
     .hk-trust-bar { background:#1a0e00; padding:14px 20px; border-bottom:2px solid rgba(245,200,66,.2); }
